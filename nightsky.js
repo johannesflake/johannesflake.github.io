@@ -56,7 +56,8 @@ function pt()  {
       ctx.arc(x, y, r, 0, 2*Math.PI);
       ctx.fill();
       
-      canvas.style.opacity = ct/ctGoal;
+      var alpha = Math.pow(ct/ctGoal, 0.5);
+      canvas.style.opacity = alpha;
   }
   window.requestAnimationFrame(pt);
 }

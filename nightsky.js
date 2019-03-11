@@ -32,8 +32,8 @@ function redraw() {
   var ctx = canvas.getContext('2d');
   var gradient = ctx.createLinearGradient(0, 0, 0, h);
   gradient.addColorStop(0, '#eee');
-  gradient.addColorStop(0.7, '#ddd');
-  gradient.addColorStop(1, '#888');
+  gradient.addColorStop(0.8, '#ddd');
+  gradient.addColorStop(1, '#aaa');
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, w, h);
   
@@ -55,9 +55,6 @@ function pt()  {
       ctx.filter = 'blur(' + b + 'px)';
       ctx.arc(x, y, r, 0, 2*Math.PI);
       ctx.fill();
-      
-      var alpha = Math.pow(ct/ctGoal, 0.5);
-      canvas.style.opacity = alpha;
   }
   window.requestAnimationFrame(pt);
 }

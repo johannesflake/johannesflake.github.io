@@ -31,7 +31,7 @@ function redraw() {
   canvas.height = h;
 
   // generate points
-  const npts = 2000;
+  const npts = Math.round(w*h*0.003);
   const margin = em;
   pts = []; dist = new Array(npts);
   for (var i = 0; i<npts; ++i)  dist[i] = new Array(npts);
@@ -128,6 +128,19 @@ function fixOne25opt()  {
   return false;
 }
 
+
+function noise()  {
+  const i = Math.floor(Math.random() * pts.length);
+  pts[i][0] += (Math.random() - 0.5) * em;
+  pts[i][1] += (Math.random() - 0.5) * em;
+  for (var j = 0; j < pts.length; ++j)  {
+    if (j == i) continue;
+    const d = Math.hypot(pts[i][0]-pts[j][0], pts[i][1]-pts[j][1]);
+    dist[i][j] = d;
+    dist[j][i] = d;
+  }
+}
+
 function update() {
   var ctx = canvas.getContext('2d');
   ctx.lineWidth = 0.1*em;
@@ -151,6 +164,8 @@ function update() {
   const keep = fixOne25opt();
   div.innerHTML = dt + (keep ? '...' :  ', done!');
   
+  //noise();
+
   /*
   ctx.strokeStyle = 'orange';
   for (const pt of pts) {

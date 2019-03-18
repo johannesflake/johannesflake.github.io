@@ -7,13 +7,7 @@ window.onload = function () {
 
   canvas.width = 0;
   canvas.height = 0;
-  canvas.style.position = 'fixed';
-  canvas.style.zIndex = -1;
-  canvas.style.top = '0';
-  canvas.style.left = '0';
-  document.body.style.padding = '0';
-  document.body.style.margin = '0';
-  document.body.style.backgroundColor = '#eee';
+  canvas.style.cssText = 'position: fixed; z-index: -1; top: 0; left: 0;';
   document.body.appendChild(canvas);
   
   window.onresize = redraw;
@@ -23,38 +17,39 @@ window.onload = function () {
 
 var ct = 0, ctGoal = 0;
 function redraw() {
+  const fExtra = 1.2;
   w = Math.max(w, window.innerWidth);
   h = Math.max(h, window.innerHeight);
-  if (w == canvas.width && h == canvas.height)  return;
+  if (w <= canvas.width && h <= canvas.height)  return;
+  w = Math.round(fExtra*w);
+  h = Math.round(fExtra*h);
   canvas.width  = w;
   canvas.height = h;
 
-  var ctx = canvas.getContext('2d');
-  var gradient = ctx.createLinearGradient(0, 0, 0, h);
-  gradient.addColorStop(0, '#eee');
-  gradient.addColorStop(0.8, '#ddd');
-  gradient.addColorStop(1, '#aaa');
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, w, h);
+  canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
   
   ct = 0;
   ctGoal = w*h*0.001;
 }
 
 function pt()  {
-    if (ct < ctGoal) {
-      ++ct;
+  var npts = 3;
+  if (ct < ctGoal) {
+    ct += npts;
+    
+    const r = 0.03 * em + Math.pow(Math.random(), 5) * 0.1 * em,
+      b = 0.04 * em + 0.5 * Math.random() * r;
+  
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#555';
+    ctx.filter = 'blur(' + b + 'px)';
       
-      var ctx = canvas.getContext('2d'),
-        x = Math.random() * w,
-        y = Math.random() * h,
-        r = 0.03 * em + Math.pow(Math.random(), 5) * 0.1 * em,
-        b = 0.02 * em + 0.5 * Math.random() * r;
+    for (var i = 0; i < npts; ++i)  {
+      const x = Math.random() * w, y = Math.random() * h;
       ctx.beginPath();
-      ctx.fillStyle = '#444';
-      ctx.filter = 'blur(' + b + 'px)';
       ctx.arc(x, y, r, 0, 2*Math.PI);
       ctx.fill();
+    }
   }
   window.requestAnimationFrame(pt);
 }

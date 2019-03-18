@@ -59,12 +59,14 @@ function redraw() {
   }
   
   // ini for and start of heuristics
-  f_att = 0.5;
+  t_step = 0.002;
+  
+  f_att = t_step;
   d_att = Math.hypot(px[1]-px[0],py[1]-py[0]); //
   
-  f_rep = f_att*10;
-  d_rep = d_att*2;
-  r_rep = d_rep*1; //
+  f_rep = f_att*1.5;
+  d_rep = d_att*3;
+  r_rep = d_rep*2; //
   
   d_add = d_att*1.5;
 
@@ -75,7 +77,7 @@ function redraw() {
 }
 
 var rx, ry;
-var f_rep, d_rep, r_rep, f_att, d_att, d_add, r_add, d_noise, d_min = 0.1*em;
+var f_rep, d_rep, r_rep, f_att, d_att, d_add, r_add, d_noise, d_min = 0.1*em, t_step;
 var dx, dy, dist, alldist;
 
 function addPt(i)  {
@@ -93,7 +95,10 @@ function doStep() {
   rx.length = npts; ry.length = npts;
   rx.fill(0); ry.fill(0);
   
-  //d_rep *= 1.0001;
+  d_rep *= 1.0001;
+  
+  const max_angle = 60;
+  const min_curv = Math.cos(max_angle/180*Math.PI);
   
   // metric data
   alldist = new Array(npts);  dist = new Array(npts);
@@ -111,12 +116,11 @@ function doStep() {
   }
   for (i=0; i<npts; ++i)  {
     const ni = next[i];
-    dx[i] = px[ni]-px[i];
-    dy[i] = py[ni]-py[i];
+    dx[i] = px[ni]-px[i];  dy[i] = py[ni]-py[i];
     dist[i] = alldist[i][ni];
   }
   
-  // growth
+  // == forces and growth
   var addPts = [];
   for (i=0; i<npts; ++i)  {
     const ni = next[i], pi = prev[i];
@@ -124,10 +128,10 @@ function doStep() {
     // repulsion
     for (j=0; j<npts; ++j)  {
       const d = alldist[i][j];
-      if (i==j || j==ni || j==pi || d > r_rep) continue;
+      if (i==j || j==ni || j==pi || d > d_rep) continue;
       const dxj = px[j]-px[i],  dyj = py[j]-py[i];
       const f = f_rep*(d - d_rep);
-      rx[i] += dxj/d*f; ry[i] += dyj/d*f;
+      rx[i] += dxj*f; ry[i] += dyj*f;
     }
     
     // attraction
@@ -139,12 +143,13 @@ function doStep() {
     
     // new points
     const curv = -(dx[ni]*dx[pi] + dy[ni]*dy[pi]) / (dist[ni]*dist[pi]);
-    if ( (dist[i] > d_add && Math.random() > 1)
-      || (curv > 0.3 && Math.random() > 0.9)) {
+    if ( (dist[i] > d_add && Math.random() < 10*t_step)
+      ) {//|| (dist[i] > 0.1*d_att && Math.random() < curv/2)) {
       addPts.push(i);
     }
   }
   
+  // add points
   for (const pt of addPts)  addPt(pt);
   
   // apply forces
@@ -155,8 +160,8 @@ function doStep() {
     const dr = Math.hypot(rx[i],ry[i]);
     const max_force = 0.2*em;
     const fr = dr > max_force ? max_force/dr : 1;
-    px[i] += rx[i]*fr + Math.random() * d_noise;
-    py[i] += ry[i]*fr + Math.random() * d_noise;
+    px[i] += rx[i]*fr + (Math.random()-0.5) * d_noise;
+    py[i] += ry[i]*fr + (Math.random()-0.5) * d_noise;
   }
   
   return true;

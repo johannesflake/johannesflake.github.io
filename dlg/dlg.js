@@ -82,7 +82,7 @@ var dx, dy, dist, alldist;
 
 function addPt(i)  {
   const j = next[i];
-  const t = 0.3;
+  const t = 0.5;
   px.push(px[i]+(px[j]-px[i])*t);
   py.push(py[i]+(py[j]-py[i])*t);
   const ni = px.length-1;
@@ -142,9 +142,10 @@ function doStep() {
     rx[i] -= dx[pi]*fp; ry[i] -= dy[pi]*fp;
     
     // new points
+    const base_p = 10*t_step;
     const curv = -(dx[ni]*dx[pi] + dy[ni]*dy[pi]) / (dist[ni]*dist[pi]);
-    if ( (dist[i] > d_add && Math.random() < 10*t_step)
-      ) {//|| (dist[i] > 0.1*d_att && Math.random() < curv/2)) {
+    if ( (dist[i] > d_add && Math.random() < 0.3*base_p)
+      || (dist[i] > d_add/2 && Math.random() < 0.7*base_p*curv)) {
       addPts.push(i);
     }
   }

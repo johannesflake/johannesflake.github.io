@@ -29,7 +29,7 @@ window.onload = function () {
 };
 
 
-var px, py, dist, next, prev;
+var pts, dist, next, prev;
 function connect(i,j) { next[i] = j; prev[j] = i; }
 function redraw() {
   // width and height
@@ -45,7 +45,7 @@ function redraw() {
   
   // generate pts
   const npts = Math.round((w-2*margin)*(h-2*margin)*density);
-  px = []; py = [];
+  pts = [];
   
   const min_dist = min_dist_em*em;
   dist = new Array(npts);
@@ -53,29 +53,28 @@ function redraw() {
   var lst = [];
   
   for (i = 0; i<npts; ++i)  {
-    const x = margin + Math.random() * (w-2*margin),
-          y = margin + Math.random() * (h-2*margin);
+    const pt = [margin + Math.random() * (w-2*margin),
+                margin + Math.random() * (h-2*margin)];
     
-    if ((x > rect.left-margin && y > rect.top-margin
-      && x < rect.right+margin && y < rect.bottom+margin)
+    if ((pt[0] > rect.left-margin && pt[1] > rect.top-margin
+      && pt[0] < rect.right+margin && pt[1] < rect.bottom+margin)
       )  continue;
 
-    const mpts = px.length;
+    const mpts = pts.length;
     for (j = 0; j<mpts; ++j) {
-      const d = Math.hypot(x-px[j], y-py[j]);
+      const d = Math.hypot(pt[0]-pts[j][0], pt[1]-pts[j][1]);
       if (d < min_dist) break;
       dist[j][mpts] = d;
     }
     if (j<mpts) continue;
     
-    px.push(x); py.push(y);
+    pts.push(pt);
     lst.push(mpts);
   }
   
   // complete distance array
-  const mpts = px.length;
-  for (i=0; i<mpts; ++i)
-    for(j=i+1; j<mpts; ++j)
+  for (i=0; i<pts.length; ++i)
+    for(j=i+1; j<pts.length; ++j)
       dist[j][i] = dist[i][j];
   
   // nearest-neighbor heuristic
@@ -107,9 +106,9 @@ function redraw() {
 }
 
 function computeDists() {
- for (var i = 0; i<px.length; ++i)  {
+ for (var i = 0; i<pts.length; ++i)  {
     for (var j = 0; j<i; ++j) {
-      const d = Math.hypot(px[i]-px[j],py[i]-py[j]);
+      const d = Math.hypot(pts[i][0]-pts[j][0],pts[i][1]-pts[j][1]);
       dist[i][j] = d;
       dist[j][i] = d;
     }
@@ -129,11 +128,11 @@ function do2opt(i,j)  {
 }
 function fixOne25opt()  {
   var ii = iCurrent, jj;
-  for (var i = 0; i < px.length; ++i, ii=next[ii])  {
+  for (var i = 0; i < pts.length; ++i, ii=next[ii])  {
     const ni = next[ii];
     jj = ni;
     
-    for (var j = 1; j < px.length; ++j, jj=next[jj])  {
+    for (var j = 1; j < pts.length; ++j, jj=next[jj])  {
       const nj = next[jj];
       
       // opt-2
@@ -169,12 +168,12 @@ function fixOne25opt()  {
 
 
 function noise()  {
-  const i = Math.floor(Math.random() * px.length);
-  px[i] += (Math.random() - 0.5) * em;
-  py[i] += (Math.random() - 0.5) * em;
-  for (var j = 0; j < px.length; ++j)  {
+  const i = Math.floor(Math.random() * pts.length);
+  pts[i][0] += (Math.random() - 0.5) * em;
+  pts[i][1] += (Math.random() - 0.5) * em;
+  for (var j = 0; j < pts.length; ++j)  {
     if (j == i) continue;
-    const d = Math.hypot(px[i]-px[j], py[i]-py[j]);
+    const d = Math.hypot(pts[i][0]-pts[j][0], pts[i][1]-pts[j][1]);
     dist[i][j] = d;
     dist[j][i] = d;
   }
@@ -192,10 +191,10 @@ function update() {
   // lines
   ctx.beginPath();
   var ipt = 0;
-  ctx.moveTo(px[ipt], py[ipt]);
-  for (var i=0; i < px.length; ++i)  {
+  ctx.moveTo(pts[ipt][0], pts[ipt][1]);
+  for (var i=0; i < pts.length; ++i)  {
     ipt = next[ipt];
-    ctx.lineTo(px[ipt], py[ipt]);
+    ctx.lineTo(pts[ipt][0], pts[ipt][1]);
   }
   ctx.stroke();
   
@@ -208,9 +207,9 @@ function update() {
   /*
   // points
   ctx.strokeStyle = 'orange';
-  for (var i=0; i < px.length; ++i)  {
+  for (const pt of pts) {
     ctx.beginPath();
-    ctx.arc(px[i], py[i], 0.1*em, 0, 2*Math.PI);
+    ctx.arc(pt[0], pt[1], 0.1*em, 0, 2*Math.PI);
     ctx.stroke();
   }
   */

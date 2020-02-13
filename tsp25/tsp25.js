@@ -52,13 +52,22 @@ function redraw() {
   for (i = 0; i<npts; ++i)  dist[i] = new Array(npts);
   var lst = [];
   
-  for (i = 0; i<npts; ++i)  {
+  const letter = location.search.length > 1 ? location.search[1] : null;
+  const raster = letter ? textRaster(letter) : null;
+  for (i = 0; i < (letter ? 3*npts : npts); ++i)  {
     const pt = [margin + Math.random() * (w-2*margin),
                 margin + Math.random() * (h-2*margin)];
     
     if ((pt[0] > rect.left-margin && pt[1] > rect.top-margin
       && pt[0] < rect.right+margin && pt[1] < rect.bottom+margin)
       )  continue;
+      
+    if (letter) {
+      const ipt = [Math.floor(pt[0]*raster.width / w),
+                  Math.floor(pt[1]*raster.height / h)];
+      if (raster.data[ 4*( ipt[0] + ipt[1] * raster.width ) ] === 0
+        && Math.random() < 0.95) continue;
+    }
 
     const mpts = pts.length;
     for (j = 0; j<mpts; ++j) {
@@ -215,4 +224,34 @@ function update() {
   */
   
   if (keepGoing)  window.setTimeout(update, time_step_ms);
+}
+
+function textRaster(text) {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+  
+    let fontSize = 56;
+    ctx.font = `${fontSize}px monospace`;
+  
+    const textMetrics = ctx.measureText(text);
+    
+    let width = textMetrics.width;
+    let height = fontSize;
+
+    canvas.width = width;
+    canvas.height = height;
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+    
+    ctx.font = `${fontSize}px monospace`;
+    ctx.textAlign = "center" ;
+    ctx.textBaseline = "middle";
+    
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.fillStyle = "white";
+    ctx.fillText(text, width / 2, height / 2);
+    
+    const data = ctx.getImageData(0, 0, width, height);
+    return data;
 }

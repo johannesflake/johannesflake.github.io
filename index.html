@@ -27,7 +27,7 @@
  }
  @media only screen and (max-width: 55rem) {
     body > div  {
-      width: 90%;
+      width: 95%;
       padding: 1rem;
       border-radius: 1.5rem;
     }
@@ -175,13 +175,8 @@ If you are interested in my five cents on web comics, nothing will ever beat thi
   Maintained by me. Updated on Jul 14, 2021.
 </div>
 
-<script
-  src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-  integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-  crossorigin="anonymous"></script>
-  
 <script>
-const people = {
+const labels = {
   "Dominik Bernhardt": "https://dominikbernhardt.de/",
   "Tim Boykett": "https://www.researchgate.net/profile/Tim-Boykett",
   "Alice Devillers": "https://research-repository.uwa.edu.au/en/persons/alice-devillers",
@@ -203,21 +198,19 @@ const people = {
 const macros = {
   "Rep(S_t)": "Rep(S<sub>t</sub>)",
   "--": "&ndash;"
-}
+};
 
-$(function(){
-  $(".sec").html(function() {
-    t = $(this).html();
-    t = t.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
-      .replace(/\(arxiv:([0-9\.]+)\)/g, '<a href="https://arxiv.org/abs/$1" target="_blank">preprint</a>');
-    for (let k in macros)
-      t = t.replaceAll(k, macros[k]);
-    for (let k in people)
-      t = t.replaceAll(k, k.replace(/^\[|\]$/g, '')+'<a href="'+people[k]+'" target="_blank">*</a>');
-    return t;
-  });
+// do
+[].forEach.call(document.getElementsByClassName("sec"), function(el) {
+  var t = el.innerHTML;
+  t = t.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+    .replace(/\(arxiv:([0-9\.]+)\)/g, '<a href="https://arxiv.org/abs/$1" target="_blank">preprint</a>');
+  for (let k in macros)
+    t = t.replaceAll(k, macros[k]);
+  for (let k in labels)
+    t = t.replaceAll(k, k.replace(/^\[|\]$/g, '')+'<a href="'+labels[k]+'" target="_blank">*</a>');
+  el.innerHTML = t;
 });
-
 </script>
 
 </body>

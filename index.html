@@ -22,14 +22,14 @@
    margin: 2rem auto;
    padding: 1.5rem 2rem;
    background: rgba(252,252,255,0.9);
-   border-radius: 2rem;
+   border-radius: .8rem;
    line-height: 1.5;
  }
  @media only screen and (max-width: 55rem) {
     body > div  {
       width: 95%;
       padding: 1rem;
-      border-radius: 1.5rem;
+      margin: 1rem auto;
     }
  }
  a, a:hover, a:active, a:visited, a:focus  {
@@ -76,7 +76,7 @@
     canvas  {display: none;}
  }
 </style>
-<script src="nightsky.js"></script>
+<script defer src="nightsky.js"></script>
 </head>
 <body>
 
@@ -155,7 +155,7 @@ Rutgers
 <div class="sec" id="misc">Misc
 [johannesflake/oscar](https://github.com/johannesflake/oscar-docker/), my personal unofficial [OSCAR] docker image
 [polybases.jl](https://gitlab.com/johannesflake/polybases.jl), a Julia package for monomial bases using [OSCAR] and [polymake] (under development; [example](https://nbviewer.jupyter.org/github/johannesflake/polybases-examples/blob/master/polybases-example-1.ipynb))
-[KnopCategoriesForGap](https://github.com/homalg-project/KnopCategoriesForCAP), a [GAP]/[CAP] package for Knop’s tensor envelopes
+[KnopCategoriesForGap](https://github.com/homalg-project/KnopCategoriesForCAP), a [GAP]/[CAP] package for Knop's tensor envelopes
 
 [slides](pdf/schur_weyl_links.pdf) on quantum Schur--Weyl duality and link invariants
 [slides](pdf/deligne_category_rep_st.pdf) on Deligne's category Rep(S_t)
@@ -163,9 +163,9 @@ Rutgers
 [slides](pdf/quantum_groups.pdf) on quantum groups and tensor categories
 
 [3d rendering](./misc/3d/index.html) of affine surfaces
-[visualization](./misc/tsp25/index.html) of my implementaton of an 2.5-opt algorithm approximately solving a random traveling salesman problem live in your browser (slowed down for visualization purposes) [... which traveling salesman?](https://www.quantamagazine.org/computer-scientists-find-new-shortcuts-to-traveling-salesman-problem-20130129/)
-[pictures](./misc/UDG/index.html) of some D6-symmetric unit-distance graphs in the plane with 745 vertices and chromatic number five that I discovered with a SAT solver [... so what?](https://www.quantamagazine.org/decades-old-graph-problem-yields-to-amateur-mathematician-20180417/)
-[pictures and video](./misc/mandelbrot/index.html) of the Mandelbrot set I made with Julia (the language) [... what am I looking at?](https://youtu.be/NGMRB4O922I)
+[visualization](./misc/tsp25/index.html) of my implementaton of an 2.5-opt algorithm approximately solving a random traveling salesman problem live in your browser (slowed down for visualization purposes). Which traveling salesman[?](https://www.quantamagazine.org/computer-scientists-find-new-shortcuts-to-traveling-salesman-problem-20130129/)
+[pictures](./misc/UDG/index.html) of some D6-symmetric unit-distance graphs in the plane with 745 vertices and chromatic number five that I discovered with a SAT solver. So what[?](https://www.quantamagazine.org/decades-old-graph-problem-yields-to-amateur-mathematician-20180417/)
+[pictures and video](./misc/mandelbrot/index.html) of the Mandelbrot set I made with Julia (the language). What are we looking at[?](https://youtu.be/NGMRB4O922I)
 
 If you are interested in my five cents on web comics, nothing will ever beat this [xkcd](https://xkcd.com/1012/).
 </div>
@@ -192,7 +192,7 @@ const labels = {
   "[OSCAR]": "https://oscar.computeralgebra.de/",
   "[GAP]": "https://www.gap-system.org/",
   "[CAP]": "http://homalg-project.github.io/CAP_project/",
-  "[polymake]": "https://polymake.org/doku.php",
+  "[polymake]": "https://polymake.org/doku.php"
 };
 
 const macros = {
@@ -203,8 +203,7 @@ const macros = {
 // do
 [].forEach.call(document.getElementsByClassName("sec"), function(el) {
   var t = el.innerHTML;
-  t = t.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
-    .replace(/\(arxiv:([0-9\.]+)\)/g, '<a href="https://arxiv.org/abs/$1" target="_blank">preprint</a>');
+  t = t.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank">$1</a>').replace(/\(arxiv:([0-9\.]+)\)/g, '<a href="https://arxiv.org/abs/$1" target="_blank">preprint</a>');
   for (let k in macros)
     t = t.replaceAll(k, macros[k]);
   for (let k in labels)

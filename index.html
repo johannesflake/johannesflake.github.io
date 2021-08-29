@@ -208,9 +208,9 @@ function replaceAll(string, search, replace) { // polyfill
 [].forEach.call(document.getElementsByClassName("sec"), function(el) {
   var t = el.innerHTML;
   t = t.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank">$1</a>').replace(/\(arxiv:([0-9\.]+)\)/g, '<a href="https://arxiv.org/abs/$1" target="_blank">preprint</a>');
-  for (let k in macros)
+  for (var k in macros)
     t = replaceAll(t, k, macros[k]);
-  for (let k in labels)
+  for (var k in labels)
     t = replaceAll(t, k, k.replace(/^\[|\]$/g, '')+'<a href="'+labels[k]+'" target="_blank">*</a>');
   el.innerHTML = t;
 });

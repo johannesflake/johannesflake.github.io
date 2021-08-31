@@ -2,7 +2,7 @@ function hsl(r, g, b) {
   var cmin = Math.min(r, g, b),
       cmax = Math.max(r, g, b),
       delta = cmax - cmin;
-  var h = delta == 0 ? 0 :
+  var h = delta === 0 ? 0 :
     cmax == r ? (g-b)/delta :
     cmax == g ? (b-r)/delta + 2 :
     (r-g)/delta + 4;
@@ -17,7 +17,7 @@ function getColor(char) {
   canvas.width = 15;
   canvas.height = 15;
   var ctx = canvas.getContext('2d');
-  ctx.font = '10px';
+  ctx.font = '10px '+font;
   ctx.fillText(char, 0, 10);
   //document.body.appendChild(canvas);
   
@@ -49,11 +49,12 @@ var el = document.getElementById("rainbow-symbols");
 var str = el.dataset.content;
 var timeout = el.dataset.time ? parseInt(el.dataset.time) : 100;
 var hueOffset = el.dataset.hueOffset ? parseInt(el.dataset.hueOffset) : 0;
+var font = window.getComputedStyle(el).fontFamily;
 var sortData = [];
 for (var c of str) {
   var res = getColor(c);
   res[0] = (res[0] + 360 - hueOffset) % 360;
-  sortData.push([res[1] < .1 ? res[2] < .5 ? -1 : 1 : 0, res[0], c]);
+  sortData.push([res[1] < .1 ? res[2] < .5 ? -1 : 1 : 0, res[1] < .1 ? res[2] : res[0], c]);
 }
 shuffle(sortData);
 

@@ -47,10 +47,12 @@ function dataToString(data) {
 
 var el = document.getElementById("rainbow-symbols");
 var str = el.dataset.content;
-var timeout = parseInt(el.dataset.time);
+var timeout = el.dataset.time ? parseInt(el.dataset.time) : 100;
+var hueOffset = el.dataset.hueOffset ? parseInt(el.dataset.hueOffset) : 0;
 var sortData = [];
 for (var c of str) {
   var res = getColor(c);
+  res[0] = (res[0] + 360 - hueOffset) % 360;
   sortData.push([res[1] < .1 ? res[2] < .5 ? -1 : 1 : 0, res[0], c]);
 }
 shuffle(sortData);

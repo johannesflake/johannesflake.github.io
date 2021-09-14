@@ -12,19 +12,30 @@ function hsl(r, g, b) {
   var s = delta / (1 - Math.abs(2*l-1));
   return [h, s, l];
 }
-function getColor(char) {
+function rasterize(char)  {
+  var w = 20, h = 20, x = 0, y = 15, font = '15px '+font;
   var canvas = document.createElement('canvas');
-  canvas.width = 15;
-  canvas.height = 15;
+  canvas.width = w; canvas.height = h;
   var ctx = canvas.getContext('2d');
-  ctx.font = '10px '+font;
-  ctx.fillText(char, 0, 10);
+  ctx.font = font; ctx.fillText(char, x, y);
   //document.body.appendChild(canvas);
-  
-  var img = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  return ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+}
+var missingCharData = rasterize('\uFFFF');
+function isMissingCharData(arr) {
+  if (arr.length != missingCharData.length) return false;
+  for (var i=0; i<arr.length; ++i)
+    if (arr[i] != missingCharData[i]) return false;
+  return true;
+}
+function getColor(char) {
+  var data = rasterize(char);
+  if (isMissingCharData(data)) {
+    console.log("can't render symbol '"+char+"' (\\u"+char.charCodeAt(0).toString(16)+")"); return null;
+  }
   var r = 0, g = 0, b = 0, n = 0;
-  for (var i=0; i<canvas.width*canvas.height; ++i) {
-    var rr = img.data[i*4], gg = img.data[i*4+1], bb = img.data[i*4+2], aa = img.data[i*4+3];
+  for (var i=0; i<data.length/4; ++i) {
+    var rr = data[i*4], gg = data[i*4+1], bb = data[i*4+2], aa = data[i*4+3];
     if (aa < 10) continue;
     r +=rr/255; g += gg/255; b += bb/255;
     ++n;
@@ -53,6 +64,7 @@ var font = window.getComputedStyle(el).fontFamily;
 var sortData = [];
 for (var c of str) {
   var res = getColor(c);
+  if (res === null) continue;
   res[0] = (res[0] + 360 - hueOffset) % 360;
   sortData.push([res[1] < .1 ? res[2] < .5 ? -1 : 1 : 0, res[1] < .1 ? res[2] : res[0], c]);
 }

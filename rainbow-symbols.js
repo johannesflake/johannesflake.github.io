@@ -66,7 +66,7 @@ for (var c of str) {
   var res = getColor(c);
   if (res === null) continue;
   res[0] = (res[0] + 360 - hueOffset) % 360;
-  sortData.push([res[1] < .1 ? res[2] < .5 ? -1 : 1 : 0, res[1] < .1 ? res[2] : res[0], c]);
+  sortData.push([res[1] < .2 ? res[2] < .5 ? -1 : 1 : 0, res[1] < .1 ? res[2] : res[0], c]);
 }
 shuffle(sortData);
 

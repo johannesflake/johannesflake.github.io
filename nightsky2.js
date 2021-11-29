@@ -17,7 +17,8 @@ var sky = document.createElement("div");
 sky.id = "sky";
 document.body.appendChild(sky);
 
-for (var i = 0; i < 200; ++i) {
+var n = (window.innerHeight*window.innerHeight)/3000;
+for (var i = 0; i < n; ++i) {
   var r = Math.pow(Math.random(), 2) * 1.5 + 0.5,
     ani = Math.random() > 0.3 ? "" :
       `blink ${Math.random() * 10 + 3}s ease infinite`;

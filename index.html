@@ -7,17 +7,23 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <title>Johannes Flake .math .RWTH Aachen</title>
 <style>
- html, body {margin: 0; padding: 0;}
- body {
+  html, body {margin: 0; padding: 0;}
+  body {
    color: rgb(50,50,50);
    font-family: monospace;
    font-size: 1rem;
-   margin:0; padding: 0; height: 100vh;
+   margin:0; padding: 0;
+  }
+  #bg {
    background: linear-gradient(#eee, #ddd 80%, #aaa) no-repeat center center fixed;
    background-size: cover;
    background-color: #aaa;
    transition: background 10000ms ease;
- }
+   position: absolute;
+   width: 100vw; height: 100vh;
+   left:0; top:0;
+   z-index: -10;
+  }
  .sec, .tiny  {
    box-sizing: border-box;
    width: 50rem;
@@ -218,5 +224,6 @@ function replaceAll(string, search, replace) { // polyfill
 });
 </script>
 
+<div id="bg"></div>
 </body>
 </html>

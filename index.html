@@ -14,15 +14,12 @@
    font-size: 1rem;
    margin:0; padding: 0;
   }
-  #bg {
+  html {
+   height: 100%;
    background: linear-gradient(#eee, #ddd 80%, #aaa) no-repeat center center fixed;
-   background-size: cover;
+   background-size: cover; -webkit-background-size: cover;
    background-color: #aaa;
    transition: background 10000ms ease;
-   position: fixed;
-   width: 100vw; height: 100vh;
-   left:0; top:0;
-   z-index: -10;
   }
  .sec, .tiny  {
    box-sizing: border-box;
@@ -224,6 +221,5 @@ function replaceAll(string, search, replace) { // polyfill
 });
 </script>
 
-<div id="bg"></div>
 </body>
 </html>

@@ -15,18 +15,20 @@
    background: linear-gradient(#eee, #ddd 80%, #aaa) no-repeat center center fixed;
    background-size: cover;
    background-color: #eee;
+   transition: background 10000ms ease;
  }
- body > div {
+ .sec, .tiny  {
    box-sizing: border-box;
    width: 50rem;
    margin: 2rem auto;
    padding: 1.5rem 2rem;
-   background: rgba(252,252,255,0.9);
+   background: #fff7;
+   backdrop-filter: blur(0.25em);
    border-radius: .8rem;
    line-height: 1.5;
  }
  @media only screen and (max-width: 55rem) {
-    body > div  {
+    .sec, .tiny  {
       width: 95%;
       padding: 1rem;
       margin: 1rem auto;
@@ -74,10 +76,9 @@
       padding: 0;
     }
     body  {font-size: 1rem;}
-    canvas  {display: none;}
  }
 </style>
-<script defer src="nightsky.js"></script>
+<script defer src="nightsky2.js"></script>
 <script defer src="rainbow-symbols.js"></script>
 </head>
 <body>
@@ -171,7 +172,7 @@ Rutgers
 
 
 <div class="tiny" id="impressum">
-  Maintained by me, updated on Oct 15, 2021. <span id="rainbow-symbols" data-time="300" data-hue-offset="-30" data-content="🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
+  maintained by me -- updated on Oct 15, 2021 <span id="rainbow-symbols" data-time="300" data-hue-offset="-30" data-content="🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
 </div>
 
 <script>
@@ -205,13 +206,13 @@ function replaceAll(string, search, replace) { // polyfill
   return string.split(search).join(replace);
 }
 
-[].forEach.call(document.getElementsByClassName("sec"), function(el) {
+[].forEach.call(document.querySelectorAll(".sec,.tiny"), function(el) {
   var t = el.innerHTML;
-  t = t.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank">$1</a>').replace(/\(arxiv:([0-9\.]+)\)/g, '<a href="https://arxiv.org/abs/$1" target="_blank">preprint</a>');
+  t = t.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>').replace(/\(arxiv:([0-9\.]+)\)/g, '<a href="https://arxiv.org/abs/$1" target="_blank" rel="noopener">preprint</a>');
   for (var k in macros)
     t = replaceAll(t, k, macros[k]);
   for (var k in labels)
-    t = replaceAll(t, k, k.replace(/^\[|\]$/g, '')+'<a href="'+labels[k]+'" target="_blank">*</a>');
+    t = replaceAll(t, k, k.replace(/^\[|\]$/g, '')+'<a href="'+labels[k]+'" target="_blank" rel="noopener">*</a>');
   el.innerHTML = t;
 });
 </script>

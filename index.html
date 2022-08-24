@@ -5,32 +5,35 @@
 <meta name=viewport content="width=device-width, initial-scale=1">
 <meta name="description" content="Johannes Flake's webpage, mostly about mathematics that he finds interesting.">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans&family=DM+Sans:wght@500&family=Roboto&family=Cousine&family=DM+Mono&family=Caveat&family=Raleway&family=Alegreya">
 <title>Johannes Flake .math .RWTH Aachen</title>
 <style>
   html, body {margin: 0; padding: 0;}
   body {
    color: rgb(50,50,50);
-   font-family: monospace;
+   font-family: "DM Sans", monospace;
    font-size: 1rem;
    padding-bottom: .2rem;
   }
   html {
    height: 100%;
-   background: linear-gradient(#f0f0f0, #ddd 80%, #bbb) no-repeat center center fixed;
-   background-size: cover; -webkit-background-size: cover;
-   background-color: #bbb;
+   background: white;
    transition: background 10000ms ease;
   }
  .sec, .tiny  {
    box-sizing: border-box;
    width: 50rem;
    margin: 2rem auto;
+   margin-bottom: 0;
    padding: 1.5rem 2rem;
    background: #fff7;
    backdrop-filter: blur(0.25em);
    border-radius: .8rem;
-   line-height: 1.5;
+   line-height: 1.6;
  }
+ .sec { border: 0.1em #0001 solid; }
+ .tiny { margin-top:0.5rem; padding-top:0; }
+ 
  @media only screen and (max-width: 55rem) {
     .sec, .tiny  {
       width: 95%;
@@ -39,19 +42,17 @@
       font-size: .8em;
     }
  }
- a, a:hover, a:active, a:visited, a:focus  {
-   color: #08f;
-   text-decoration: none;
- }
- a:hover {color:#f80;}
-
- a:before {content: '[';}
- a:after  {content: ']';}
- ul {
-   margin: 0; padding: 0;
-   padding-left: 2rem;
- }
  
+ a:before {content: '['; font-family: monospace;}
+ a:after  {content: ']'; font-family: monospace;}
+
+ a  {
+   text-decoration: none;
+   color: #08f;
+ }
+ a:hover {color:#f60;}
+
+
  .sec  {
    white-space: pre-line;
  }
@@ -60,6 +61,7 @@
  }
  .sec::first-line {
    font-size: 1.5em;
+   font-family: "Cousine", monospace;
  }
  
  .tiny {
@@ -172,14 +174,14 @@ Rutgers
 
 [3d rendering](./misc/3d/index.html) of affine surfaces
 [visualization](./misc/tsp25/index.html) of my implementaton of an 2.5-opt algorithm approximately solving a random traveling salesman problem live in your browser, slowed down for visualization purposes. Which traveling salesman[?](https://www.quantamagazine.org/computer-scientists-find-new-shortcuts-to-traveling-salesman-problem-20130129/)
-[pictures](./misc/UDG/index.html) of some D6-symmetric unit-distance graphs in the plane with 745 vertices and chromatic number five that I discovered with a SAT solver. So what[?](https://www.quantamagazine.org/decades-old-graph-problem-yields-to-amateur-mathematician-20180417/)
+[pictures](./misc/UDG/index.html) of some hexagonally symmetric unit-distance graphs in the plane with 745 vertices and chromatic number five that I discovered with a SAT solver. So what[?](https://www.quantamagazine.org/decades-old-graph-problem-yields-to-amateur-mathematician-20180417/)
 [pictures and video](./misc/mandelbrot/index.html) of the Mandelbrot set I made with Julia, the language. What are we looking at[?](https://youtu.be/NGMRB4O922I)
-[pictures](./misc/RepSt/RepSt.html) of computations in the category Rep(S_t) and of objects in its monoidal center made with my own implementation of that category in Julia. It's related to some of my papers above.
+[pictures](./misc/RepSt/RepSt.html) of computations in the category Rep(S_t) and of objects in its monoidal center made with my own implementation of that category in Julia. This is related to some of my papers above.
 </div>
 
 
 <div class="tiny" id="impressum">
-  maintained by me -- updated on Jun 24, 2022 <span id="rainbow-symbols" data-time="300" data-hue-offset="-70" data-content="🌶🐙🥃☮️🐠🎷🦖🌿🤿☕🏐"></span>
+  this webpage was written by me and updated on Jun 24, 2022 <span id="rainbow-symbols" data-time="300" data-hue-offset="-70" data-content="🌶🐙🥃☮️🐠🎷🦖🌿🤿☕🏐"></span>
 </div>
 
 <div class="tiny" style="padding:0.5em 1em; background-image:url('warming-stripes.png'); background-size:cover; opacity:0.7; margin-bottom:0;">&nbsp;</div><div class="tiny" style="text-align:right;margin-top:0.1em;background:none;padding:0;">

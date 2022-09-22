@@ -7,7 +7,8 @@ var cssStyles = `
 #sky > *::after { content: "*"; }
 @keyframes blink { 50% { opacity: .1; } }
 @keyframes fadein { 0% { opacity: 0; } }
-@media only print  { #sky { display:none; } }
+@media (prefers-color-scheme: dark) { #sky > * {color: #fff;} }
+@media only print { #sky { display:none; } }
 `;
 
 var styles = document.createElement("style");
@@ -26,13 +27,13 @@ for (var i = 0; i < n; ++i) {
   var r = Math.pow(Math.random(), 2) * 1.5 + 0.5,
     ani = Math.random() > 0.3 ? "" :
       `blink ${Math.random() * 10 + 3}s ease infinite`,
-    color = Math.random() > 0.9 ? ["#f0a", "#08f", "#0d4"].pick() : "#000";
+    color = Math.random() > 0.9 ? ["#f0a", "#08f", "#0d4"].pick() : null;
   var el = document.createElement("span");
   el.style.left = `${Math.random() * 100}vw`;
   el.style.top = `${Math.random() * 100}vh`;
   el.style.fontSize = `${r}vmin`;
   el.style.filter = `blur(${r * (Math.random() * 0.15 + 0.05)}vmin)`;
-  el.style.color = color
+  if (color) el.style.color = color
   el.style.animation = ani;
   sky.appendChild(el);
 }

@@ -5,19 +5,19 @@
 <meta name=viewport content="width=device-width, initial-scale=1">
 <meta name="description" content="Johannes Flake's webpage, mostly about mathematics that he finds interesting.">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Roboto&family=Cousine&family=DM+Mono&family=Caveat&family=Raleway&family=Alegreya&family=Inter:wght@300&family=Atkinson+Hyperlegible">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Roboto&family=Cousine&family=DM+Mono&family=Caveat&family=Raleway&family=Alegreya&family=Inter:wght@300&family=IBM+Plex+Mono&family=Courier+Prime">
 <title>Johannes Flake .math .RWTH Aachen</title>
 <style>
   html, body {margin: 0; padding: 0;}
   body {
-   color: rgb(50,50,50);
    font-family: "DM Sans", sans-serif;
    font-size: 1.1rem;
   }
   html {
    height: 100%;
-   background-color: white;
+   color: black; background: white;
   }
+  
  .sec, .tiny  {
    box-sizing: border-box;
    width: 50rem;
@@ -30,48 +30,35 @@
    border-radius: 1.5em;
    line-height: 1.6;
  }
- .sec { border: 0.1em #0001 solid; }
- .tiny { margin-top:0.5rem; padding-top:0; }
- 
- @media only screen and (max-width: 55rem) {
-    .sec, .tiny  {
-      width: 95%;
-      padding: 1rem;
-      margin: 1rem auto;
-      font-size: 1rem;
-      text-align: justify;
-    }
-     .tiny { margin-top:0.5rem; padding-top:0; }
- }
- 
- a:before {content: '['; font-family: monospace;}
- a:after  {content: ']'; font-family: monospace;}
-
- a  {
-   text-decoration: none;
-   color: #08f;
- }
- a:hover {color:#f60;}
-
-
  .sec  {
    white-space: pre-line;
+   border: 0.1em #0001 solid;
  }
  .sec * {
    white-space: normal;
  }
  .sec::first-line {
    font-size: 1.5em;
-   font-family: "Cousine", monospace;
+   font-family: "Courier Prime", monospace;
    letter-spacing: 0.2em;
  }
- 
  .tiny {
    font-size: 0.75em;
+    margin-top:0.5rem;
+    padding-top:0;
  }
+ 
+ a:before {content: '['; font-family: monospace;}
+ a:after  {content: ']'; font-family: monospace;}
+ a  {
+   text-decoration: none;
+   color: #08f;
+ }
+ a:hover { color:#f60; }
+
  #navi  {display: none;}
  
- b  {font-weight: normal; background-color: rgba(255,255,0,0.3); padding:0.3em;}
+ b  {font-weight: normal; background: #ff05; padding:0.3em;}
  
  .print {display: none;}
  @media only print  {
@@ -85,6 +72,25 @@
     }
     body  {font-size: 1rem;}
  }
+ 
+ @media only screen and (max-width: 55rem) {
+    .sec, .tiny  {
+      width: 95%;
+      padding: 1rem;
+      margin: 1rem auto;
+      font-size: 1rem;
+      text-align: justify;
+    }
+    .tiny { margin-top:0.5rem; padding-top:0; }
+ }
+ 
+ @media (prefers-color-scheme: dark) {
+    html {color:white; background:black;}
+    .sec, .tiny {background: none;}
+    .sec {border-color: #fff6;}
+    b {background: none; border:0.2em solid #ff0a; border-radius: 0.2em; }
+    a {color: #6bf;};
+  }
 </style>
 <script defer src="nightsky2.js"></script>
 <script defer src="rainbow-symbols-2.js"></script>
@@ -186,14 +192,14 @@ Rutgers
 
 [3d rendering](./misc/3d/index.html) of affine surfaces
 [visualization](./misc/tsp25/index.html) of my implementaton of an 2.5-opt algorithm approximately solving a random traveling salesman problem live in your browser, slowed down for visualization purposes. Which traveling salesman[?](https://www.quantamagazine.org/computer-scientists-find-new-shortcuts-to-traveling-salesman-problem-20130129/)
-[pictures](./misc/UDG/index.html) of some hexagonally symmetric unit-distance graphs in the plane with 745 vertices and chromatic number five that I discovered with a SAT solver. So what[?](https://www.quantamagazine.org/decades-old-graph-problem-yields-to-amateur-mathematician-20180417/)
+[pictures](./misc/UDG/index.html) of some hexagonally symmetric unit-distance graphs in the plane with 745 vertices and chromatic number 5 that I discovered with a SAT solver. So what[?](https://www.quantamagazine.org/decades-old-graph-problem-yields-to-amateur-mathematician-20180417/)
 [pictures & video](./misc/mandelbrot/index.html) of the Mandelbrot set that I made with Julia, the language. What are we looking at[?](https://youtu.be/NGMRB4O922I)
 [pictures](./misc/RepSt/RepSt.html) of computations in the category Rep(S_t) and of objects in its monoidal center made with my own implementation of that category in Julia. This is related to some of my papers above.
 </div>
 
 
 <div class="tiny" id="siteinfo">
-  this webpage was written by me and updated on Jun 24, 2022 <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
+  this webpage was written by me & updated on Jun 24, 2022 <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
 </div>
 
 <div class="tiny" style="padding:0.5em 1em; background-image:url('warming-stripes.png'); background-size:cover; opacity:0.7;">&nbsp;</div>

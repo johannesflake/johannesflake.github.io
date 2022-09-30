@@ -48,8 +48,18 @@
     padding-top:0;
  }
  
- a:before {content: '['; font-family: monospace;}
+/* a:before {content: '['; font-family: monospace;}
  a:after  {content: ']'; font-family: monospace;}
+ */
+ a {
+  border-radius: 2em;
+  border: 0.1em solid #08f5;
+  padding: 0 0.4em;
+  margin: 0 0.2em;
+ }
+ a:hover {border-color: #f605;}
+ 
+ 
  a  {
    text-decoration: none;
    color: #08f;
@@ -88,7 +98,7 @@
     html {color:white; background:#222;}
     .sec, .tiny {background: #2227;}
     .sec {border-color: #fff2;}
-    b {background: none; border:0.2em solid #ff0a; }
+    b {background: none; border:0.2em solid #ff0a; padding:0.1em; }
     a {color: #6bf;};
     a:hover {color: #fb6;};
   }

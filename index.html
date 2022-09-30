@@ -5,69 +5,67 @@
 <meta name=viewport content="width=device-width, initial-scale=1">
 <meta name="description" content="Johannes Flake's webpage, mostly about mathematics that he finds interesting.">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Courier+Prime">
 <title>Johannes Flake .math .RWTH Aachen</title>
 <style>
   html, body {margin: 0; padding: 0;}
   body {
-   color: rgb(50,50,50);
-   font-family: monospace;
-   font-size: 1rem;
-   padding-bottom: .2rem;
+   font-family: "DM Sans", sans-serif;
+   font-size: 1.1rem;
   }
   html {
    height: 100%;
-   background: linear-gradient(#f0f0f0, #ddd 80%, #bbb) no-repeat center center fixed;
-   background-size: cover; -webkit-background-size: cover;
-   background-color: #bbb;
-   transition: background 10000ms ease;
+   color: black; background: white;
   }
+  
  .sec, .tiny  {
    box-sizing: border-box;
    width: 50rem;
-   margin: 2rem auto;
+   margin: 3rem auto;
+   margin-bottom: 0;
    padding: 1.5rem 2rem;
    background: #fff7;
-   backdrop-filter: blur(0.25em);
-   border-radius: .8rem;
-   line-height: 1.5;
+   backdrop-filter: blur(0.25rem);
+   -webkit-backdrop-filter: blur(0.25rem);
+   border-radius: 1.5em;
+   line-height: 1.6;
  }
- @media only screen and (max-width: 55rem) {
-    .sec, .tiny  {
-      width: 95%;
-      padding: 1rem;
-      margin: 1rem auto;
-      font-size: .8em;
-    }
- }
- a, a:hover, a:active, a:visited, a:focus  {
-   color: #08f;
-   text-decoration: none;
- }
- a:hover {color:#f80;}
-
- a:before {content: '[';}
- a:after  {content: ']';}
- ul {
-   margin: 0; padding: 0;
-   padding-left: 2rem;
- }
- 
  .sec  {
    white-space: pre-line;
+   border: 0.1em #0001 solid;
  }
  .sec * {
    white-space: normal;
  }
  .sec::first-line {
    font-size: 1.5em;
+   font-family: "Courier Prime", monospace;
+   letter-spacing: 0.2em;
  }
- 
  .tiny {
    font-size: 0.75em;
+    margin-top:0.5rem;
+    padding-top:0;
  }
+ 
+ a {
+  border-radius: 2em;
+  border: 0.1em solid #08f5;
+  padding: 0 0.4em;
+  margin: 0 0.2em;
+ }
+ a:hover {border-color: #f605;}
+ 
+ 
+ a  {
+   text-decoration: none;
+   color: #08f;
+ }
+ a:hover { color:#f60; }
+
  #navi  {display: none;}
  
- b  {font-weight: normal; background-color: rgba(255,255,0,0.3); padding:0.3em;}
+ b  {font-weight: normal; background: #ff05; padding:0.3em;}
  
  .print {display: none;}
  @media only print  {
@@ -81,9 +79,29 @@
     }
     body  {font-size: 1rem;}
  }
+ 
+ @media only screen and (max-width: 55rem) {
+    .sec, .tiny  {
+      width: 95%;
+      padding: 1rem;
+      margin: 1rem auto;
+      font-size: 1rem;
+      text-align: justify;
+    }
+    .tiny { margin-top:0.5rem; padding-top:0; }
+ }
+ 
+ @media (prefers-color-scheme:dark) {
+    html {color:white; background:#222;}
+    .sec, .tiny {background: #2227;}
+    .sec {border-color: #fff2;}
+    b {background: none; border:0.2em solid #ff0a; padding:0.1em; }
+    a {color: #6bf;};
+    a:hover {color: #fb6;};
+  }
 </style>
 <script defer src="nightsky2.js"></script>
-<script defer src="rainbow-symbols.js"></script>
+<script defer src="rainbow-symbols-2.js"></script>
 </head>
 <body>
 
@@ -117,25 +135,35 @@ Email: second name at art dot rwth minus aachen dot de
 </div>
 
 <div class="sec" id="research">research
-I am interested in algebra and representation theory, more specifically:
-- tensor categories, Deligne's interpolation categories, monoidal centers
+I am interested in algebra, representation theory, and tensor categories; more specifically:
+- Deligne's interpolation categories and their relatives, monoidal centers
 - algebraic Dirac operators, Dirac cohomology, cohomology functors
 - PBW deformations, various kinds of Hecke and Cherednik algebras
 - "easy quantum groups", diagram algebras
 - p-groups
 - computer algebra
 
-(arxiv:2206.08226) with Verity Mackscheidt: <i>Interpolating PBW Deformations for the Orthosymplectic Groups</i> (2022)
-(arxiv:2106.05798) with Robert Laugwitz and Sebastian Posur: <i>Indecomposable objects in Khovanov--Sazdanovic's generalizations of Deligne's interpolation categories</i> (2021)
-(arxiv:2105.10492) with Nate Harman and Robert Laugwitz: <i>The indecomposable objects in the center of Deligne's category Rep(S_t)</i> (2021)
-(arxiv:2003.05639) with Ghislain Fourier and Viktor Levandovskyy: <i>Gröbner bases for fusion products</i> (2020)
+(arxiv:2206.08226) with Verity Mackscheidt:
+<i>Interpolating PBW Deformations for the Orthosymplectic Groups</i> (2022)
+(arxiv:2106.05798) with Robert Laugwitz and Sebastian Posur:
+<i>Indecomposable objects in Khovanov--Sazdanovic's generalizations of Deligne's interpolation categories</i> (2021)
+(arxiv:2105.10492) with Nate Harman and Robert Laugwitz:
+<i>The indecomposable objects in the center of Deligne's category Rep(S_t)</i> (2021)
 
-(arxiv:2105.09117) with Dominik Bernhardt, Tim Boykett, Alice Devillers, Stephen Glasby: <i>Groups G satisfying a functional equation f(xk)=xf(x) for some k in G.</i> J. Group Theory (in press)
-(arxiv:2003.13297) with Andrea Thevis: <i>Strata of p-origamis.</i> Math. Nachr. (in press)
-[article](https://www.intlpress.com/site/pub/pages/journals/items/pamq/content/vols/0017/0004/a009)(arxiv:1608.07504) with Siddhartha Sahi: <i>Hopf--Hecke algebras, infinitesimal Cherednik algebras, and Dirac cohomology.</i> Pure Appl. Math. Q. (Kostant special edition, 2022)
-[article](https://academic.oup.com/imrn/advance-article-abstract/doi/10.1093/imrn/rnab217/6352819)(arxiv:2003.13798) with Laura Maaßen: <i>Semisimplicity and indecomposable objects in interpolating partition categories.</i> Int. Math. Res. Not. IMRN (2021)
-[article](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12403)(arxiv:1901.08657) with Robert Laugwitz: <i>On the monoidal center of Deligne's category Rep(S_t).</i> J. London Math. Soc. (2020)
-[article](https://www.ams.org/journals/tran/2019-371-10/S0002-9947-2019-07446-9/home.html)(arxiv:1608.07509) <i>Barbasch--Sahi algebras and Dirac cohomology.</i> Trans. Amer. Math. Soc. (2019)
+(arxiv:2003.05639) with Ghislain Fourier and Viktor Levandovskyy:
+<i>Gröbner bases for fusion products.</i> Algebr. Represent. Theory (in press)
+(arxiv:2105.09117) with Dominik Bernhardt, Tim Boykett, Alice Devillers, Stephen Glasby:
+<i>Groups G satisfying a functional equation f(xk)=xf(x) for some k in G.</i> J. Group Theory (in press)
+(arxiv:2003.13297) with Andrea Thevis:
+<i>Strata of p-origamis.</i> Math. Nachr. (in press)
+[article](https://www.intlpress.com/site/pub/pages/journals/items/pamq/content/vols/0017/0004/a009)(arxiv:1608.07504) with Siddhartha Sahi:
+<i>Hopf--Hecke algebras, infinitesimal Cherednik algebras, and Dirac cohomology.</i> Pure Appl. Math. Q. (Kostant special edition, 2022)
+[article](https://academic.oup.com/imrn/advance-article-abstract/doi/10.1093/imrn/rnab217/6352819)(arxiv:2003.13798) with Laura Maaßen:
+<i>Semisimplicity and indecomposable objects in interpolating partition categories.</i> Int. Math. Res. Not. IMRN (2021)
+[article](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12403)(arxiv:1901.08657) with Robert Laugwitz:
+<i>On the monoidal center of Deligne's category Rep(S_t).</i> J. London Math. Soc. (2020)
+[article](https://www.ams.org/journals/tran/2019-371-10/S0002-9947-2019-07446-9/home.html)(arxiv:1608.07509):
+<i>Barbasch--Sahi algebras and Dirac cohomology.</i> Trans. Amer. Math. Soc. (2019)
 
 [PhD thesis](https://rucore.libraries.rutgers.edu/rutgers-lib/59087/) Dirac cohomology for Hopf--Hecke algebras (Oct 2018)
 </div>
@@ -172,18 +200,21 @@ Rutgers
 
 [3d rendering](./misc/3d/index.html) of affine surfaces
 [visualization](./misc/tsp25/index.html) of my implementaton of an 2.5-opt algorithm approximately solving a random traveling salesman problem live in your browser, slowed down for visualization purposes. Which traveling salesman[?](https://www.quantamagazine.org/computer-scientists-find-new-shortcuts-to-traveling-salesman-problem-20130129/)
-[pictures](./misc/UDG/index.html) of some D6-symmetric unit-distance graphs in the plane with 745 vertices and chromatic number five that I discovered with a SAT solver. So what[?](https://www.quantamagazine.org/decades-old-graph-problem-yields-to-amateur-mathematician-20180417/)
-[pictures and video](./misc/mandelbrot/index.html) of the Mandelbrot set I made with Julia, the language. What are we looking at[?](https://youtu.be/NGMRB4O922I)
-[pictures](./misc/RepSt/RepSt.html) of computations in the category Rep(S_t) and of objects in its monoidal center made with my own implementation of that category in Julia. It's related to some of my papers above.
+[pictures](./misc/UDG/index.html) of some hexagonally symmetric unit-distance graphs in the plane with 745 vertices and chromatic number 5 that I discovered with a SAT solver. So what[?](https://www.quantamagazine.org/decades-old-graph-problem-yields-to-amateur-mathematician-20180417/)
+[pictures & video](./misc/mandelbrot/index.html) of the Mandelbrot set that I made with Julia, the language. What are we looking at[?](https://youtu.be/NGMRB4O922I)
+[pictures](./misc/RepSt/RepSt.html) of computations in the category Rep(S_t) and of objects in its monoidal center made with my own implementation of that category in Julia. This is related to some of my papers above.
 </div>
 
 
-<div class="tiny" id="impressum">
-  maintained by me -- updated on Jun 24, 2022 <span id="rainbow-symbols" data-time="300" data-hue-offset="-70" data-content="🌶🐙🥃☮️🐠🎷🦖🌿🤿☕🏐"></span>
+<div class="tiny" id="siteinfo">
+  this webpage was written by me & updated on Sep 30, 2022 <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
 </div>
 
-<div class="tiny" style="padding:0.5em 1em; background-image:url('warming-stripes.png'); background-size:cover; opacity:0.7; margin-bottom:0;">&nbsp;</div><div class="tiny" style="text-align:right;margin-top:0.1em;background:none;padding:0;">
-Warming Stripes[*](https://showyourstripes.info/s/globe) by Ed Hawkins[*](http://www.met.reading.ac.uk/~ed/home/index.php)
+<div class="tiny" style="padding:0.5em 1em; background-image:url('warming-stripes.png'); background-size:cover; opacity:0.7;">&nbsp;</div>
+
+<div class="tiny" style="text-align:right;">
+Warming Stripes[*](https://showyourstripes.info/s/globe)
+by Ed Hawkins[*](http://www.met.reading.ac.uk/~ed/home/index.php)
 </div>
 
 <script>

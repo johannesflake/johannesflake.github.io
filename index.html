@@ -15,7 +15,7 @@
   }
   html {
    height: 100%;
-   color: black; background: white;
+   color: var(--fg); background: var(--bg);
   }
   
  .sec, .tiny  {
@@ -24,7 +24,7 @@
    margin: 3rem auto;
    margin-bottom: 0;
    padding: 1.5rem 2rem;
-   background: #fff7;
+   background: var(--sec-bg);
    backdrop-filter: blur(0.25rem);
    -webkit-backdrop-filter: blur(0.25rem);
    border-radius: 1.5em;
@@ -33,7 +33,7 @@
  a, .sec a {white-space: nowrap;}
  .sec  {
    white-space: pre-line;
-   border: 0.1em #0001 solid;
+   border: 0.1em solid; border-color: var(--sec-border);
  }
  .sec * {
    white-space: normal;
@@ -51,17 +51,23 @@
  
  a  {
    text-decoration: none;
-   color: #08f;
-   border: 0.1em solid #08f5;
+   border: 0.1em solid #08f6;
    border-radius: 2em;
    padding: 0 0.4em;
    margin: 0 0.2em;
+   font-size:0.9em;
+   color: #08f;
+   user-select:none;
  }
  a:hover { color:#f60; border-color: #f605; }
+ a.placeholder {color:var(--gray); border-color:var(--gray); cursor:default;}
+ 
 
  #navi  {display: none;}
  
  b  {font-weight: normal; background: #ff05; padding:0.3em;}
+ 
+ small {font-size:0.8rem; color: var(--gray); border: 0.1em solid yellow; border-color: var(--gray); padding: 0 0.4em; margin-left:1em;}
  
  .print {display: none;}
  @media only print  {
@@ -87,13 +93,22 @@
     .tiny { margin-top:0.5rem; padding-top:0; }
  }
  
+  
+ :root {
+   --gray: #aaa;
+   --bg: white; --fg: black;
+   --sec-bg: #fff7; --sec-border: #0001;
+ }
+
  @media (prefers-color-scheme:dark) {
-    html {color:white; background:#222;}
-    .sec, .tiny {background: #2227;}
-    .sec {border-color: #fff2;}
+    :root {
+      --gray: #666;
+      --bg: #222; --fg: white;
+      --sec-bg: #2227; --sec-border: #fff2;
+    }
     b {background: none; border:0.2em solid #ff0a; padding:0.1em; }
     a {color: #6bf; border-color: #6bf4;};
-    a:hover {color: #fb6; border-color: #fb64;};
+    a:link:hover {color: #fb6; border-color: #fb64;};
   }
 </style>
 <script defer src="nightsky2.js"></script>
@@ -130,36 +145,37 @@ email: second name at mpim minus bonn dot mpg dot de
 
 <div class="sec" id="research">research
 I am interested in algebra, representation theory, and tensor categories; more specifically:
-- Deligne's interpolation categories and their relatives, monoidal centers
-- algebraic Dirac operators, Dirac cohomology, cohomology functors
-- PBW deformations, various kinds of Hecke and Cherednik algebras
-- "easy quantum groups", diagram algebras
-- p-groups
-- computer algebra
+<small>1</small> Deligne's interpolation categories and their relatives
+<small>2</small> algebraic (super)groups, Lie (super)algebras
+<small>3</small> monoidal centers / Drinfeld centers
+<small>4</small> PBW deformations, various kinds of Hecke and Cherednik algebras
+<small>5</small> algebraic Dirac operators, Dirac cohomology, cohomology functors
+<small>6</small> "easy quantum groups", diagram algebras
+<small>7</small> p-groups
+<small>8</small> computer algebra (see also below under "misc")
 
-(arxiv:2206.08226) with Verity Mackscheidt:
-<i>Interpolating PBW Deformations for the Orthosymplectic Groups</i> (2022)
-(arxiv:2106.05798) with Robert Laugwitz and Sebastian Posur:
-<i>Indecomposable objects in Khovanov--Sazdanovic's generalizations of Deligne's interpolation categories</i> (2021)
-(arxiv:2105.10492) with Nate Harman and Robert Laugwitz:
-<i>The indecomposable objects in the center of Deligne's category Rep(S_t)</i> (2021)
+- <i>Interpolating PBW Deformations for the Orthosymplectic Groups</i>
+<small>1,2,4</small> [arxiv 2022](arxiv:2206.08226) with Verity Mackscheidt
+- <i>Indecomposable objects in Khovanov--Sazdanovic's generalizations of Deligne's interpolation categories</i>
+<small>1</small> [arxiv 2021](arxiv:2106.05798) with Robert Laugwitz and Sebastian Posur
+- <i>The indecomposable objects in the center of Deligne's category Rep(S_t)</i>
+<small>1,3</small> [arxiv 2021](arxiv:2105.10492) with Nate Harman and Robert Laugwitz
+- <i>Strata of p-origamis</i>
+<small>7</small> [Math. Nachr. (in press)](...) (arxiv:2003.13297) with Andrea Thevis
+- <i>Gröbner bases for fusion products</i>
+<small>2,8</small> [Algebr. Represent. Theory 2022](https://link.springer.com/article/10.1007/s10468-022-10179-6) (arxiv:2003.05639) with Ghislain Fourier and Viktor Levandovskyy
+- <i>Groups G satisfying a functional equation f(xk)=xf(x) for some k in G</i>
+<small>7</small> [J. Group Theory 2022](https://www.degruyter.com/document/doi/10.1515/jgth-2021-0158) (arxiv:2105.09117) with Dominik Bernhardt, Tim Boykett, Alice Devillers, Stephen Glasby
+- <i>Hopf--Hecke algebras, infinitesimal Cherednik algebras, and Dirac cohomology</i>
+<small>2,4,5</small> [Pure Appl. Math. Q. 2021](https://www.intlpress.com/site/pub/pages/journals/items/pamq/content/vols/0017/0004/a009)(arxiv:1608.07504) with Siddhartha Sahi
+- <i>Semisimplicity and indecomposable objects in interpolating partition categories</i>
+<small>1,5</small> [IMRN 2021](https://academic.oup.com/imrn/advance-article-abstract/doi/10.1093/imrn/rnab217/6352819)(arxiv:2003.13798) with Laura Maaßen
+- <i>On the monoidal center of Deligne's category Rep(S_t)</i>
+<small>1,3</small> [J. London Math. Soc. 2020](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12403)(arxiv:1901.08657) with Robert Laugwitz
+- <i>Barbasch--Sahi algebras and Dirac cohomology</i>
+<small>4,5</small> [Trans. Amer. Math. Soc. 2019](https://www.ams.org/journals/tran/2019-371-10/S0002-9947-2019-07446-9/home.html)(arxiv:1608.07509)
 
-(arxiv:2003.05639) with Ghislain Fourier and Viktor Levandovskyy:
-<i>Gröbner bases for fusion products.</i> Algebr. Represent. Theory (in press)
-(arxiv:2105.09117) with Dominik Bernhardt, Tim Boykett, Alice Devillers, Stephen Glasby:
-<i>Groups G satisfying a functional equation f(xk)=xf(x) for some k in G.</i> J. Group Theory (in press)
-(arxiv:2003.13297) with Andrea Thevis:
-<i>Strata of p-origamis.</i> Math. Nachr. (in press)
-[article](https://www.intlpress.com/site/pub/pages/journals/items/pamq/content/vols/0017/0004/a009)(arxiv:1608.07504) with Siddhartha Sahi:
-<i>Hopf--Hecke algebras, infinitesimal Cherednik algebras, and Dirac cohomology.</i> Pure Appl. Math. Q. (Kostant special edition, 2022)
-[article](https://academic.oup.com/imrn/advance-article-abstract/doi/10.1093/imrn/rnab217/6352819)(arxiv:2003.13798) with Laura Maaßen:
-<i>Semisimplicity and indecomposable objects in interpolating partition categories.</i> Int. Math. Res. Not. IMRN (2021)
-[article](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12403)(arxiv:1901.08657) with Robert Laugwitz:
-<i>On the monoidal center of Deligne's category Rep(S_t).</i> J. London Math. Soc. (2020)
-[article](https://www.ams.org/journals/tran/2019-371-10/S0002-9947-2019-07446-9/home.html)(arxiv:1608.07509):
-<i>Barbasch--Sahi algebras and Dirac cohomology.</i> Trans. Amer. Math. Soc. (2019)
-
-[PhD thesis](https://rucore.libraries.rutgers.edu/rutgers-lib/59087/) Dirac cohomology for Hopf--Hecke algebras (Oct 2018)
+[PhD thesis](https://rucore.libraries.rutgers.edu/rutgers-lib/59087/) <small>2,4,5</small> Dirac cohomology for Hopf--Hecke algebras (Oct 2018)
 </div>
 
 <div class="sec" id="teaching">teaching
@@ -200,7 +216,7 @@ Rutgers (Fall 2015 -- Spring 2018, as a TA / TA-at-large)
 
 
 <div class="tiny" id="siteinfo">
-  this webpage was written by me & updated on Oct 4, 2022 <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
+  this webpage was written by me & updated on Oct 31, 2022 <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
 </div>
 
 <div class="tiny" style="padding:0.5em 1em; background-image:url('warming-stripes.png'); background-size:cover; opacity:0.7;">&nbsp;</div>
@@ -244,7 +260,10 @@ function replaceAll(string, search, replace) { // polyfill
 
 [].forEach.call(document.querySelectorAll(".sec,.tiny"), function(el) {
   var t = el.innerHTML;
-  t = t.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>').replace(/\(arxiv:([0-9\.]+)\)/g, '<a href="https://arxiv.org/abs/$1" target="_blank" rel="noopener">preprint</a>');
+  t = t.replace(/\[([^\]]+)\]\(\.\.\.\)/g, '<a class="placeholder" target="_blank" rel="noopener">$1</a>'
+  ).replace(/\[([^\]]+)\]\(arxiv:([0-9\.]+)\)/g, '<a href="https://arxiv.org/abs/$2" target="_blank" rel="noopener">$1</a>'
+  ).replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>'
+  ).replace(/\(arxiv:([0-9\.]+)\)/g, '<a href="https://arxiv.org/abs/$1" target="_blank" rel="noopener">arxiv</a>');
   for (var k in macros)
     t = replaceAll(t, k, macros[k]);
   for (var k in labels)

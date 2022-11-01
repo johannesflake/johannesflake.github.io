@@ -13,7 +13,7 @@ function hsl(r, g, b) {
   return [h, s, l];
 }
 function rasterize(char)  {
-  var w = 20, h = 20, x = 0, y = 15, font = '15px '+font;
+  var w = 20, h = 20, x = 0, y = 15, font = '15px "Noto Color Emoji"';
   var canvas = document.createElement('canvas');
   canvas.width = w; canvas.height = h;
   var ctx = canvas.getContext('2d');

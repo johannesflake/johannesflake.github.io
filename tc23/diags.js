@@ -33,7 +33,7 @@ function makePath(d, cl="") {
   if (cl!=="") el.setAttribute("class", cl);
   return el;
 }
-function makeDiag(rows = 20, cols = 20, bg = "white", fg = "#eee") {
+function makeDiag(rows, cols, bg = "white", fg = "#eee") {
   var ux = 10, uy = 12,
     axpert = 0.2, aypert = 0.1,
     wline = 0.85, wouterline = 4*wline;
@@ -87,12 +87,9 @@ function makeDiag(rows = 20, cols = 20, bg = "white", fg = "#eee") {
 // circ.setAttribute("r", ux);
 // svg.append(circ);
 
-var rows = 20, bg = "#fff", fg = "#444";
-var rows = 20, bg = "#444", fg = "#fff2";
-
-function setDiagAsBg(rows, bg, fg) {
-  var svg = makeDiag(rows, rows, bg, fg);
-  document.body.style.background = `${bg} ${svgToDataUrl(svg)} repeat top left / ${rows*1.6}em`;
+function setDiagAsBg(rows, cols, bg, fg) {
+  var svg = makeDiag(rows, cols, bg, fg);
+  document.body.style.background = `${bg} ${svgToDataUrl(svg)} repeat top left / ${cols*1.6}em`;
 }
 
 //document.body.append(svg);

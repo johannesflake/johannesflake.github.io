@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tensor categories in representation theory (Summer 2023)</title>
+<style>
+ :root {
+/* --bg: #444; --fg: white; --fg2: #b0f; --bg2: #b0f4;--chalk: #fff4;
+*/
+ --bg: #fff; --fg: #000; --fg2: #80a; --bg2: #80a2;--chalk: #eee;
+ }
+ 
+body {margin:0; padding: 2rem;}
+h1 {margin: 1em 0; padding: 0; font-size: 1.5em; }
+ul {margin: 0.5em 0; padding: 0 2em;}
+body > div {
+  color: var(--fg);
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  line-height: 1.75;
+  max-width: 45em;
+  margin: 0 auto; padding: 1em 2em;
+  background: var(--bg);
+  //background-size: 1.6em 1.6em;
+  //background-image:
+  //  linear-gradient(to right, #eee8 0.1em, transparent 0.1em),
+  //  linear-gradient(to bottom, #eee8 0.1em, transparent 0.1em);
+  //border: 0.1em solid #eee;
+  //box-shadow: 0.5em 1em 0.1em #eee;
+  border: 0.2em solid var(--chalk);
+  box-shadow: 0 0 0 0.2em var(--bg);
+  margin-bottom: 3em;
+}
+a:before {content:'➜ '; color:var(--fg2);}
+a, a:hover, a:active, a:visited, a:link {
+  color: var(--fg);
+  background: var(--bg2);
+  padding: 0 0.2em;
+  margin: 0 0.2em;
+  text-decoration:none;
+}
+a:hover {
+  text-decoration:underline;
+  text-decoration-color:var(--fg2);;
+}
+b {color:var(--fg2);}
+#logo {display: block; float: right; height: 3.5em;}
+
+@media only screen and (max-width: 45em) {
+body {padding:0;}
+body > div {margin:0; font-size: 1rem; padding: 1em;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div>
+<i>Spring 2023</i> <img id="logo" src="logo.png" alt="Logo Uni Bonn" />
+<h1>Tensor categories in representation theory</h1>
+<b>Instructors</b> <a href="https://www.math.uni-bonn.de/ag/stroppel/" target="_blank">Prof. Dr. Catharina Stroppel</a> and <a href="https://johannesflake.github.io/" target="_blank">Dr. Johannes Flake</a><br />
+<b>Lectures</b> Wednesdays and Fridays, 10&ndash;12 am, R1.008<br />
+<b>Prerequisites</b> Algebra I &amp; II, Representation Theory I, basic knowledge in category theory<br />
+<b>Material</b> t.b.a. <br/>
+
+<br />
+
+<b>Course content</b>
+<ul>
+<li>additive and abelian categories</li>
+<li>monoidal and braided categories</li>
+<li>tensor categories</li>
+<li>Hopf algebras</li>
+<li>Tannakian reconstruction</li>
+<li>Deligne's theorem on tensor categories</li>
+</ul>
+
+
+
+</div>
+
+<script src="diags.js"></script>
+<script>
+var rows = 20, bg = "#fff", fg = "#eee";
+setDiagAsBg(rows, bg, fg);
+</script>
+</body>
+</html>

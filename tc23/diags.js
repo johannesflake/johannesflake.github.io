@@ -36,7 +36,7 @@ function makePath(d, cl="") {
 function makeDiag(rows = 20, cols = 20, bg = "white", fg = "#eee") {
   var ux = 10, uy = 12,
     axpert = 0.2, aypert = 0.1,
-    wline = 1, wouterline = 3.5;
+    wline = 0.85, wouterline = 4*wline;
 
   var svg = createSvgEl("svg");
   svg.setAttribute("viewBox", `0 0 ${cols*ux} ${rows*uy}`);

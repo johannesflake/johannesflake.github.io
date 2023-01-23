@@ -5,7 +5,7 @@
 <meta name=viewport content="width=device-width, initial-scale=1">
 <meta name="description" content="Johannes Flake's webpage, mostly about mathematics that he finds interesting.">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Courier+Prime&family=Noto+Emoji">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Courier+Prime">
 <title>Johannes Flake - math - MPIM Bonn</title>
 <style>
   html, body {margin: 0; padding: 0;}
@@ -38,6 +38,8 @@
  .sec * {
    white-space: normal;
  }
+ .pub {font-size: 1rem; margin:0; padding:0;}
+ .pub,.pub li {white-space:pre-line;}
  .sec::first-line {
    font-size: 1.5em;
    font-family: "Courier Prime", monospace;
@@ -48,6 +50,8 @@
     margin-top:0.5rem;
     padding-top:0;
  }
+ 
+ ul {margin: 0; padding: 0 0 0 1em; list-style:circle;}
  
  a  {
    text-decoration: none;
@@ -68,6 +72,7 @@
  b  {font-weight: normal; background: #ff05; padding:0.3em;}
  
  small {font-size:0.8rem; color: var(--gray); border: 0.1em solid yellow; border-color: var(--gray); padding: 0 0.4em; margin-left:1em;}
+ .pub small {border: none; margin: 0 0 0 -1em; vertical-align:super;}
  
  .print {display: none;}
  @media only print  {
@@ -153,29 +158,30 @@ I am interested in algebra, representation theory, and tensor categories; more s
 <small>6</small> "easy quantum groups", diagram algebras
 <small>7</small> p-groups
 <small>8</small> computer algebra (see also below under "misc")
+<div class="pub">
+- <small>1,2,4</small> <i>Interpolating PBW Deformations for the Orthosymplectic Groups</i>
+  [arxiv 2022](arxiv:2206.08226) with Verity Mackscheidt
+- <small>1</small> <i>Indecomposable objects in Khovanov--Sazdanovic's generalizations of Deligne's interpolation categories</i>
+  [Adv. Math. (in press)](...) (arxiv:2106.05798) with Robert Laugwitz and Sebastian Posur
+- <small>1,3</small> <i>The indecomposable objects in the center of Deligne's category Rep(S_t)</i>
+  [Proc. London Math. Soc. 2023](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/plms.12509) [arxiv](arxiv:2105.10492) with Nate Harman and Robert Laugwitz
+- <small>7</small> <i>Strata of p-origamis</i>
+  [Math. Nachr. 2023](https://onlinelibrary.wiley.com/doi/full/10.1002/mana.202100290) (arxiv:2003.13297) with Andrea Thevis
+- <small>2,8</small> <i>Gröbner bases for fusion products</i>
+  [Algebr. Represent. Theory 2022](https://link.springer.com/article/10.1007/s10468-022-10179-6) (arxiv:2003.05639) with Ghislain Fourier and Viktor Levandovskyy
+- <small>7</small> <i>Groups G satisfying a functional equation f(xk)=xf(x) for some k in G</i>
+  [J. Group Theory 2022](https://www.degruyter.com/document/doi/10.1515/jgth-2021-0158) (arxiv:2105.09117) with Dominik Bernhardt, Tim Boykett, Alice Devillers, Stephen Glasby
+- <small>2,4,5</small> <i>Hopf--Hecke algebras, infinitesimal Cherednik algebras, and Dirac cohomology</i>
+  [Pure Appl. Math. Q. 2021](https://www.intlpress.com/site/pub/pages/journals/items/pamq/content/vols/0017/0004/a009)(arxiv:1608.07504) with Siddhartha Sahi
+- <small>1,6</small> <i>Semisimplicity and indecomposable objects in interpolating partition categories</i>
+  [IMRN 2021](https://academic.oup.com/imrn/advance-article-abstract/doi/10.1093/imrn/rnab217/6352819)(arxiv:2003.13798) with Laura Maaßen
+- <small>1,3</small> <i>On the monoidal center of Deligne's category Rep(S_t)</i>
+  [J. London Math. Soc. 2020](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12403)(arxiv:1901.08657) with Robert Laugwitz
+- <small>4,5</small> <i>Barbasch--Sahi algebras and Dirac cohomology</i>
+  [Trans. Amer. Math. Soc. 2019](https://www.ams.org/journals/tran/2019-371-10/S0002-9947-2019-07446-9/home.html)(arxiv:1608.07509)
 
-- <i>Interpolating PBW Deformations for the Orthosymplectic Groups</i>
-<small>1,2,4</small> [arxiv 2022](arxiv:2206.08226) with Verity Mackscheidt
-- <i>Indecomposable objects in Khovanov--Sazdanovic's generalizations of Deligne's interpolation categories</i>
-<small>1</small> [arxiv 2021](arxiv:2106.05798) with Robert Laugwitz and Sebastian Posur
-- <i>The indecomposable objects in the center of Deligne's category Rep(S_t)</i>
-<small>1,3</small> [arxiv 2021](arxiv:2105.10492) with Nate Harman and Robert Laugwitz
-- <i>Strata of p-origamis</i>
-<small>7</small> [Math. Nachr. (in press)](...) (arxiv:2003.13297) with Andrea Thevis
-- <i>Gröbner bases for fusion products</i>
-<small>2,8</small> [Algebr. Represent. Theory 2022](https://link.springer.com/article/10.1007/s10468-022-10179-6) (arxiv:2003.05639) with Ghislain Fourier and Viktor Levandovskyy
-- <i>Groups G satisfying a functional equation f(xk)=xf(x) for some k in G</i>
-<small>7</small> [J. Group Theory 2022](https://www.degruyter.com/document/doi/10.1515/jgth-2021-0158) (arxiv:2105.09117) with Dominik Bernhardt, Tim Boykett, Alice Devillers, Stephen Glasby
-- <i>Hopf--Hecke algebras, infinitesimal Cherednik algebras, and Dirac cohomology</i>
-<small>2,4,5</small> [Pure Appl. Math. Q. 2021](https://www.intlpress.com/site/pub/pages/journals/items/pamq/content/vols/0017/0004/a009)(arxiv:1608.07504) with Siddhartha Sahi
-- <i>Semisimplicity and indecomposable objects in interpolating partition categories</i>
-<small>1,6</small> [IMRN 2021](https://academic.oup.com/imrn/advance-article-abstract/doi/10.1093/imrn/rnab217/6352819)(arxiv:2003.13798) with Laura Maaßen
-- <i>On the monoidal center of Deligne's category Rep(S_t)</i>
-<small>1,3</small> [J. London Math. Soc. 2020](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12403)(arxiv:1901.08657) with Robert Laugwitz
-- <i>Barbasch--Sahi algebras and Dirac cohomology</i>
-<small>4,5</small> [Trans. Amer. Math. Soc. 2019](https://www.ams.org/journals/tran/2019-371-10/S0002-9947-2019-07446-9/home.html)(arxiv:1608.07509)
-
-[PhD thesis 2018](https://rucore.libraries.rutgers.edu/rutgers-lib/59087/) <small>2,4,5</small> Dirac cohomology for Hopf--Hecke algebras
+- <small>2,4,5</small> [PhD thesis 2018](https://rucore.libraries.rutgers.edu/rutgers-lib/59087/)  Dirac cohomology for Hopf--Hecke algebras
+</div>
 </div>
 
 <div class="sec" id="teaching">teaching
@@ -216,7 +222,7 @@ Rutgers (Fall 2015 -- Spring 2018, as a TA / TA-at-large)
 
 
 <div class="tiny" id="siteinfo">
-  this webpage was written by me & updated on Oct 31, 2022 <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
+  this webpage was written by me & updated on Jan 23, 2023 <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
 </div>
 
 <div class="tiny" style="padding:0.5em 1em; background-image:url('warming-stripes.png'); background-size:cover; opacity:0.7;">&nbsp;</div>
@@ -258,8 +264,17 @@ function replaceAll(string, search, replace) { // polyfill
   return string.split(search).join(replace);
 }
 
+// [].forEach.call(document.querySelectorAll(".pub"), function(el) {
+//   var t = el.innerHTML;
+//   t = t.replace(/^- /gm, "-<span class='sp'>&nbsp;</span>");
+//   el.innerHTML = t;
+// });
+
 [].forEach.call(document.querySelectorAll(".sec,.tiny"), function(el) {
   var t = el.innerHTML;
+  t = t.replace(/^\s*?- ((.+)(\n  .+\S+\s*)*)/gm, '<li>$1</li>');
+  t = t.replace(/^(<li>[\s\S]*?<\/li>(\s*?<li>[\s\S]*?<\/li>)*)/gm, '<ul>$1</ul>');
+  t = t.replace(/<\/ul>\n/g, "</ul>");
   t = t.replace(/\[([^\]]+)\]\(\.\.\.\)/g, '<a class="placeholder" target="_blank" rel="noopener">$1</a>'
   ).replace(/\[([^\]]+)\]\(arxiv:([0-9\.]+)\)/g, '<a href="https://arxiv.org/abs/$2" target="_blank" rel="noopener">$1</a>'
   ).replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>'
@@ -270,6 +285,7 @@ function replaceAll(string, search, replace) { // polyfill
     t = replaceAll(t, k, k.replace(/^\[|\]$/g, '')+'<a href="'+labels[k]+'" target="_blank" rel="noopener">*</a>');
   el.innerHTML = t;
 });
+
 </script>
 
 </body>

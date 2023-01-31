@@ -5,8 +5,10 @@
 <meta name=viewport content="width=device-width, initial-scale=1">
 <meta name="description" content="Johannes Flake's webpage, mostly about mathematics that he finds interesting.">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Courier+Prime">
-<title>Johannes Flake - math - MPIM Bonn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=DM+Sans&display=swap" rel="stylesheet">
+<title>Johannes Flake * math * MPIM Bonn</title>
 <style>
   html, body {margin: 0; padding: 0;}
   body {
@@ -38,7 +40,7 @@
  .sec * {
    white-space: normal;
  }
- .pub {font-size: 1rem; margin:0; padding:0;}
+ .pub {font-size: 0.9em; margin:0; padding:0;}
  .pub,.pub li {white-space:pre-line;}
  .sec::first-line {
    font-size: 1.5em;
@@ -71,7 +73,7 @@
  
  b  {font-weight: normal; background: #ff05; padding:0.3em;}
  
- small {font-size:0.8rem; color: var(--gray); border: 0.1em solid yellow; border-color: var(--gray); padding: 0 0.4em; margin-left:1em;}
+ small {font-size:0.8em; color: var(--gray); border: 0.1em solid yellow; border-color: var(--gray); padding: 0 0.4em; margin-left:1em;}
  .pub small {border: none; margin: 0 0 0 -1em; vertical-align:super;}
  
  .print {display: none;}
@@ -185,14 +187,14 @@ I am interested in algebra, representation theory, and tensor categories; more s
 </div>
 
 <div class="sec" id="teaching">teaching
-RWTH
+RWTH (2018 -- 2022, as a postdoc)
 - <b>Spring 2022: Tensor Categories</b> [course page](https://www.art.rwth-aachen.de/go/id/tswgv)
 - Spring 2021: Algebraic Geometry
 - Spring 2019: Lecture in Pairs on filtered-graded transfer and PBW deformations with Viktor Levandovskyy
 - Spring 2019: Begleitpraktikum 2
 - Fall 2018: Begleitpraktikum
 
-Rutgers (Fall 2015 -- Spring 2018, as a TA / TA-at-large)
+Rutgers (2015 -- 2018, as a TA / TA-at-large)
 - Math 351 -- Introduction to Abstract Algebra I
 - Math 451 -- Abstract Algebra I
 - Math 311 -- Introduction to Real Analysis I
@@ -263,12 +265,6 @@ var macros = {
 function replaceAll(string, search, replace) { // polyfill
   return string.split(search).join(replace);
 }
-
-// [].forEach.call(document.querySelectorAll(".pub"), function(el) {
-//   var t = el.innerHTML;
-//   t = t.replace(/^- /gm, "-<span class='sp'>&nbsp;</span>");
-//   el.innerHTML = t;
-// });
 
 [].forEach.call(document.querySelectorAll(".sec,.tiny"), function(el) {
   var t = el.innerHTML;

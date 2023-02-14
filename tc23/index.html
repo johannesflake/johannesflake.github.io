@@ -1,53 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Tensor categories in representation theory (Summer 2023)</title>
+<meta charset="utf-8">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>Tensor categories in representation theory (Spring 2023)</title>
+<meta name="description" content="Tensor categories in representation theory is a course at the University of Bonn in Spring 2023 by Prof. Dr. Catharina Stroppel and Dr. Johannes Flake.">
 <style>
- :root {
-/* --bg: #444; --fg: white; --fg2: #b0f; --bg2: #b0f4;--chalk: #fff4;
-*/
- --bg: #fff; --fg: #000; --fg2: #80a; --bg2: #80a2;--chalk: #eee;
- }
+:root {
+  --bg: #fff; --fg: #000; --fg2: #80a; --bg2: #80a2; --chalk: #ddd;
+}
  
-body {margin:0; padding: 2rem;}
-h1 {margin: 1em 0; padding: 0; font-size: 1.5em; }
+body {margin:0; padding:0;}
+h1 {margin: 1em 0; padding: 0; font-size: 1.5em; letter-spacing:0.05em;}
 ul {margin: 0.5em 0; padding: 0 2em;}
 body > div {
   color: var(--fg);
   font-size: 1.2rem;
   font-family: sans-serif;
   line-height: 1.75;
-  max-width: 45em;
-  margin: 0 auto; padding: 1em 2em;
+  max-width: 50rem;
+  padding: 1em 2em;
   background: var(--bg);
-  //background-size: 1.6em 1.6em;
-  //background-image:
-  //  linear-gradient(to right, #eee8 0.1em, transparent 0.1em),
-  //  linear-gradient(to bottom, #eee8 0.1em, transparent 0.1em);
-  //border: 0.1em solid #eee;
-  //box-shadow: 0.5em 1em 0.1em #eee;
-  border: 0.2em solid var(--chalk);
-  box-shadow: 0 0 0 0.2em var(--bg);
-  margin-bottom: 3em;
+  border: 0.15em solid var(--chalk);
+  box-shadow: 0 0 0 0.25em var(--bg);
+  margin: 2em auto 5em auto;
 }
 a:before {content:'➜ '; color:var(--fg2);}
 a, a:hover, a:active, a:visited, a:link {
   color: var(--fg);
   background: var(--bg2);
-  padding: 0.2em 0.4em;
+  padding: 0.15em 0.4em 0.1em 0.2em;
   margin: 0 0.2em;
   text-decoration:none;
+  border:none;
+  white-space: nowrap;
 }
-a:hover {
-  text-decoration:underline;
-  text-decoration-color:var(--fg2);;
-}
+a:hover {border-bottom: 0.1em solid var(--fg2);}
 b {color:var(--fg2);}
-#logo {display: block; float: right; height: 3.5em;}
+#logo {display:block; float:right; height:3.5em;}
 
-@media only screen and (max-width: 45em) {
-body {padding:0;}
-body > div {margin:0; font-size: 1rem; padding: 1em;}
+@media only screen and (max-width: 50rem) {
+  body > div {font-size:1rem; padding:1em;}
 }
 
 </style>
@@ -60,10 +53,13 @@ body > div {margin:0; font-size: 1rem; padding: 1em;}
 <h1>Tensor categories in representation theory</h1>
 <b>Instructors</b> <a href="https://www.math.uni-bonn.de/ag/stroppel/" target="_blank">Prof. Dr. Catharina Stroppel</a> and <a href="https://johannesflake.github.io/" target="_blank">Dr. Johannes Flake</a><br />
 <b>Lectures</b> Wednesdays and Fridays, 10&ndash;12 am, R1.008<br />
-<b>Prerequisites</b> Algebra I &amp; II, Representation Theory I, basic knowledge in category theory<br />
 <b>Material</b> t.b.a. <br/>
-
-<br />
+<b>Prerequisites</b>
+<ul>
+<li>Algebra I &amp; II</li>
+<li>good theoretical and practical knowledge of representation theory</li>
+<li>basic knowledge of category theory</li>
+</ul>
 
 <b>Course content</b>
 <ul>
@@ -81,7 +77,7 @@ body > div {margin:0; font-size: 1rem; padding: 1em;}
 
 <script src="diags.js"></script>
 <script>
-var bg = "#fff", fg = "#eee";
+var bg = "#fff", fg = "#ddd";
 setDiagAsBg(20, 40, bg, fg);
 </script>
 </body>

@@ -2,7 +2,7 @@
 
 function svgToDataUrl(el) {
   var t = new XMLSerializer().serializeToString(el);
-  t = btoa(window.unescape(encodeURIComponent(t)));
+  t = btoa(t);
   t = `url(data:image/svg+xml;base64,${t})`;
   return t;
 }

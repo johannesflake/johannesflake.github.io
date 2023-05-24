@@ -1,0 +1,105 @@
+<head>
+<style>
+input, label, button {font-size: 1.5em; font-family:sans-serif; padding:.5em; margin:.5em;}
+img {max-width:40%; max-height:90%; border:1em dashed red; background:
+    repeating-conic-gradient(#aaa 0% 25%, #888 0% 50%) 50% / 1em 1em;}
+#target {border-color:green;}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+</style>
+  
+</head>
+
+<body>
+<img id="source"><img id="target"><br>
+
+<input type="checkbox" name="invert" id="invert"><label for="invert">Invert</label>
+<input type="checkbox" name="bg-to-transparent" id="bg-to-transparent"><label for="bg-to-transparent">background to transparent</label>
+<button id="copy">copy</button> <span id="status"></span>
+
+<script>
+
+document.getElementById("invert").onchange =
+document.getElementById("bg-to-transparent").onchange = renderImage;
+document.getElementById("copy").onclick = copyImage;
+
+document.onpaste = function (event) {
+    var items = (event.clipboardData || event.originalEvent.clipboardData).items;
+    for (var index in items) {
+        var item = items[index];
+        if (item.kind === 'file' && item.type.startsWith("image/")) {
+            var blob = item.getAsFile();
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                var dataUrl = event.target.result;
+                document.getElementById("source").src = dataUrl;
+                renderImage();
+            };
+            reader.readAsDataURL(blob);
+            break;  // only first image
+        }
+    }
+};
+document.getElementById("source").onload = function() {
+
+};
+
+var mycanvas = document.createElement("canvas");
+
+function renderImage()  {
+  var invert = document.getElementById("invert").checked;
+  var bg_to_transparent = document.getElementById("bg-to-transparent").checked;
+  var bg_tolerance = 0.3;
+  var ctx = mycanvas.getContext('2d', {willReadFrequently: true});
+  var img = new Image();
+  img.onload = function(){
+      mycanvas.width = this.width;
+      mycanvas.height = this.height;
+      ctx.drawImage(img, 0, 0);
+      var imData = ctx.getImageData(0, 0, this.width, this.height);
+      var data = imData.data;
+      var bg = [data[0], data[1], data[2]];
+      if (invert) bg = [255-bg[0], 255-bg[1], 255-bg[2]];
+      if (data[4] == 0) bg_to_transparent = false;
+      for (let i = 0; i < data.length; i += 4) {
+        if (invert) {
+          data[i] = 255 - data[i]; // red
+          data[i + 1] = 255 - data[i + 1]; // green
+          data[i + 2] = 255 - data[i + 2]; // blue
+        }
+        if (bg_to_transparent)  {
+          diff = Math.sqrt( (data[i] - bg[0])**2 + (data[i+1] - bg[1])**2 + (data[i+2] - bg[2])**2 )/255./Math.sqrt(3);
+          if (diff < bg_tolerance)  data[i+3] = 0;
+        }
+      }
+      ctx.putImageData(imData, 0, 0);
+      document.getElementById("target").src = mycanvas.toDataURL();
+  };
+  img.src = document.getElementById("source").src;
+}
+
+function copyImage()  {
+  mycanvas.toBlob(blob => {
+    navigator.clipboard.write([
+      new ClipboardItem({
+        [blob.type]: blob
+      })
+    ]).then(() => {
+      showStatus("copied");
+    })
+  });
+}
+
+function showStatus(msg)  {
+  var el = document.getElementById("status");
+  el.innerHTML = msg;
+  el.style.animation = "";
+  el.offsetWidth; // trigger reflow
+  el.style.animation = "fadeOut ease 10s forwards";
+}
+
+</script>
+</body>

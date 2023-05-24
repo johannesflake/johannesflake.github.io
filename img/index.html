@@ -1,9 +1,12 @@
 <head>
 <style>
-input, label, button {font-size: 1.5em; font-family:sans-serif; padding:.5em; margin:.5em;}
-img {max-width:40%; max-height:90%; border:1em dashed red; background:
+input, label, button {font-size: 1.5em; font-family:sans-serif;}
+img {max-width:40%; max-height:90%; border:0.5em dashed red; background:
     repeating-conic-gradient(#aaa 0% 25%, #888 0% 50%) 50% / 1em 1em;}
 #target {border-color:green;}
+input[type=checkbox]  {width:1em; height:1em;}
+label,button {user-select:none;}
+button {padding:0.5em;}
 
 @keyframes fadeOut {
   0% { opacity: 1; }
@@ -16,7 +19,7 @@ img {max-width:40%; max-height:90%; border:1em dashed red; background:
 <body>
 <img id="source"><img id="target"><br>
 
-<input type="checkbox" name="invert" id="invert"><label for="invert">Invert</label>
+<input type="checkbox" name="invert" id="invert"><label for="invert">invert</label>
 <input type="checkbox" name="bg-to-transparent" id="bg-to-transparent"><label for="bg-to-transparent">background to transparent</label>
 <button id="copy">copy</button> <span id="status"></span>
 
@@ -52,7 +55,7 @@ var mycanvas = document.createElement("canvas");
 function renderImage()  {
   var invert = document.getElementById("invert").checked;
   var bg_to_transparent = document.getElementById("bg-to-transparent").checked;
-  var bg_tolerance = 0.3;
+  var bg_tolerance = 0.1;
   var ctx = mycanvas.getContext('2d', {willReadFrequently: true});
   var img = new Image();
   img.onload = function(){

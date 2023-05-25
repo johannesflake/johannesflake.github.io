@@ -1,9 +1,9 @@
 <head>
 <style>
 input, label, button {font-size: 1.5em; font-family:sans-serif;}
-img {max-width:40%; max-height:90%; border:0.5em dashed red; background:
-    repeating-conic-gradient(#aaa 0% 25%, #888 0% 50%) 50% / 1em 1em;}
-#target {border-color:green;}
+img {max-width:40%; max-height:90%; background:
+    repeating-conic-gradient(#aaa 0% 25%, #888 0% 50%) 50% / 1em 1em; margin:0.5em; border:0.2em solid black; padding:1em;}
+#source {}
 input[type=checkbox]  {width:1em; height:1em;}
 label,button {user-select:none;}
 button {padding:0.5em;}
@@ -20,14 +20,17 @@ button {padding:0.5em;}
 <img id="source"><img id="target"><br>
 
 <input type="checkbox" name="invert" id="invert"><label for="invert">invert</label>
-<input type="checkbox" name="bg-to-transparent" id="bg-to-transparent"><label for="bg-to-transparent">background to transparent</label>
+<input type="checkbox" name="bg-to-transparent" id="bg-to-transparent" checked><label for="bg-to-transparent">background to transparent</label>
 <button id="copy">copy</button> <span id="status"></span>
 
 <script>
 
+createSampleImage();
+
 document.getElementById("invert").onchange =
 document.getElementById("bg-to-transparent").onchange = renderImage;
 document.getElementById("copy").onclick = copyImage;
+
 
 document.onpaste = function (event) {
     var items = (event.clipboardData || event.originalEvent.clipboardData).items;
@@ -102,6 +105,26 @@ function showStatus(msg)  {
   el.style.animation = "";
   el.offsetWidth; // trigger reflow
   el.style.animation = "fadeOut ease 10s forwards";
+}
+
+function createSampleImage()  {
+  var w = 500, h = 300, d = 20, n = 3;
+  var canvas = document.createElement("canvas");
+  canvas.width = 500; canvas.height = 300;
+  var ctx = canvas.getContext('2d');
+  ctx.fillStyle = "white";
+  ctx.fillRect(0,0,w,h);
+  ctx.strokeStyle = "#088";
+  ctx.lineWidth = 10;
+  for (var i=1; i<=n; ++i)
+    ctx.strokeRect(i*d, i*d, w-2*i*d, h-2*i*d);
+  ctx.font = "60px sans-serif";
+  ctx.fillStyle = "black";
+  ctx.fillText("paste image", 80, 140);
+  canvas.toBlob(blob => {
+     document.getElementById("source").src = URL.createObjectURL(blob);
+     renderImage();
+  });
 }
 
 </script>

@@ -1,12 +1,14 @@
 <head>
 <style>
-input, label, button {font-size: 2em; font-family:sans-serif;}
+input, label, button {font-size: 2rem; font-family:sans-serif;}
 img {max-width:40%; max-height:90%; background:
-    repeating-conic-gradient(#aaa 0% 25%, #888 0% 50%) 50% / 1em 1em; margin:0.5em; border:0.2em solid black; padding:1em;}
+    repeating-conic-gradient(#aaa 0% 25%, #888 0% 50%) 50% / 1rem 1rem; margin:0.5rem; border:0.2em solid black; padding:1rem;}
 #source {}
-input[type=checkbox]  {width:1em; height:1em;}
+input[type=checkbox]  {width:1rem; height:1rem;}
+input[type=range] {width:10rem;}
 label,button {user-select:none;}
-button {padding:0.5em;}
+button {padding:0.5rem;}
+#label-bgtol {font-size:0.8rem; display:inline-block;width:3rem;}
 
 @keyframes fadeOut {
   0% { opacity: 1; }
@@ -21,6 +23,7 @@ button {padding:0.5em;}
 
 <input type="checkbox" name="invert" id="invert"><label for="invert">invert</label>
 <input type="checkbox" name="bg-to-transparent" id="bg-to-transparent" checked><label for="bg-to-transparent">background to transparent</label>
+<input type="range" min="5" max="100" step="5" value="30" name="bgtol" id="bgtol"><span id="label-bgtol"></span>
 <button id="copy">copy</button> <span id="status"></span>
 
 <script>
@@ -28,7 +31,9 @@ button {padding:0.5em;}
 createSampleImage();
 
 document.getElementById("invert").onchange =
-document.getElementById("bg-to-transparent").onchange = renderImage;
+document.getElementById("bg-to-transparent").onchange =
+document.getElementById("bgtol").onchange =
+document.getElementById("bgtol").oninput = renderImage;
 document.getElementById("copy").onclick = copyImage;
 
 document.onpaste = function (event) {
@@ -55,7 +60,10 @@ var mycanvas = document.createElement("canvas"); // off-screen
 function renderImage()  {
   var invert = document.getElementById("invert").checked;
   var bg_to_transparent = document.getElementById("bg-to-transparent").checked;
-  var bg_tolerance = 0.3; // TODO make this user-adjustable
+  var bgtol = document.getElementById("bgtol").value;
+  document.getElementById("label-bgtol").innerHTML = bg_to_transparent ? bgtol+"%" : "";
+  document.getElementById("bgtol").disabled = !bg_to_transparent;
+  var bg_tolerance = bgtol/100;
   var ctx = mycanvas.getContext('2d', {willReadFrequently: true});
   var img = new Image();
   img.onload = function(){

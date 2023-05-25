@@ -42,7 +42,7 @@ function makeDiag(rows, cols, bg = "white", fg = "#eee") {
   svg.setAttribute("viewBox", `0 0 ${cols*ux} ${rows*uy}`);
 
   var style = createSvgEl("style");
-  style.innerHTML = `path {fill: transparent; stroke-linecap:butt; stroke:${fg}; stroke-width:${wline}} path.outer {stroke:${bg}; stroke-width:${wouterline}}`;
+  style.innerHTML = `path {fill: transparent; stroke-linecap:butt; stroke:${fg}; stroke-width:${wline};} path.outer {stroke:${bg}; stroke-width:${wouterline};}`;
   svg.append(style);
 
   var pert = Array(rows).fill().map(

@@ -298,7 +298,7 @@ function replaceAll(string, search, replace) { // polyfill
 var tags={}, ntags=0;
 [].forEach.call(document.querySelectorAll("#research small"), function(el) {
     var t=el.innerHTML;
-    if (t.indexOf(",")==0 && !(t in tags)) tags[t] = ""+(++ntags);
+    if (t.indexOf(",")<0 && !(t in tags)) tags[t] = ""+(++ntags);
     for (tag in tags)  t = replaceAll(t, tag, tags[tag]);
     el.innerHTML = t;
 });

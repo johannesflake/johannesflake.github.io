@@ -73,8 +73,14 @@
  #navi  {display: none;}
  
  b  {font-weight: normal; background: #ff05; padding:0.3em;}
- 
- small {font-size:0.8em; color: var(--gray); border: 0.1em solid yellow; border-color: var(--gray); padding: 0 0.4em; margin-left:1em;}
+
+ div > small {
+    display: inline-block;
+    width: 1em;
+    text-align: right;
+    vertical-align: middle;
+ }
+ small {font-size:0.8em; color: var(--gray); padding: 0 0.4em; margin-left:1em;} /* border: 0.1em solid yellow; border-color: var(--gray); */
  .pub small {border: none; margin: 0 0 0 -1em; vertical-align:super;}
  
  .print {display: none;}

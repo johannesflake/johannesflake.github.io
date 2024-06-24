@@ -235,7 +235,7 @@ Rutgers (2015 -- 2018, as a TA / TA-at-large)
 
 
 <div class="tiny" id="siteinfo">
-  this webpage was written by me & updated on Feb 20, 2024 <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
+  this webpage was written by me & updated on Jun 24, 2024 <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
 </div>
 
 <div class="tiny" style="padding:0.5em 1em; background-image:url('warming-stripes.png'); background-size:cover; opacity:0.7;">&nbsp;</div>
@@ -298,14 +298,11 @@ function replaceAll(string, search, replace) { // polyfill
 var tags={}, ntags=0;
 [].forEach.call(document.querySelectorAll("#research small"), function(el) {
     var t=el.innerHTML;
-    if (t.indexOf(",")>0 || t in tags)  return;
-    tags[t] = ++ntags;
-}
-[].forEach.call(document.querySelectorAll("#research small"), function(el) {
-    var t=el.innerHTML;
+    if (t.indexOf(",")==0 && !(t in tags)) tags[t] = ""+(++ntags);
     for (tag in tags)  t = replaceAll(t, tag, tags[tag]);
     el.innerHTML = t;
-}  
+});
+
 </script>
 
 </body>

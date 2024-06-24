@@ -299,7 +299,7 @@ var tags={}, ntags=0;
 [].forEach.call(document.querySelectorAll("#research small"), function(el) {
     var t=el.innerHTML;
     if (t.indexOf(",")<0 && !(t in tags)) tags[t] = ""+(++ntags);
-    for (tag in tags)  t = replaceAll(t, tag, tags[tag]);
+    for (tag in tags)  t = replaceAll(t, new RegExp(tag+"(?![a-zA-Z0-9])",'g'), tags[tag]);
     el.innerHTML = t;
 });
 

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Special+Elite&display=swap" rel="stylesheet">
-<title>Johannes Flake * math * MPIM Bonn</title>
+<title>johannes flake * math * bonn</title>
 <style>
   html, body {margin: 0; padding: 0;}
   body {
@@ -42,6 +42,7 @@
  }
  .pub {font-size: 0.9em; margin:0; padding:0;}
  .pub,.pub li {white-space:pre-line;}
+ .pub li {margin-bottom:1em;}
  .sec::first-line {
    font-size: 1.5em;
    font-family: "Special Elite", monospace;
@@ -72,8 +73,14 @@
  #navi  {display: none;}
  
  b  {font-weight: normal; background: #ff05; padding:0.3em;}
- 
- small {font-size:0.8em; color: var(--gray); border: 0.1em solid yellow; border-color: var(--gray); padding: 0 0.4em; margin-left:1em;}
+
+ div > small {
+    display: inline-block;
+    width: 1em;
+    text-align: right;
+    vertical-align: middle;
+ }
+ small {font-size:0.8em; color: var(--gray); padding: 0 0.4em; margin-left:1em;} /* border: 0.1em solid yellow; border-color: var(--gray); */
  .pub small {border: none; margin: 0 0 0 -1em; vertical-align:super;}
  
  .print {display: none;}
@@ -133,62 +140,70 @@
 </div>
 
 <div class="print">
-<a href="http://johannesflake.de">johannesflake.de</a>
+<a href="http://johannesflake.net">johannesflake.net</a>
 </div>
 
 <div class="sec" id="info">Johannes&nbsp;Flake
-Postdoc at MPIM Bonn
+Postdoc at the University of Bonn 
 PhD from Rutgers University (2018) with Siddhartha Sahi
 
-Max Planck Institute for Mathematics
-Vivatsgasse 7, 53111 Bonn, Germany
+Mathematical Institute
+Endenicher Allee 60, 53115 Bonn, Germany
 
-office: 309
-email: second name at mpim minus bonn dot mpg dot de
+office: 1.002
+email: second name at math dot uni minus bonn dot de
 
 <b>[workshop](http://deligne-categories-quantum-groups.rwth-aachen.de/)</b> Deligne categories and quantum groups
 (postponed due to COVID-19)
 </div>
 
 <div class="sec" id="research">Research
-I am interested in algebra, representation theory, and tensor categories; more specifically:
-<small>1</small> Deligne's interpolation categories and their relatives
-<small>2</small> algebraic (super)groups, Lie (super)algebras, and their representations
-<small>3</small> monoidal centers / Drinfeld centers
-<small>4</small> PBW deformations, various kinds of Hecke and Cherednik algebras
-<small>5</small> algebraic Dirac operators, Dirac cohomology, cohomology functors
-<small>6</small> "easy quantum groups", diagram algebras
-<small>7</small> p-groups
-<small>8</small> computer algebra (see also below under "misc")
+I am interested in algebra, representation theory, and tensor categories, or more specifically:
+<small>int</small> Deligne's interpolation categories and their relatives
+<small>cob</small> cobordism categories and TQFTs
+<small>tcp</small> tensor categories in positive characteristics
+<small>rep</small> algebraic (super)groups, Lie (super)algebras, and their representations
+<small>cent</small> monoidal centers / Drinfeld centers
+<small>pbw</small> PBW deformations, various kinds of Hecke and Cherednik algebras
+<small>dirac</small> algebraic Dirac operators, Dirac cohomology, cohomology functors
+<small>diag</small> "easy quantum groups", diagram algebras
+<small>pgrp</small> p-groups
+<small>comp</small> computer algebra (see also below under "misc")
 <div class="pub">
-- <small>1,2,4</small> <i>Interpolating PBW Deformations for the Orthosymplectic Groups</i>
+- <small>tcp,rep,pgrp</small> <i>Towards higher Frobenius functors for symmetric tensor categories</i>
+  [arxiv 2024](arxiv:2405.19506) with Kevin Coulembier
+- <small>cent,rep,int</small> <i>Projection formulas and induced functors on centers of monoidal categories</i>
+  [arxiv 2024](arxiv:2402.10094) with Robert Laugwitz and Sebastian Posur
+- <small>pbw,int,rep</small> <i>Interpolating PBW Deformations for the Orthosymplectic Groups</i>
   [arxiv 2022](arxiv:2206.08226) with Verity Mackscheidt
-- <small>1</small> <i>Indecomposable objects in Khovanov--Sazdanovic's generalizations of Deligne's interpolation categories</i>
+- <small>cob,int</small> <i>Indecomposable objects in Khovanov--Sazdanovic's generalizations of Deligne's interpolation categories</i>
   [Adv. Math. 2023](https://www.sciencedirect.com/science/article/abs/pii/S000187082300035X) [arxiv](arxiv:2106.05798) with Robert Laugwitz and Sebastian Posur
-- <small>1,3</small> <i>The indecomposable objects in the center of Deligne's category Rep(S_t)</i>
+- <small>int,cent</small> <i>The indecomposable objects in the center of Deligne's category Rep(S_t)</i>
   [Proc. London Math. Soc. 2023](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/plms.12509) [arxiv](arxiv:2105.10492) with Nate Harman and Robert Laugwitz
-- <small>7</small> <i>Strata of p-origamis</i>
+- <small>pgrp</small> <i>Strata of p-origamis</i>
   [Math. Nachr. 2023](https://onlinelibrary.wiley.com/doi/full/10.1002/mana.202100290) (arxiv:2003.13297) with Andrea Thevis
-- <small>2,8</small> <i>Gröbner bases for fusion products</i>
+- <small>rep,comp</small> <i>Gröbner bases for fusion products</i>
   [Algebr. Represent. Theory 2022](https://link.springer.com/article/10.1007/s10468-022-10179-6) (arxiv:2003.05639) with Ghislain Fourier and Viktor Levandovskyy
-- <small>7</small> <i>Groups G satisfying a functional equation f(xk)=xf(x) for some k in G</i>
+- <small>pgrp</small> <i>Groups G satisfying a functional equation f(xk)=xf(x) for some k in G</i>
   [J. Group Theory 2022](https://www.degruyter.com/document/doi/10.1515/jgth-2021-0158) (arxiv:2105.09117) with Dominik Bernhardt, Tim Boykett, Alice Devillers, Stephen Glasby
-- <small>2,4,5</small> <i>Hopf--Hecke algebras, infinitesimal Cherednik algebras, and Dirac cohomology</i>
+- <small>pbw,dirac,rep</small> <i>Hopf--Hecke algebras, infinitesimal Cherednik algebras, and Dirac cohomology</i>
   [Pure Appl. Math. Q. 2021](https://www.intlpress.com/site/pub/pages/journals/items/pamq/content/vols/0017/0004/a009)(arxiv:1608.07504) with Siddhartha Sahi
-- <small>1,6</small> <i>Semisimplicity and indecomposable objects in interpolating partition categories</i>
+- <small>int,diag</small> <i>Semisimplicity and indecomposable objects in interpolating partition categories</i>
   [IMRN 2021](https://academic.oup.com/imrn/advance-article-abstract/doi/10.1093/imrn/rnab217/6352819)(arxiv:2003.13798) with Laura Maaßen
-- <small>1,3</small> <i>On the monoidal center of Deligne's category Rep(S_t)</i>
+- <small>int,cent</small> <i>On the monoidal center of Deligne's category Rep(S_t)</i>
   [J. London Math. Soc. 2020](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12403)(arxiv:1901.08657) with Robert Laugwitz
-- <small>4,5</small> <i>Barbasch--Sahi algebras and Dirac cohomology</i>
+- <small>pbw,dirac</small> <i>Barbasch--Sahi algebras and Dirac cohomology</i>
   [Trans. Amer. Math. Soc. 2019](https://www.ams.org/journals/tran/2019-371-10/S0002-9947-2019-07446-9/home.html)(arxiv:1608.07509)
 
-- <small>2,4,5</small> [PhD thesis 2018](https://rucore.libraries.rutgers.edu/rutgers-lib/59087/)  Dirac cohomology for Hopf--Hecke algebras
+- <small>pbw,dirac,rep</small> [PhD thesis 2018](https://rucore.libraries.rutgers.edu/rutgers-lib/59087/)  Dirac cohomology for Hopf--Hecke algebras
 </div>
 </div>
 
 <div class="sec" id="teaching">Teaching
-Uni Bonn (as a postdoc at MPIM)
-- <b>Spring 2023: Tensor categories in representation theory with Catharina Stroppel</b> [course page](tc23/index.html)
+Uni Bonn (as a postdoc)
+- <b>Spring 2024: Graduate Seminar: Oligomorphic groups and tensor categories</b>
+- Fall 2023: Graduate Seminar: Higher Segal Spaces
+- Spring 2023: Tensor categories in representation theory with Catharina Stroppel [course page](tc23/index.html)
 
 RWTH (2018 -- 2022, as a postdoc)
 - Spring 2022: Tensor Categories
@@ -219,7 +234,7 @@ Rutgers (2015 -- 2018, as a TA / TA-at-large)
 [slides](pdf/quantum_groups.pdf) on quantum groups and tensor categories
 
 [3d rendering](./misc/3d/index.html) of affine surfaces
-[visualization](./misc/tsp25/index.html) of my implementaton of an 2.5-opt algorithm approximately solving a random traveling salesman problem live in your browser, slowed down for visualization purposes. Which traveling salesman[?](https://www.quantamagazine.org/computer-scientists-find-new-shortcuts-to-traveling-salesman-problem-20130129/)
+[visualization](./misc/tsp25/index.html) of my implementation of a 2.5-opt algorithm approximately solving a random traveling salesman problem live in your browser, slowed down for visualization purposes. Which traveling salesman[?](https://www.quantamagazine.org/computer-scientists-find-new-shortcuts-to-traveling-salesman-problem-20130129/)
 [pictures](./misc/UDG/index.html) of some hexagonally symmetric unit-distance graphs in the plane with 745 vertices and chromatic number 5 that I discovered with a SAT solver. So what[?](https://www.quantamagazine.org/decades-old-graph-problem-yields-to-amateur-mathematician-20180417/)
 [pictures & video](./misc/mandelbrot/index.html) of the Mandelbrot set that I made with Julia, the language. What are we looking at[?](https://youtu.be/NGMRB4O922I)
 [pictures](./misc/RepSt/RepSt.html) of computations in the category Rep(S_t) and of objects in its monoidal center made with my own implementation of that category in Julia. This is related to some of my papers above.
@@ -227,7 +242,7 @@ Rutgers (2015 -- 2018, as a TA / TA-at-large)
 
 
 <div class="tiny" id="siteinfo">
-  this webpage was written by me & updated on Feb 14, 2023 <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
+  this webpage was written by me & updated on Jun 24, 2024 <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
 </div>
 
 <div class="tiny" style="padding:0.5em 1em; background-image:url('warming-stripes.png'); background-size:cover; opacity:0.7;">&nbsp;</div>
@@ -241,6 +256,7 @@ by Ed Hawkins[*](http://www.met.reading.ac.uk/~ed/home/index.php)
 var labels = {
   "Dominik Bernhardt": "https://dominikbernhardt.de/",
   "Tim Boykett": "https://www.researchgate.net/profile/Tim-Boykett",
+  "Kevin Coulembier":"https://www.maths.usyd.edu.au/u/kevinc/",
   "Alice Devillers": "https://research-repository.uwa.edu.au/en/persons/alice-devillers",
   "Ghislain Fourier": "https://www.mathematik.rwth-aachen.de/go/id/bkbg/gguid/0x1062A5E011C694489AFCFABBA0555622/ikz/11/allou/1/lidx/1/",
   "Stephen Glasby": "https://research-repository.uwa.edu.au/en/persons/stephen-glasby",
@@ -284,6 +300,14 @@ function replaceAll(string, search, replace) { // polyfill
   for (var k in labels)
     t = replaceAll(t, k, k.replace(/^\[|\]$/g, '')+'<a href="'+labels[k]+'" target="_blank" rel="noopener">*</a>');
   el.innerHTML = t;
+});
+
+var tags={}, ntags=0;
+[].forEach.call(document.querySelectorAll("#research small"), function(el) {
+    var t=el.innerHTML;
+    if (t.indexOf(",")<0 && !(t in tags)) tags[t] = ""+(++ntags);
+    for (tag in tags)  t = replaceAll(t, new RegExp(tag+"(?![a-zA-Z0-9])",'g'), tags[tag]);
+    el.innerHTML = t;
 });
 
 </script>

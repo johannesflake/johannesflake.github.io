@@ -17,10 +17,7 @@ function makePath(d, cl="") {
 }
 
 
-var dunit = 8;
-var ux = 10, uy = 12,
-  axpert = 0.2, aypert = 0.1,
-  wline = 0.85, wouterline = 4*wline;
+var dunit = 8, apert = 0.2, wline = 0.85, wouterline = 4*wline;
 
 function makeGrid(w,h)  {
   var qvacuum = 0.02, qgrowx = 0.2, qgrowy = 0.2;
@@ -45,7 +42,7 @@ function makeGrid(w,h)  {
     return (2*Math.random()-1)*amp;
   }
   var pert = Array(w).fill().map(
-    () => Array(h).fill().map(() => [perturbation(axpert),perturbation(aypert)] ) );
+    () => Array(h).fill().map(() => [perturbation(apert),perturbation(apert)] ) );
 
   // /////////////// //////////////
   var lines = [], toggle=false;
@@ -107,9 +104,9 @@ function makeDiag(rows, cols, bg = "white", fg = "#eee") {
 
 
 // var circ = createSvgEl("circle");
-// circ.setAttribute("cx", cols*ux);
-// circ.setAttribute("cy", rows*uy);
-// circ.setAttribute("r", ux);
+// circ.setAttribute("cx", cols*dunit);
+// circ.setAttribute("cy", rows*dunit);
+// circ.setAttribute("r", dunit);
 // svg.append(circ);
 
 function setDiagAsBg(rows, cols, bg, fg) {

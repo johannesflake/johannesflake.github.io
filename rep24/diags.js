@@ -90,8 +90,8 @@ function makeGrid(w,h,pm=false)  {
   if (pm) for (var xx=0;xx<w;++xx) for (var yy=0;yy<h;++yy) {
     if (box(xx,yy) || r()>qpm) continue;
     var dirs=[];
-    if (box(xx-1,yy) || box(xx+1,y))  dirs.push(90,270);
-    if (box(xx,yy-1) || box(xx,y+1))  dirs.push(0,180);
+    if (box(xx-1,yy) || box(xx+1,yy))  dirs.push(90,270);
+    if (box(xx,yy-1) || box(xx,yy+1))  dirs.push(0,180);
     var x = (xx+0.5)*dunit, y=(yy+0.5)*dunit, ra=0.3*dunit, ang = 35+rr()*20, dir = dirs[Math.floor(r()*dirs.length)];
     var ang1 = dir+ang, ang2 = dir-ang;
     var path = `M ${x} ${y} l ${ra*Math.cos(ang1*Math.PI/180)} ${ra*Math.sin(ang1*Math.PI/180)} A ${ra} ${ra} ${ang} 1 1 ${x+ra*Math.cos(ang2*Math.PI/180)} ${y+ra*Math.sin(ang2*Math.PI/180)} L ${x} ${y}`;

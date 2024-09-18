@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>Computer-Assisted Representation Theory (Fall 2024)</title>
+<meta name="description" content="Computer-Assisted Representation Theory is a seminar by Prof. Dr. Catharina Stroppel and Dr. Johannes Flake at the University of Bonn in Fall 2024.">
+<style>
+:root {
+  --bg: #fff; --fg: #000; --fg2: #80a; --bg2: #80a2; --chalk: #ddd;
+}
+ 
+body {margin:0; padding:0;}
+h1 {margin: 1em 0; padding: 0; font-size: 1.5em; letter-spacing:0.05em;}
+ul {margin: 0.5em 0; padding: 0 2em;}
+body > div {
+  color: var(--fg);
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  line-height: 1.75;
+  max-width: 50rem;
+  padding: 1em 2em;
+  background: var(--bg);
+  border: 0.15em solid var(--chalk);
+  box-shadow: 0 0 0 0.25em var(--bg);
+  margin: 2em auto 6em auto;
+}
+a:before {content:'➜ '; color:var(--fg2);}
+a, a:hover, a:active, a:visited, a:link {
+  color: var(--fg);
+  background: var(--bg2);
+  padding: 0.15em 0.4em 0.1em 0.2em;
+  margin: 0 0.2em;
+  text-decoration:none;
+  border:none;
+  white-space: nowrap;
+}
+a:hover {border-bottom: 0.1em solid var(--fg2);}
+b {color:var(--fg2); display:inline-block; margin-top:1em;}
+#logo {display:block; float:right; height:3.5em;}
+
+@media only screen and (max-width: 50rem) {
+  body > div {font-size:1rem; padding:1em;}
+}
+
+em  {background-color:#ff06; font-style:normal;
+  padding: 0.15em 0.4em 0.1em 0.2em;
+  margin: 0 0.2em;
+}
+</style>
+</head>
+
+<body>
+
+<div>
+<i>Fall 2024</i> <img id="logo" src="logo.png" alt="Logo Uni Bonn" />
+<h1>Computer-Assisted Representation Theory<br><small>(S2A2)</small></h1>
+<b>Instructors</b> <a href="https://www.math.uni-bonn.de/ag/stroppel/" target="_blank">Prof. Dr. Catharina Stroppel</a>, <a href="https://johannesflake.net/" target="_blank">Dr. Johannes Flake</a><br />
+<b>Dates</b> to be announced<br/>
+<b>Description</b> <br /> The seminar is complementing the foundational <a href="https://johannesflake.net/rep24/" target="_blank">course</a> in representation theory (Grundzüge der Darstellungstheorie). We will focus on computational aspects of representation theory. Beside concrete representation theoretical problems we will learn how to use computer algebra programs and other programming tools to do calculations, produce patterns, make predictions and get a feeling for how it can help to come up with conjectures in the field. The seminar should only be taken by students who attend the lecture course in parallel. Many examples treated in the seminar will emerge from the course and, on the other hand, the seminar should help to deeper understand the theory presented in the lectures. No specific programming skills are required, but some openness to experimenting and playing around with codes and computer programs is expected and necessary.<br/><br/>
+
+The format will be in blocks (the specific dates will be coordinated with the participants): There will be one introductory meeting of about 2 hours and then 3 times a longer block of about 8 hours (split over 2 consecutive days) where the participants give talks. The talks will be a mix of usual math talks and of computer based talks with presentations of programs. These programs and codes will be worked out and produced by the participants in preparation to the meeting. The main goal of the seminar is to bring together the abstract theory with the coding.
+</div>
+
+<script src="../rep24/diags.js"></script>
+<script>
+var bg = "#fff", fg = "#ddd";
+setDiagAsBg(30, 30, bg, fg, true);
+</script>
+</body>
+</html>

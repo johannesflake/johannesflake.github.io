@@ -19,8 +19,8 @@ function makePath(d, cl="") {
 
 var dunit = 8, apert = 0.2, wline = 0.85, wouterline = 4*wline;
 
-function makeGrid(w,h)  {
-  var qvacuum = 0.02, qgrowx = 0.2, qgrowy = 0.2;
+function makeGrid(w,h,pm=false)  {
+  var qvacuum = 0.02, qgrowx = 0.2, qgrowy = 0.2, qpm = 0.04;
   var nsteps = 20;
   
   var arr = [...new Array(w)].map(() => new Array(h).fill(false));
@@ -86,10 +86,22 @@ function makeGrid(w,h)  {
     var path = `M ${x} ${y} c ${px} ${py}, ${qx} ${qy}, ${dx} ${dy}`;
     result.append(makePath(path));
   }
+  // /////////// ////////////////
+  if (pm) for (var xx=0;xx<w;++xx) for (var yy=0;yy<h;++yy) {
+    if (box(xx,yy) || r()>qpm) continue;
+    var dirs=[];
+    if (box(xx-1,yy) || box(xx+1,y))  dirs.push(90,270);
+    if (box(xx,yy-1) || box(xx,y+1))  dirs.push(0,180);
+    var x = (xx+0.5)*dunit, y=(yy+0.5)*dunit, ra=0.3*dunit, ang = 35+rr()*20, dir = dirs[Math.floor(r()*dirs.length)];
+    var ang1 = dir+ang, ang2 = dir-ang;
+    var path = `M ${x} ${y} l ${ra*Math.cos(ang1*Math.PI/180)} ${ra*Math.sin(ang1*Math.PI/180)} A ${ra} ${ra} ${ang} 1 1 ${x+ra*Math.cos(ang2*Math.PI/180)} ${y+ra*Math.sin(ang2*Math.PI/180)} L ${x} ${y}`;
+    result.append(makePath(path));
+  }
+  
   return result;
 }
 
-function makeDiag(rows, cols, bg = "white", fg = "#eee") {
+function makeDiag(rows, cols, bg = "white", fg = "#eee", pm = false) {
   var svg = createSvgEl("svg");
   svg.setAttribute("viewBox", `0 0 ${cols*dunit} ${rows*dunit}`);
 
@@ -97,7 +109,7 @@ function makeDiag(rows, cols, bg = "white", fg = "#eee") {
   style.innerHTML = `path {fill: transparent; stroke-linecap:butt; stroke:${fg}; stroke-width:${wline};} path.outer {stroke:${bg}; stroke-width:${wouterline};}`;
   svg.append(style);
 
-  svg.append(makeGrid(rows,cols));
+  svg.append(makeGrid(rows,cols,pm));
   return svg;
   
 }
@@ -109,8 +121,8 @@ function makeDiag(rows, cols, bg = "white", fg = "#eee") {
 // circ.setAttribute("r", dunit);
 // svg.append(circ);
 
-function setDiagAsBg(rows, cols, bg, fg) {
-  var svg = makeDiag(rows, cols, bg, fg);
+function setDiagAsBg(rows, cols, bg, fg, pm=false) {
+  var svg = makeDiag(rows, cols, bg, fg, pm);
   document.body.style.background = `${bg} ${svgToDataUrl(svg)} repeat top left / ${cols*1.6}em`;
 }
 

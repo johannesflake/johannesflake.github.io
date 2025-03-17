@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<meta name="description" content="Johannes Flake's webpage, mostly about mathematics that he finds interesting.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Special+Elite&family=Courier+Prime&display=swap" rel="stylesheet">
+<title>johannes flake * math * bonn</title>
+<style>
+  html, body {margin: 0; padding: 0;}
+  body {
+   font-family: "DM Sans", sans-serif;
+   font-size: 1.1rem;
+  }
+  html {
+   height: 100%;
+   color: var(--fg); background: var(--bg);
+  }
+  
+ .sec, .tiny  {
+   box-sizing: border-box;
+   width: 45rem;
+   margin: 3rem auto;
+   margin-bottom: 0;
+   padding: 1.5rem 2rem;
+   background: var(--bg);
+   line-height: 1.6;
+ }
+ a, .sec a {white-space: nowrap;}
+ .sec, details  {
+   white-space: pre-line;
+ }
+ .sec ul {
+   white-space: normal;
+ }
+ .pub {font-size: 0.9em; margin:0; padding:0;}
+ .pub,.pub li {white-space:pre-line;}
+ .pub li {margin-bottom:1em;}
+ 
+  li {margin:0; margin-bottom:0.5em;}
+ 
+ span.h1 {
+   font-size: 1.5em;
+   font-family: "Courier Prime", monospace;
+   letter-spacing: 0.1em;
+   font-weight: normal;
+   padding:0;margin:0;
+ }
+ span.tiny {
+    font-size: 0.75em;
+    padding:0;margin:0;
+ }
+ 
+ ul {margin: 0; padding: 0 0 0 1em; list-style:circle;}
+ 
+ a  {
+   text-decoration: none;
+   color:var(--fg);
+   user-select:none;
+ }
+ a.placeholder {color:var(--gray); border-color:var(--gray); cursor:default;}
+ 
+ /*a.bubble {*/
+ /*  border: 0.1em solid #08f6;*/
+ /*  border-radius: 2em;*/
+ /*  padding: 0 0.4em;*/
+ /*  margin: 0 0.2em;*/
+ /* }*/
+  a:before, a:after {color:var(--link); font-size:1.2em;}
+  a:hover { color:var(--link); }
+  a.bubble:before {content:'[';}  a.bubble:after {content:']';}
+  a.starred:after {content:'*';}
+
+ #navi  {display: none;}
+ 
+ details {padding-left:2em;border-left: 0.1em solid var(--gray);}
+ details > summary {user-select:none; list-style-type:'[+] ';font-size:1.2em; color:var(--link);}
+ details[open] > summary {list-style-type:'[-] ';}
+
+ b  {font-weight: normal; background: #ff05; padding:0.3em;}
+
+ small {font-size:0.8em; color: var(--gray); padding: 0 0.4em;} /* border: 0.1em solid yellow; border-color: var(--gray); */
+
+ .print {display: none;}
+ @media only print  {
+    .print {display: block;}
+    body, div {background: none;}
+    body > div  {
+      width: auto;
+      border-radius: 0;
+      margin: 1.5rem 0;
+      padding: 0;
+    }
+    body  {font-size: 1rem;}
+ }
+ @media only screen and (min-width: 90rem) {
+   body {column-count:2;}
+ }
+ @media only screen and (max-width: 55rem) {
+   body {font-size: 0.9rem; /* mobile */}
+    .sec, .tiny  {
+      width: 95%;
+      padding: 1rem;
+      margin: 1rem auto;
+    }
+    .sec { margin-top: 3rem; }
+    .tiny { margin-top:0.5rem; padding-top:0; }
+ }
+ 
+  
+ :root {
+   --gray: #aaa;
+   --bg: white; --fg: black;
+   --sec-bg: #fff7; --sec-border: #0001;
+   --link: #08f;
+ }
+
+ @media (prefers-color-scheme:dark) {
+    :root {
+      --gray: #666;
+      --bg: #222; --fg: white;
+      --sec-bg: #2227; --sec-border: #fff2;
+    }
+    b {background: none; border:0.2em solid #ff0a; padding:0.1em; }
+    a {color: #6bf; border-color: #6bf4;};
+    a:link:hover {color: #fb6; border-color: #fb64;};
+  }
+</style>
+<script defer src="nightsky2.js"></script>
+<script defer src="rainbow-symbols-2.js"></script>
+</head>
+<body>
+
+<div class="sec">
+# Johannes Flake
+
+Mathematician, Postdoc at University of Bonn
+
+<details>
+PhD from Rutgers University with Siddhartha Sahi
+
+Mathematical Institute
+Endenicher Allee 60, 53115 Bonn, Germany
+
+office: 1.002
+email: second name at math dot uni minus bonn dot de
+</details>
+
+# Research
+
+I am interested in representation theory, tensor categories, and related areas.
+Things I have worked on include:
+<small>int</small> Deligne's interpolation categories and their relatives
+<small>cob</small> cobordism categories, TQFTs, Frobenius algebras, Frobenius monoidal functors
+<small>tcp</small> tensor categories in positive characteristics, incompressible tensor categories
+<small>rep</small> algebraic (super)groups, Lie (super)algebras, and their representations
+<small>cent</small> monoidal centers, Drinfeld centers
+<small>pbw</small> PBW deformations, various kinds of Hecke and Cherednik algebras
+<small>dirac</small> algebraic Dirac operators, Dirac cohomology, cohomology functors
+<small>diag</small> "easy quantum groups", diagram algebras
+<small>pgrp</small> p-groups
+<small>comp</small> computer algebra (see also below under "misc")
+
+(arxiv:2412.15056) <small>cob, cent, rep</small> Frobenius monoidal functors induced by Frobenius extensions of Hopf algebras, with Robert Laugwitz, Sebastian Posur
+(arxiv:2410.08702)  <small>cob, cent, rep, int</small> Frobenius monoidal functors from ambiadjunctions and their lifts to Drinfeld centers, with Robert Laugwitz, Sebastian Posur
+(arxiv:2405.19506) <small>tcp, rep, pgrp</small> Towards higher Frobenius functors for symmetric tensor categories, with Kevin Coulembier
+(arxiv:2402.10094) <small>cent, rep, int</small> Projection formulas and induced functors on centers of monoidal categories, with Robert Laugwitz, Sebastian Posur
+(arxiv:2206.08226) <small>pbw, int, rep</small> Interpolating PBW Deformations for the Orthosymplectic Groups, with Verity Mackscheidt
+(arxiv:2106.05798)[Adv. Math.](https://www.sciencedirect.com/science/article/abs/pii/S000187082300035X) <small>cob, int</small> Indecomposable objects in Khovanov--Sazdanovic's generalizations of Deligne's interpolation categories, with Robert Laugwitz, Sebastian Posur
+(arxiv:2105.10492)[Proc. London Math. Soc.](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/plms.12509) <small>int, cent</small> The indecomposable objects in the center of Deligne's category Rep(S_t), with Nate Harman, Robert Laugwitz
+
+<details>
+(arxiv:2105.09117)[J. Group Theory](https://www.degruyter.com/document/doi/10.1515/jgth-2021-0158) <small>pgrp</small> Groups G satisfying a functional equation f(xk)=xf(x) for some k in G, with Dominik Bernhardt, Tim Boykett, Alice Devillers, Stephen Glasby
+(arxiv:2003.13798)[Int. Math. Res. Not. IMRN](https://academic.oup.com/imrn/advance-article-abstract/doi/10.1093/imrn/rnab217/6352819) <small>int,diag</small> Semisimplicity and indecomposable objects in interpolating partition categories, with Laura Maaßen
+(arxiv:2003.13297)[Math. Nachr.](https://onlinelibrary.wiley.com/doi/full/10.1002/mana.202100290) <small>pgrp</small> Strata of p-origamis, with Andrea Thevis
+(arxiv:2003.05639)[Algebr. Represent. Theory](https://link.springer.com/article/10.1007/s10468-022-10179-6) <small>rep,comp</small> Gröbner bases for fusion products, with Ghislain Fourier, Viktor Levandovskyy
+(arxiv:1901.08657)[J. London Math. Soc.](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12403) <small>int,cent</small> On the monoidal center of Deligne's category Rep(S_t), with Robert Laugwitz
+(arxiv:1608.07509)[Trans. Amer. Math. Soc.](https://www.ams.org/journals/tran/2019-371-10/S0002-9947-2019-07446-9/home.html) <small>pbw,dirac</small> Barbasch--Sahi algebras and Dirac cohomology
+(arxiv:1608.07504)[Pure Appl. Math. Q.](https://www.intlpress.com/site/pub/pages/journals/items/pamq/content/vols/0017/0004/a009) <small>pbw,dirac,rep</small> Hopf--Hecke algebras, infinitesimal Cherednik algebras, and Dirac cohomology, with Siddhartha Sahi
+
+[PhD thesis](https://rucore.libraries.rutgers.edu/rutgers-lib/59087/) <small>pbw,dirac,rep</small> Dirac cohomology for Hopf--Hecke algebras
+</details>
+
+# Teaching
+
+Uni Bonn (as a postdoc)
+- <b>Spring 2025</b>: <b>Seminar: Computer-assisted Representation Theory&nbsp;II</b>[seminar page](crep25/index.html) and assistant for <b>Representation Theory&nbsp;I</b>[course page](rep25/index.html) with Catharina Stroppel
+- Fall 2024: Seminar: Computer-assisted Representation Theory and assistant for Foundations in Representation Theory [course page](rep24/index.html) with Catharina Stroppel [seminar page](crep24/index.html)
+- Spring 2024: Graduate Seminar: Oligomorphic groups and tensor categories
+- Fall 2023: Graduate Seminar: Higher Segal Spaces
+- Spring 2023: Tensor categories in representation theory with Catharina Stroppel [course page](tc23/index.html)
+
+<details>
+RWTH (2018 -- 2022, as a postdoc)
+- Spring 2022: Tensor Categories
+- Spring 2021: Algebraic Geometry
+- Spring 2019: Lecture in Pairs on filtered-graded transfer and PBW deformations with Viktor Levandovskyy
+- Spring 2019: Begleitpraktikum 2
+- Fall 2018: Begleitpraktikum
+
+Rutgers (2015 -- 2018, as a TA, TA-at-large)
+- Math 351 -- Introduction to Abstract Algebra I
+- Math 451 -- Abstract Algebra I
+- Math 311 -- Introduction to Real Analysis I
+- Math 354 -- Linear Optimization
+- Math 421 -- Advanced Calculus for Engineering
+- Math 251 -- Multivariable Calculus
+- Math 152 -- Calculus II for the Mathematical and Physical Sciences
+</details>
+
+# Misc
+
+[pictures](./misc/RepSt/RepSt.html) of computations in the category Rep(S_t) and of objects in its monoidal center made with my own implementation of that category in Julia. This is related to some of my papers above.
+[pictures & video](./misc/mandelbrot/index.html) of the Mandelbrot set that I made with Julia, the language. What are we looking at[?](https://youtu.be/NGMRB4O922I)
+[pictures](./misc/UDG/index.html) of some hexagonally symmetric unit-distance graphs in the plane with 745 vertices and chromatic number 5 that I discovered with a SAT solver. So what[?](https://www.quantamagazine.org/decades-old-graph-problem-yields-to-amateur-mathematician-20180417/)
+[visualization](./misc/tsp25/index.html) of my implementation of a 2.5-opt algorithm approximately solving a random traveling salesman problem live in your browser, slowed down for visualization purposes. Which traveling salesman[?](https://www.quantamagazine.org/computer-scientists-find-new-shortcuts-to-traveling-salesman-problem-20130129/)
+[3d rendering](./misc/3d/index.html) of affine surfaces
+
+<details>
+[slides](pdf/schur_weyl_links.pdf) on quantum Schur--Weyl duality and link invariants
+[slides](pdf/deligne_category_rep_st.pdf) on Deligne's category Rep(S_t)
+[slides](pdf/voa_constructions.pdf) on some constructions of vertex operator algebras and their modules
+[slides](pdf/quantum_groups.pdf) on quantum groups and tensor categories
+  
+[johannesflake/oscar](https://github.com/johannesflake/oscar-docker/), my personal unofficial [OSCAR] docker image
+[pbwdeformations.jl](https://gitlab.com/johannesflake/pbwdeformations.jl), a Julia package for PBW deformations of smash products using [OSCAR] and [GAP] (under development; [example](https://nbviewer.org/urls/gitlab.com/johannesflake/pbwdeformations.jl/-/raw/master/examples/PBWDeformationsNotebook.ipynb))
+</details>
+
+&nbsp;
+> this webpage was written by me & updated on Mar 15, 2025
+> <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
+
+<img style="height: 0.9em; width: 95%; object-fit:cover; opacity:0.8;" src="warming-stripes.png">
+> Warming Stripes by Ed Hawkins
+
+</div>
+
+<script>
+var labels = {
+  "Warming Stripes": "https://showyourstripes.info/s/globe",
+  "Ed Hawkins": "http://www.met.reading.ac.uk/~ed/home/index.php",
+  "Dominik Bernhardt": "https://dominikbernhardt.de/",
+  "Tim Boykett": "https://www.researchgate.net/profile/Tim-Boykett",
+  "Kevin Coulembier":"https://www.maths.usyd.edu.au/u/kevinc/",
+  "Alice Devillers": "https://research-repository.uwa.edu.au/en/persons/alice-devillers",
+  "Ghislain Fourier": "https://www.mathematik.rwth-aachen.de/go/id/bkbg/gguid/0x1062A5E011C694489AFCFABBA0555622/ikz/11/allou/1/lidx/1/",
+  "Stephen Glasby": "https://research-repository.uwa.edu.au/en/persons/stephen-glasby",
+  "Nate Harman": "https://www.math.ias.edu/~nharman/",
+  "Robert Laugwitz": "https://www.nottingham.ac.uk/mathematics/people/robert.laugwitz",
+  "Viktor Levandovskyy": "http://www.math.rwth-aachen.de/~Viktor.Levandovskyy/en/",
+  "Laura Maaßen": "http://www.math.rwth-aachen.de/~Laura.Maassen/",
+  "Sebastian Posur": "https://sebastianpos.github.io/",
+  "Siddhartha Sahi": "http://sites.math.rutgers.edu/~sahi/",
+  "Andrea Thevis": "https://www.math.uni-sb.de/ag/weitze/CMS/index.php/de/personen/thevis",
+  "Catharina Stroppel": "https://www.math.uni-bonn.de/ag/stroppel/",
+  "[OSCAR]": "https://oscar.computeralgebra.de/",
+  "[GAP]": "https://www.gap-system.org/",
+  "[CAP]": "http://homalg-project.github.io/CAP_project/",
+  "[polymake]": "https://polymake.org/doku.php",
+  "[SFB-TRR 195]": "https://www.computeralgebra.de/sfb/",
+  "MPIM Bonn": "https://www.mpim-bonn.mpg.de/"
+};
+
+var macros = {
+  "Rep(S_t)": "Rep(S<sub>t</sub>)",
+  "--": "&ndash;"
+};
+
+// do
+function replaceAll(string, search, replace) { // polyfill
+  return string.split(search).join(replace);
+}
+
+[].forEach.call(document.querySelectorAll(".sec,.tiny"), function(el) {
+  var t = el.innerHTML;
+  t = t.replace(/<details>/g, '<details><summary></summary>');
+  t = t.replace(/^\s*?- ((.+)(\n  .+\S+\s*)*)/gm, '<li>$1</li>');
+  t = t.replace(/^\s*?(\>|&gt;) ((.+)(\n  .+\S+\s*)*)/gm, '<span class="tiny">&gt; $2</span>');
+  t = t.replace(/^\s*?# ((.+)(\n  .+\S+\s*)*)/gm, '<span class="h1"># $1</span>');
+  t = t.replace(/^(<li>[\s\S]*?<\/li>(\s*?<li>[\s\S]*?<\/li>)*)/gm, '<ul>$1</ul>');
+  t = t.replace(/<\/ul>\n/g, "</ul>");
+  t = t.replace(/\[([^\]]+)\]\(\.\.\.\)/g, '<a class="placeholder" target="_blank" rel="noopener">$1</a>'
+  ).replace(/\[([^\]]+)\]\(arxiv:([0-9\.]+)\)/g, '<a class="bubble" href="https://arxiv.org/abs/$2" target="_blank" rel="noopener">$1</a>'
+  ).replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a class="bubble" href="$2" target="_blank" rel="noopener">$1</a>'
+  ).replace(/\(arxiv:([0-9\.]+)\)/g, '<a class="bubble" href="https://arxiv.org/abs/$1" target="_blank" rel="noopener">arxiv</a>');
+  for (var k in macros)
+    t = replaceAll(t, k, macros[k]);
+  for (var k in labels)
+    t = replaceAll(t, k, '<a href="'+labels[k]+'" target="_blank" rel="noopener" class="starred">'+k.replace(/^\[|\]$/g, '')+'</a>');
+  el.innerHTML = t;
+});
+
+var tags={}, ntags=0;
+[].forEach.call(document.querySelectorAll("small"), function(el) {
+    var t=el.innerHTML;
+    if (t.indexOf(",")<0 && !(t in tags)) tags[t] = ""+(++ntags);
+    for (tag in tags)  t = replaceAll(t, new RegExp(tag+"(?![a-zA-Z0-9])",'g'), tags[tag]);
+    el.innerHTML = t;
+});
+</script>
+
+</body>
+</html>

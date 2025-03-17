@@ -13,7 +13,7 @@
   html, body {margin: 0; padding: 0;}
   body {
    font-family: "DM Sans", sans-serif;
-   font-size: 1.1rem;
+   font-size: 1.0rem;
   }
   html {
    height: 100%;
@@ -23,9 +23,6 @@
  .sec, .tiny  {
    box-sizing: border-box;
    width: 45rem;
-   margin: 3rem auto;
-   margin-bottom: 0;
-   padding: 1.5rem 2rem;
    background: var(--bg);
    line-height: 1.6;
  }
@@ -71,7 +68,9 @@
  /* }*/
   a:before, a:after {color:var(--link); font-size:1.2em;}
   a:hover { color:var(--link); }
-  a.bubble:before {content:'[';}  a.bubble:after {content:']';}
+  a.bubble:hover {text-decoration:underline;}
+  a.bubble {color:var(--link); }
+  a.bubble:before {content:'[';}  a.bubble:after {content:']'; }
   a.starred:after {content:'*';}
 
  #navi  {display: none;}
@@ -81,6 +80,8 @@
  details[open] > summary {list-style-type:'[-] ';}
 
  b  {font-weight: normal; background: #ff05; padding:0.3em;}
+ 
+ .box {break-inside:avoid; margin:1em; padding:1em;}
 
  small {font-size:0.8em; color: var(--gray); padding: 0 0.4em;} /* border: 0.1em solid yellow; border-color: var(--gray); */
 
@@ -104,10 +105,10 @@
     .sec, .tiny  {
       width: 95%;
       padding: 1rem;
-      margin: 1rem auto;
+      margin: 0 auto;
     }
-    .sec { margin-top: 3rem; }
-    .tiny { margin-top:0.5rem; padding-top:0; }
+    /*.sec { margin-top: 3rem; }*/
+    /*.tiny { margin-top:0.5rem; padding-top:0; }*/
  }
  
   
@@ -187,8 +188,8 @@ Things I have worked on include:
 # Teaching
 
 Uni Bonn (as a postdoc)
-- <b>Spring 2025</b>: <b>Seminar: Computer-assisted Representation Theory&nbsp;II</b>[seminar page](crep25/index.html) and assistant for <b>Representation Theory&nbsp;I</b>[course page](rep25/index.html) with Catharina Stroppel
-- Fall 2024: Seminar: Computer-assisted Representation Theory and assistant for Foundations in Representation Theory [course page](rep24/index.html) with Catharina Stroppel [seminar page](crep24/index.html)
+- Spring 2025: <b>Seminar: Computer-assisted Representation Theory&nbsp;II</b> and assistant for <b>Representation Theory&nbsp;I</b> with Catharina Stroppel [seminar page](crep25/index.html)[course page](rep25/index.html)
+- Fall 2024: Seminar: Computer-assisted Representation Theory and assistant for Foundations in Representation Theory  with Catharina Stroppel [seminar page](crep24/index.html)[course page](rep24/index.html)
 - Spring 2024: Graduate Seminar: Oligomorphic groups and tensor categories
 - Fall 2023: Graduate Seminar: Higher Segal Spaces
 - Spring 2023: Tensor categories in representation theory with Catharina Stroppel [course page](tc23/index.html)
@@ -201,14 +202,8 @@ RWTH (2018 -- 2022, as a postdoc)
 - Spring 2019: Begleitpraktikum 2
 - Fall 2018: Begleitpraktikum
 
-Rutgers (2015 -- 2018, as a TA, TA-at-large)
-- Math 351 -- Introduction to Abstract Algebra I
-- Math 451 -- Abstract Algebra I
-- Math 311 -- Introduction to Real Analysis I
-- Math 354 -- Linear Optimization
-- Math 421 -- Advanced Calculus for Engineering
-- Math 251 -- Multivariable Calculus
-- Math 152 -- Calculus II for the Mathematical and Physical Sciences
+Rutgers (2015 -- 2018, as a TA, TA-at-large):
+Math 351 -- Introduction to Abstract Algebra I, Math 451 -- Abstract Algebra I, Math 311 -- Introduction to Real Analysis I, Math 354 -- Linear Optimization, Math 421 -- Advanced Calculus for Engineering, Math 251 -- Multivariable Calculus, Math 152 -- Calculus II for the Mathematical and Physical Sciences
 </details>
 
 # Misc
@@ -230,8 +225,9 @@ Rutgers (2015 -- 2018, as a TA, TA-at-large)
 </details>
 
 &nbsp;
+<span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
 > this webpage was written by me & updated on Mar 15, 2025
-> <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
+
 
 <img style="height: 0.9em; width: 95%; object-fit:cover; opacity:0.8;" src="warming-stripes.png">
 > Warming Stripes by Ed Hawkins
@@ -279,7 +275,10 @@ function replaceAll(string, search, replace) { // polyfill
   t = t.replace(/<details>/g, '<details><summary></summary>');
   t = t.replace(/^\s*?- ((.+)(\n  .+\S+\s*)*)/gm, '<li>$1</li>');
   t = t.replace(/^\s*?(\>|&gt;) ((.+)(\n  .+\S+\s*)*)/gm, '<span class="tiny">&gt; $2</span>');
-  t = t.replace(/^\s*?# ((.+)(\n  .+\S+\s*)*)/gm, '<span class="h1"># $1</span>');
+
+  t = t.replace(/^\s*?# ((.+)(\n  .+\S+\s*)*)/gm, '</div><div class="box"><span class="h1"># $1</span>');
+  t = t.replace(/^<\/div>/,'')+"</div>";
+  
   t = t.replace(/^(<li>[\s\S]*?<\/li>(\s*?<li>[\s\S]*?<\/li>)*)/gm, '<ul>$1</ul>');
   t = t.replace(/<\/ul>\n/g, "</ul>");
   t = t.replace(/\[([^\]]+)\]\(\.\.\.\)/g, '<a class="placeholder" target="_blank" rel="noopener">$1</a>'

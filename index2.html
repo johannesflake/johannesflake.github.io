@@ -20,11 +20,11 @@
    color: var(--fg); background: var(--bg);
   }
   
- .sec, .tiny  {
+ .sec  {
    box-sizing: border-box;
    width: 45rem;
-   background: var(--bg);
    line-height: 1.6;
+   /*backdrop-filter: blur(0.25rem);*/
  }
  a, .sec a {white-space: nowrap;}
  .sec, details  {
@@ -37,7 +37,7 @@
  .pub,.pub li {white-space:pre-line;}
  .pub li {margin-bottom:1em;}
  
-  li {margin:0; margin-bottom:0.5em;}
+  li {margin:0; margin-bottom:0.5em; list-style-type:'– ';}
  
  span.h1 {
    font-size: 1.5em;
@@ -60,12 +60,6 @@
  }
  a.placeholder {color:var(--gray); border-color:var(--gray); cursor:default;}
  
- /*a.bubble {*/
- /*  border: 0.1em solid #08f6;*/
- /*  border-radius: 2em;*/
- /*  padding: 0 0.4em;*/
- /*  margin: 0 0.2em;*/
- /* }*/
   a:before, a:after {color:var(--link); font-size:1.2em;}
   a:hover { color:var(--link); }
   a.bubble:hover {text-decoration:underline;}
@@ -76,14 +70,14 @@
  #navi  {display: none;}
  
  details {padding-left:2em;border-left: 0.1em solid var(--gray);}
- details > summary {user-select:none; list-style-type:'[+] ';font-size:1.2em; color:var(--link);}
+ details > summary {user-select:none; list-style-type:'[+] ';font-size:1.2em; color:var(--link); cursor:pointer;}
  details[open] > summary {list-style-type:'[-] ';}
 
  b  {font-weight: normal; background: #ff05; padding:0.3em;}
  
- .box {break-inside:avoid; margin:1em; padding:1em;}
+ .box {break-inside:avoid; margin:1em; padding:1em; }
 
- small {font-size:0.8em; color: var(--gray); padding: 0 0.4em;} /* border: 0.1em solid yellow; border-color: var(--gray); */
+ small {font-size:0.8em; color: var(--gray); padding: 0 0.4em;}
 
  .print {display: none;}
  @media only print  {
@@ -102,42 +96,38 @@
  }
  @media only screen and (max-width: 55rem) {
    body {font-size: 0.9rem; /* mobile */}
-    .sec, .tiny  {
+    .sec  {
       width: 95%;
       padding: 0.5rem 0;
       margin: 0 auto;
     }
-    /*.sec { margin-top: 3rem; }*/
-    /*.tiny { margin-top:0.5rem; padding-top:0; }*/
    .box {margin:0; padding:0.5em;}
  }
  
-  
  :root {
    --gray: #aaa;
    --bg: white; --fg: black;
    --sec-bg: #fff7; --sec-border: #0001;
    --link: #08f;
  }
-
+ 
  @media (prefers-color-scheme:dark) {
     :root {
       --gray: #666;
       --bg: #222; --fg: white;
       --sec-bg: #2227; --sec-border: #fff2;
+      --link: #6bf;
     }
     b {background: none; border:0.2em solid #ff0a; padding:0.1em; }
-    a {color: #6bf; border-color: #6bf4;};
-    a:link:hover {color: #fb6; border-color: #fb64;};
   }
 </style>
-<script defer src="nightsky2.js"></script>
+<!--<script defer src="nightsky3.js"></script>-->
 <script defer src="rainbow-symbols-2.js"></script>
 </head>
 <body>
 
 <div class="sec">
-# Johannes Flake
+# Johannes Flake 🙂
 
 Mathematician, Postdoc at University of Bonn
 
@@ -151,7 +141,7 @@ office: 1.002
 email: second name at math dot uni minus bonn dot de
 </details>
 
-# Research
+# Research 🔬
 
 I am interested in representation theory, tensor categories, and related areas.
 Things I have worked on include:
@@ -176,17 +166,17 @@ Things I have worked on include:
 
 <details>
 (arxiv:2105.09117)[J. Group Theory](https://www.degruyter.com/document/doi/10.1515/jgth-2021-0158) <small>pgrp</small> Groups G satisfying a functional equation f(xk)=xf(x) for some k in G, with Dominik Bernhardt, Tim Boykett, Alice Devillers, Stephen Glasby
-(arxiv:2003.13798)[Int. Math. Res. Not. IMRN](https://academic.oup.com/imrn/advance-article-abstract/doi/10.1093/imrn/rnab217/6352819) <small>int,diag</small> Semisimplicity and indecomposable objects in interpolating partition categories, with Laura Maaßen
+(arxiv:2003.13798)[Int. Math. Res. Not. IMRN](https://academic.oup.com/imrn/advance-article-abstract/doi/10.1093/imrn/rnab217/6352819) <small>int, diag</small> Semisimplicity and indecomposable objects in interpolating partition categories, with Laura Maaßen
 (arxiv:2003.13297)[Math. Nachr.](https://onlinelibrary.wiley.com/doi/full/10.1002/mana.202100290) <small>pgrp</small> Strata of p-origamis, with Andrea Thevis
-(arxiv:2003.05639)[Algebr. Represent. Theory](https://link.springer.com/article/10.1007/s10468-022-10179-6) <small>rep,comp</small> Gröbner bases for fusion products, with Ghislain Fourier, Viktor Levandovskyy
-(arxiv:1901.08657)[J. London Math. Soc.](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12403) <small>int,cent</small> On the monoidal center of Deligne's category Rep(S_t), with Robert Laugwitz
-(arxiv:1608.07509)[Trans. Amer. Math. Soc.](https://www.ams.org/journals/tran/2019-371-10/S0002-9947-2019-07446-9/home.html) <small>pbw,dirac</small> Barbasch--Sahi algebras and Dirac cohomology
-(arxiv:1608.07504)[Pure Appl. Math. Q.](https://www.intlpress.com/site/pub/pages/journals/items/pamq/content/vols/0017/0004/a009) <small>pbw,dirac,rep</small> Hopf--Hecke algebras, infinitesimal Cherednik algebras, and Dirac cohomology, with Siddhartha Sahi
+(arxiv:2003.05639)[Algebr. Represent. Theory](https://link.springer.com/article/10.1007/s10468-022-10179-6) <small>rep, comp</small> Gröbner bases for fusion products, with Ghislain Fourier, Viktor Levandovskyy
+(arxiv:1901.08657)[J. London Math. Soc.](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12403) <small>int, cent</small> On the monoidal center of Deligne's category Rep(S_t), with Robert Laugwitz
+(arxiv:1608.07509)[Trans. Amer. Math. Soc.](https://www.ams.org/journals/tran/2019-371-10/S0002-9947-2019-07446-9/home.html) <small>pbw, dirac</small> Barbasch--Sahi algebras and Dirac cohomology
+(arxiv:1608.07504)[Pure Appl. Math. Q.](https://www.intlpress.com/site/pub/pages/journals/items/pamq/content/vols/0017/0004/a009) <small>pbw, dirac, rep</small> Hopf--Hecke algebras, infinitesimal Cherednik algebras, and Dirac cohomology, with Siddhartha Sahi
 
-[PhD thesis](https://rucore.libraries.rutgers.edu/rutgers-lib/59087/) <small>pbw,dirac,rep</small> Dirac cohomology for Hopf--Hecke algebras
+[PhD thesis](https://rucore.libraries.rutgers.edu/rutgers-lib/59087/) <small>pbw, dirac, rep</small> Dirac cohomology for Hopf--Hecke algebras
 </details>
 
-# Teaching
+# Teaching 🎓
 
 Uni Bonn (as a postdoc)
 - Spring 2025: <b>Seminar: Computer-assisted Representation Theory&nbsp;II</b> and assistant for <b>Representation Theory&nbsp;I</b> with Catharina Stroppel [seminar page](crep25/index.html)[course page](rep25/index.html)
@@ -203,11 +193,17 @@ RWTH (2018 -- 2022, as a postdoc)
 - Spring 2019: Begleitpraktikum 2
 - Fall 2018: Begleitpraktikum
 
-Rutgers (2015 -- 2018, as a TA, TA-at-large):
-Math 351 -- Introduction to Abstract Algebra I, Math 451 -- Abstract Algebra I, Math 311 -- Introduction to Real Analysis I, Math 354 -- Linear Optimization, Math 421 -- Advanced Calculus for Engineering, Math 251 -- Multivariable Calculus, Math 152 -- Calculus II for the Mathematical and Physical Sciences
+Rutgers (2015 -- 2018, as a TA, TA-at-large)
+- Math 351 -- Introduction to Abstract Algebra I
+- Math 451 -- Abstract Algebra I
+- Math 311 -- Introduction to Real Analysis I
+- Math 354 -- Linear Optimization
+- Math 421 -- Advanced Calculus for Engineering
+- Math 251 -- Multivariable Calculus
+- Math 152 -- Calculus II for the Mathematical and Physical Sciences
 </details>
 
-# Misc
+# Misc 🎉
 
 [pictures](./misc/RepSt/RepSt.html) of computations in the category Rep(S_t) and of objects in its monoidal center made with my own implementation of that category in Julia. This is related to some of my papers above.
 [pictures & video](./misc/mandelbrot/index.html) of the Mandelbrot set that I made with Julia, the language. What are we looking at[?](https://youtu.be/NGMRB4O922I)
@@ -300,6 +296,21 @@ var tags={}, ntags=0;
     for (tag in tags)  t = replaceAll(t, new RegExp(tag+"(?![a-zA-Z0-9])",'g'), tags[tag]);
     el.innerHTML = t;
 });
+</script>
+
+<script>
+var astars = ["*","<sub>*</sub>","<sup>*</sup>"]
+var el = document.querySelector("span.h1:first-child");
+for (var i=0; i<10; ++i)  {
+  var nel = document.createElement("span");
+  nel.innerHTML = "*";
+  nel.style.opacity = `${0.1+0.9*Math.random()}`;
+  nel.style.verticalAlign = ['baseline','super','sub'][Math.floor(Math.random()*3)];
+  nel.style.paddingLeft = `${i==0 ? 2 : 0.3*Math.random() + 0.6*Math.round(Math.random())}em`;
+  nel.style.fontSize = `${0.5+0.8*Math.random()}em`;
+  el.appendChild(nel);
+}
+
 </script>
 
 </body>

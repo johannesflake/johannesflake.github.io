@@ -11,55 +11,44 @@
 <title>johannes flake * math * bonn</title>
 <style>
   html, body {margin: 0; padding: 0;}
-  body {
-   font-family: "DM Sans", sans-serif;
-   font-size: 1.0rem;
-  }
-  html {
-   height: 100%;
-   color: var(--fg); background: var(--bg);
-  }
-  
- .sec  {
+  body { font-family: "DM Sans", sans-serif; font-size: 1.0rem; }
+  html { height: 100%; color: var(--fg); background: var(--bg); }
+  .sec  {
    box-sizing: border-box;
    width: 45rem;
    line-height: 1.6;
-   /*backdrop-filter: blur(0.25rem);*/
- }
- a, .sec a {white-space: nowrap;}
- .sec, details  {
-   white-space: pre-line;
- }
- .sec ul {
-   white-space: normal;
- }
- .pub {font-size: 0.9em; margin:0; padding:0;}
- .pub,.pub li {white-space:pre-line;}
- .pub li {margin-bottom:1em;}
- 
+  }
+  .box {
+    break-inside:avoid;
+    margin:1em; padding:1em;
+  }
+  a, .sec a {white-space: nowrap;}
+  .sec, details  {white-space: pre-line;}
+  .sec ul {white-space: normal;}
+
   li {margin:0; margin-bottom:0.5em; list-style-type:'– ';}
  
- span.h1 {
+  span.h1 {
    font-size: 1.5em;
    font-family: "Courier Prime", monospace;
    letter-spacing: 0.1em;
    font-weight: normal;
    padding:0;margin:0;
- }
- span.tiny {
+   user-select:none;
+  }
+  span.tiny {
     font-size: 0.75em;
     padding:0;margin:0;
- }
+  }
  
- ul {margin: 0; padding: 0 0 0 1em; list-style:circle;}
+  ul {margin: 0; padding: 0 0 0 1em; list-style:circle;}
  
- a  {
+  a  {
    text-decoration: none;
    color:var(--fg);
    user-select:none;
- }
- a.placeholder {color:var(--gray); border-color:var(--gray); cursor:default;}
- 
+  }
+
   a:before, a:after {color:var(--link); font-size:1.2em;}
   a:hover { color:var(--link); }
   a.bubble:hover {text-decoration:underline;}
@@ -67,51 +56,34 @@
   a.bubble:before {content:'[';}  a.bubble:after {content:']'; }
   a.starred:after {content:'*';}
 
- #navi  {display: none;}
- 
- details {padding-left:2em;border-left: 0.1em solid var(--gray);}
- details > summary {user-select:none; list-style-type:'[+] ';font-size:1.2em; color:var(--link); cursor:pointer;}
- details[open] > summary {list-style-type:'[-] ';}
+  details {padding-left:2em;border-left: 0.1em solid var(--gray);}
+  details > summary {user-select:none; list-style-type:'[+] ';font-size:1.2em; color:var(--link); cursor:pointer;}
+  details[open] > summary {list-style-type:'[-] ';}
 
- b  {font-weight: normal; background: #ff05; padding:0.3em;}
- 
- .box {break-inside:avoid; margin:1em; padding:1em; }
+  b  {font-weight: normal; background: #ff05; padding:0.3em;}
+  small {font-size:0.8em; color: var(--gray); padding: 0 0.4em;}
 
- small {font-size:0.8em; color: var(--gray); padding: 0 0.4em;}
-
- .print {display: none;}
- @media only print  {
-    .print {display: block;}
-    body, div {background: none;}
-    body > div  {
-      width: auto;
-      border-radius: 0;
-      margin: 1.5rem 0;
-      padding: 0;
-    }
-    body  {font-size: 1rem;}
- }
- @media only screen and (min-width: 90rem) {
+  @media only screen and (min-width: 90rem) {
    body {column-count:2;}
- }
- @media only screen and (max-width: 55rem) {
-   body {font-size: 0.9rem; /* mobile */}
+  }
+  @media only screen and (max-width: 55rem) {
+   body {font-size: 0.9rem;}
     .sec  {
       width: 95%;
       padding: 0.5rem 0;
       margin: 0 auto;
     }
    .box {margin:0; padding:0.5em;}
- }
- 
- :root {
+  }
+  
+  :root {
    --gray: #aaa;
    --bg: white; --fg: black;
    --sec-bg: #fff7; --sec-border: #0001;
    --link: #08f;
- }
- 
- @media (prefers-color-scheme:dark) {
+  }
+  
+  @media (prefers-color-scheme:dark) {
     :root {
       --gray: #666;
       --bg: #222; --fg: white;
@@ -119,9 +91,9 @@
       --link: #6bf;
     }
     b {background: none; border:0.2em solid #ff0a; padding:0.1em; }
+    span.h1, img {filter:saturate(0.9);}
   }
 </style>
-<!--<script defer src="nightsky3.js"></script>-->
 <script defer src="rainbow-symbols-2.js"></script>
 </head>
 <body>
@@ -251,10 +223,7 @@ var labels = {
   "Catharina Stroppel": "https://www.math.uni-bonn.de/ag/stroppel/",
   "[OSCAR]": "https://oscar.computeralgebra.de/",
   "[GAP]": "https://www.gap-system.org/",
-  "[CAP]": "http://homalg-project.github.io/CAP_project/",
-  "[polymake]": "https://polymake.org/doku.php",
-  "[SFB-TRR 195]": "https://www.computeralgebra.de/sfb/",
-  "MPIM Bonn": "https://www.mpim-bonn.mpg.de/"
+  "[CAP]": "http://homalg-project.github.io/CAP_project/"
 };
 
 var macros = {
@@ -278,8 +247,7 @@ function replaceAll(string, search, replace) { // polyfill
   
   t = t.replace(/^(<li>[\s\S]*?<\/li>(\s*?<li>[\s\S]*?<\/li>)*)/gm, '<ul>$1</ul>');
   t = t.replace(/<\/ul>\n/g, "</ul>");
-  t = t.replace(/\[([^\]]+)\]\(\.\.\.\)/g, '<a class="placeholder" target="_blank" rel="noopener">$1</a>'
-  ).replace(/\[([^\]]+)\]\(arxiv:([0-9\.]+)\)/g, '<a class="bubble" href="https://arxiv.org/abs/$2" target="_blank" rel="noopener">$1</a>'
+  t = t.replace(/\[([^\]]+)\]\(arxiv:([0-9\.]+)\)/g, '<a class="bubble" href="https://arxiv.org/abs/$2" target="_blank" rel="noopener">$1</a>'
   ).replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a class="bubble" href="$2" target="_blank" rel="noopener">$1</a>'
   ).replace(/\(arxiv:([0-9\.]+)\)/g, '<a class="bubble" href="https://arxiv.org/abs/$1" target="_blank" rel="noopener">arxiv</a>');
   for (var k in macros)
@@ -296,21 +264,22 @@ var tags={}, ntags=0;
     for (tag in tags)  t = replaceAll(t, new RegExp(tag+"(?![a-zA-Z0-9])",'g'), tags[tag]);
     el.innerHTML = t;
 });
-</script>
 
-<script>
+// add stars
 var astars = ["*","<sub>*</sub>","<sup>*</sup>"]
-var el = document.querySelector("span.h1:first-child");
+var el = document.createElement("span");
+el.style.display = "inline-block";
+el.style.marginLeft = "2em";
 for (var i=0; i<10; ++i)  {
   var nel = document.createElement("span");
   nel.innerHTML = "*";
   nel.style.opacity = `${0.1+0.9*Math.random()}`;
   nel.style.verticalAlign = ['baseline','super','sub'][Math.floor(Math.random()*3)];
-  nel.style.paddingLeft = `${i==0 ? 2 : 0.3*Math.random() + 0.6*Math.round(Math.random())}em`;
-  nel.style.fontSize = `${0.5+0.8*Math.random()}em`;
+  nel.style.paddingLeft = `${0.3*Math.random() + 0.6*Math.round(Math.random())}em`;
+  nel.style.fontSize = `${0.5+0.6*Math.random()}em`;
   el.appendChild(nel);
 }
-
+document.querySelector("span.h1:first-child").appendChild(el);
 </script>
 
 </body>

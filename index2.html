@@ -95,6 +95,27 @@
     b {background: none; border:0.2em solid #ff0a; padding:0.1em; }
     span.h1, img {filter:saturate(0.9);}
   }
+  
+  @media (prefers-reduced-motion: no-preference) {
+  
+  html {scroll-behavior:smooth;}
+  
+  details {
+    interpolate-size: allow-keywords;
+  
+    &::details-content {
+      height: 0;
+      overflow-y: clip;
+      transition: content-visibility 1s allow-discrete, height 1s;
+    }
+  
+    &[open]::details-content {
+      height: auto;
+    }
+  }
+  
+  }
+}
 </style>
 <script defer src="rainbow-symbols-2.js"></script>
 </head>
@@ -246,7 +267,7 @@ function replaceAll(string, search, replace) { // polyfill
   t = t.replace(/^\s*?- ((.+)(\n  .+\S+\s*)*)/gm, '<li>$1</li>');
   t = t.replace(/^\s*?(\>|&gt;) ((.+)(\n  .+\S+\s*)*)/gm, '<span class="tiny">&gt; $2</span>');
 
-  t = t.replace(/^\s*?# ((.+)(\n  .+\S+\s*)*)/gm, '</div><div class="box"><span class="h1"># $1</span>');
+  t = t.replace(/^\s*?#\s+((\S+).*)/gm, '</div><div class="box" id="$2"><a name="$2"></a><span class="h1"># $1</span>');
   t = t.replace(/^<\/div>/,'')+"</div>";
   
   t = t.replace(/^(<li>[\s\S]*?<\/li>(\s*?<li>[\s\S]*?<\/li>)*)/gm, '<ul>$1</ul>');
@@ -283,7 +304,15 @@ for (var i=0; i<10; ++i)  {
   nel.style.fontSize = `${0.5+0.6*Math.random()}em`;
   el.appendChild(nel);
 }
-document.querySelector("span.h1:first-child").appendChild(el);
+document.querySelector(".box:first-child span.h1").appendChild(el);
+
+// details opened listener
+[].forEach.call(document.querySelectorAll("details"), function(el) {
+  el.addEventListener('toggle', function(e) {
+    if (e.target.hasAttribute("open"))
+      location.href = "#"+e.target.closest(".box").id;
+  });
+});
 </script>
 
 </body>

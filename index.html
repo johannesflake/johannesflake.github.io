@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name=viewport content="width=device-width, initial-scale=1">
 <meta name="description" content="Johannes Flake's webpage, mostly about mathematics that he finds interesting.">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -28,7 +28,7 @@
   .sec, details  {white-space: pre-line;}
   .sec ul {white-space: normal;}
 
-  li {margin:0; margin-bottom:0.5em; list-style-type:'– ';}
+  li {margin:0; margin-bottom:0.2em;}
  
   span.h1 {
    font-size: 1.5em;
@@ -38,27 +38,18 @@
    padding:0;margin:0;
    user-select:none;
   }
-  span.tiny {
-    font-size: 0.75em;
-    padding:0;margin:0;
-  }
+  span.tiny { font-size: 0.75em; padding:0;margin:0; }
  
-  ul {margin: 0; padding: 0 0 0 1em; list-style:circle;}
+  ul {margin: 0; padding: 0 0 0 1em; list-style-type:'– '; }
  
-  a  {
-   text-decoration: none;
-   color:var(--fg);
-   user-select:none;
-  }
-
-  a:before, a:after {color:var(--link); font-size:1.2em;}
-  a:hover { color:var(--link); }
-  a.bubble:hover {text-decoration:underline;}
+  a  {text-decoration: none; color: inherit; user-select:none; }
+  a:before, a:after {color:var(--link); font-size:1.2em; }
   a.bubble {color:var(--link); }
   a.bubble:before {content:'[';}  a.bubble:after {content:']'; }
-  a.starred:after {content:'*';}
-
-  details {padding-left:2em;border-left: 0.1em solid var(--gray);}
+  a.starred:after {content:'*'; }
+  a:hover, a:hover:before, a:hover:after, details > summary:hover {color:var(--link-hover); }
+  
+  details {padding-left:2em;border-left: 0.1em solid var(--border);}
   details > summary {user-select:none; list-style-type:'[+] ';font-size:1.2em; color:var(--link); cursor:pointer;}
   details[open] > summary {list-style-type:'[-] ';}
 
@@ -69,51 +60,48 @@
    body {column-count:2;}
   }
   @media only screen and (max-width: 55rem) {
-   body {font-size: 0.9rem;}
-    .sec  {
-      width: 95%;
-      padding: 0.5rem 0;
-      margin: 0 auto;
-    }
-   .box {margin:0; padding:0.5em;}
+   body {font-size: 0.9rem; }
+   .sec  {width: 95%; padding: 0.5rem 0; margin: 0 auto; }
+   .box {margin:0; padding:0.5em; }
+   details {padding-left:1.5em; }
   }
   
   :root {
-   --gray: #aaa;
+   --gray: #777; --border:#aaa;
    --bg: white; --fg: black;
    --sec-bg: #fff7; --sec-border: #0001;
-   --link: #08f;
+   --link: #08f; --link-hover:#f80;
   }
+  
+  span.h1, img, #rainbow-symbols {filter:saturate(0.95);}
   
   @media (prefers-color-scheme:dark) {
     :root {
-      --gray: #666;
+      --gray: #999; --border:#aaa;
       --bg: #222; --fg: white;
       --sec-bg: #2227; --sec-border: #fff2;
-      --link: #6bf;
+      --link: #6bf; --link-hover:#f84;
     }
     b {background: none; border:0.2em solid #ff0a; padding:0.1em; }
-    span.h1, img {filter:saturate(0.9);}
   }
   
   @media (prefers-reduced-motion: no-preference) {
-  
-  html {scroll-behavior:smooth;}
-  
-  details {
-    interpolate-size: allow-keywords;
-  
-    &::details-content {
-      height: 0;
-      overflow-y: clip;
-      transition: content-visibility 1s allow-discrete, height 1s;
+    html {scroll-behavior:smooth;}
+    
+    details {
+      interpolate-size: allow-keywords;
+    
+      &::details-content {
+        height: 0;
+        overflow-y: clip;
+        transition: content-visibility 1s allow-discrete, height 1s;
+      }
+    
+      &[open]::details-content {
+        height: auto;
+      }
     }
-  
-    &[open]::details-content {
-      height: auto;
-    }
-  }
-  
+
   }
 }
 </style>

@@ -49,6 +49,7 @@
   a.bubble:before {content:'[';}  a.bubble:after {content:']'; }
   a.starred:after {content:'*'; font-family: "Courier Prime", monospace;}
   a:hover, a:hover:before, a:hover:after, details > summary:hover {color:var(--link-hover); }
+  a[href="..."] {pointer-events:none; opacity:0.5;}
   
   details {padding-left:2em;border-left: 0.1em solid var(--border);}
   details > summary {user-select:none; list-style-type:'[+] ';font-size:1.2em; color:var(--link); cursor:pointer;}
@@ -59,6 +60,7 @@
 
   @media only screen and (min-width: 90rem) {
    body {column-count:2;}
+   .box {margin:2vmin;}
   }
   @media only screen and (max-width: 55rem) {
    body {font-size: 0.9rem; }
@@ -112,7 +114,7 @@
 <div class="sec">
 # Johannes Flake 🙂
 
-Mathematician, Postdoc at University of Bonn
+Mathematician at University of Bonn
 
 <details>
 PhD from Rutgers University with Siddhartha Sahi
@@ -143,11 +145,11 @@ Things I have worked on include:
 
 <details>
 (arxiv:2412.15056) <small>cob, cent, rep</small> Frobenius monoidal functors induced by Frobenius extensions of Hopf algebras, with Robert Laugwitz, Sebastian Posur
-(arxiv:2410.08702)  <small>cob, cent, rep, int</small> Frobenius monoidal functors from ambiadjunctions and their lifts to Drinfeld centers, with Robert Laugwitz, Sebastian Posur
 (arxiv:2405.19506) <small>tcp, rep, pgrp</small> Towards higher Frobenius functors for symmetric tensor categories, with Kevin Coulembier
 (arxiv:2402.10094) <small>cent, rep, int</small> Projection formulas and induced functors on centers of monoidal categories, with Robert Laugwitz, Sebastian Posur
 (arxiv:2206.08226) <small>pbw, int, rep</small> Interpolating PBW Deformations for the Orthosymplectic Groups, with Verity Mackscheidt
 
+(arxiv:2410.08702)[Adv. Math.](...) <small>cob, cent, rep, int</small> Frobenius monoidal functors from ambiadjunctions and their lifts to Drinfeld centers, with Robert Laugwitz, Sebastian Posur
 (arxiv:2106.05798)[Adv. Math.](https://www.sciencedirect.com/science/article/abs/pii/S000187082300035X) <small>cob, int</small> Indecomposable objects in Khovanov--Sazdanovic's generalizations of Deligne's interpolation categories, with Robert Laugwitz, Sebastian Posur
   (arxiv:2105.10492)[Proc. London Math. Soc.](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/plms.12509) <small>int, cent</small> The indecomposable objects in the center of Deligne's category Rep(S_t), with Nate Harman, Robert Laugwitz
 (arxiv:2105.09117)[J. Group Theory](https://www.degruyter.com/document/doi/10.1515/jgth-2021-0158) <small>pgrp</small> Groups G satisfying a functional equation f(xk)=xf(x) for some k in G, with Dominik Bernhardt, Tim Boykett, Alice Devillers, Stephen Glasby
@@ -164,14 +166,14 @@ Things I have worked on include:
 # Teaching 🎓
 
 Uni Bonn
-- Spring 2025: <b>Seminar: Computer-assisted Representation Theory&nbsp;II</b> and assistant for <b>Representation Theory&nbsp;I</b> with Catharina Stroppel [seminar page](crep25/index.html)[course page](rep25/index.html)
-- Fall 2024: Seminar: Computer-assisted Representation Theory and assistant for Foundations in Representation Theory  with Catharina Stroppel [seminar page](crep24/index.html)[course page](rep24/index.html)
+- Spring 2025: [seminar](crep25/index.html) <b>Computer-assisted Representation Theory&nbsp;II</b><br> [course](rep25/index.html)<b>Representation Theory&nbsp;I</b> by Catharina Stroppel
 
 <details>
 Uni Bonn
+- Fall 2024: [seminar](crep24/index.html) Computer-assisted Representation Theory<br> [course](rep24/index.html) Foundations in Representation Theory by Catharina Stroppel
 - Spring 2024: Graduate Seminar: Oligomorphic groups and tensor categories
 - Fall 2023: Graduate Seminar: Higher Segal Spaces
-- Spring 2023: Tensor categories in representation theory with Catharina Stroppel [course page](tc23/index.html)
+- Spring 2023: [course](tc23/index.html) Tensor categories in representation theory with Catharina Stroppel
 
 RWTH (2018 -- 2022)
 - Spring 2022: Tensor Categories
@@ -192,7 +194,7 @@ Rutgers (2015 -- 2018, as a TA or TA-at-large)
 
 # Misc 🎉
 
-[pictures](./misc/RepSt/RepSt.html) of computations in the category Rep(S_t) and of objects in its monoidal center made with my own implementation of that category in Julia. This is related to some of my papers above.
+[pictures](./misc/RepSt/RepSt.html) of computations in the category Rep(S_t) and of objects in its monoidal center made with my own implementation in Julia. This is related to some of my papers above.
 [pictures & video](./misc/mandelbrot/index.html) of the Mandelbrot set that I made with Julia, the language. What are we looking at[?](https://youtu.be/NGMRB4O922I)
 [pictures](./misc/UDG/index.html) of some hexagonally symmetric unit-distance graphs in the plane with 745 vertices and chromatic number 5 that I discovered with a SAT solver. So what[?](https://www.quantamagazine.org/decades-old-graph-problem-yields-to-amateur-mathematician-20180417/)
 [visualization](./misc/tsp25/index.html) of my implementation of a 2.5-opt algorithm approximately solving a random traveling salesman problem live in your browser, slowed down for visualization purposes. Which traveling salesman[?](https://www.quantamagazine.org/computer-scientists-find-new-shortcuts-to-traveling-salesman-problem-20130129/)
@@ -210,7 +212,7 @@ Rutgers (2015 -- 2018, as a TA or TA-at-large)
 
 &nbsp;
 <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
-> this webpage was written by me & updated on Mar 21, 2025
+> this webpage was written by me & updated on Apr 28, 2025
 
 
 <img style="height: 0.9em; width: 95%; object-fit:cover; opacity:0.8;" src="warming-stripes.png">

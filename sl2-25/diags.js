@@ -15,12 +15,18 @@ function pick(arr)  {
 function perturbation(amp)  {
   return (2*Math.random()-1)*amp;
 }
-function randomArcs(k) {
+function randomTLArcs(k) {
+  var p = 0.2;
+  var open = [], res = [], col=0;
+  for (var i=0; i<2*k; ++i) {
+    if (open.length>0 && (col==k || Math.random()>p))   res.push(open.pop());
+    else  {res.push(++col); open.push(col);}
+  }
   var arr = [];
-  var randomInsert = (arr, it) => arr.splice(pickN(arr.length), 0, it);
-  for (var i=0; i<k; ++i) {
-    randomInsert(arr, [i,0]);
-    randomInsert(arr, [i,1]);
+  var makeIndex = (i) => i <= k ? [i,0] : [2*k+1-i,1];
+  for (var i=1; i<=k; ++i)   {
+    arr.push(makeIndex(res.indexOf(i)+1));
+    arr.push(makeIndex(res.lastIndexOf(i)+1));    
   }
   return arr;
 }
@@ -50,13 +56,13 @@ function makeDiag(rows, cols, bg = "white", fg = "#eee") {
 
   for (var i=0; i<rows; ++i) {
     var k0 = pick([1,2,3]);
-    var arcs0 = randomArcs(k0);
+    var arcs0 = randomTLArcs(k0);
     var offset = pickN(k0-1);
     var ypert0 = [];
     for (var j=-offset; j<cols; ++j) {
       var ks = [1,2,3].filter(k => j>-offset && j+k <= cols-offset);
       var k = (ks.length === 0) ? k0 : pick(ks);
-      var arcs = (ks.length === 0) ? arcs0 : randomArcs(k);
+      var arcs = (ks.length === 0) ? arcs0 : randomTLArcs(k);
       if (offset>0 && j==-offset) arcs0 = arcs;
       
       for(var ia=0; ia<arcs.length; ia+=2) {

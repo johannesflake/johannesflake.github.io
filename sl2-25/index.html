@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>Representations of SL₂ (Fall 2025)</title>
+<meta name="description" content="Representations of SL₂ is a graduate seminar at the University of Bonn in Fall 2025 by Johannes Flake and Jonathan Gruber.">
+<style>
+:root {
+  --bg: #fff; --fg: #000; --fg2: #80a; --bg2: #80a2; --chalk: #ddd;
+}
+ 
+body {margin:0; padding:0;}
+h1 {margin: 1em 0; padding: 0; font-size: 1.5em; letter-spacing:0.05em;}
+ul {margin: 0.5em 0; padding: 0 2em;}
+body > div {
+  color: var(--fg);
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  line-height: 1.75;
+  max-width: 50rem;
+  padding: 1em 2em;
+  background: var(--bg);
+  border: 0.15em solid var(--chalk);
+  box-shadow: 0 0 0 0.25em var(--bg);
+  margin: 2em auto 5em auto;
+  white-space: pre-line;
+}
+a:before {content:'➜ '; color:var(--fg2);}
+a, a:hover, a:active, a:visited, a:link {
+  color: var(--fg);
+  background: var(--bg2);
+  padding: 0.15em 0.4em 0.1em 0.2em;
+  margin: 0 0.2em;
+  text-decoration:none;
+  border:none;
+  white-space: nowrap;
+}
+a:hover {border-bottom: 0.1em solid var(--fg2);}
+b {color:var(--fg2);}
+#logo {display:block; float:right; height:3.5em;}
+
+@media only screen and (max-width: 50rem) {
+  body > div {font-size:1rem; padding:1em;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div>
+<i>Fall 2025</i> <img id="logo" src="logo.png" alt="Logo Uni Bonn" />
+<h1>Graduate Seminar: Representations of SL₂ (S4A2)</h1>
+<b>Organizational meeting</b> Monday, July 14, 12 pm (c.t.) 
+in SR 1.007 (Endenicher Allee 60)
+
+<b>Instructors</b> <a href="https://johannesflake.github.io/" target="_blank">Johannes Flake</a> and <a href="https://jgruber4.github.io/" target="_blank">Jonathan Gruber</a>
+<!--
+<b>Seminar time</b> Wednesdays and Fridays, 10&ndash;12 am, R1.008, Endenicher Allee 60
+<b>References</b>
+<ul>
+<li>Chari&ndash;Pressley: A Guide to Quantum Groups</li>
+<li>Etingof&ndash;Gelaki&ndash;Nikshych&ndash;Ostrik: Tensor Categories</li>
+<li>Kassel: Quantum Groups</li>
+<li>Stroppel: Representation Theory I &amp; II (lecture notes)</li>
+</ul>
+<b>Prerequisites</b>
+<ul>
+<li>Algebra I &amp; II</li>
+<li>good theoretical and practical knowledge of representation theory</li>
+<li>basic knowledge of category theory</li>
+</ul>
+--> 
+<b>Course content</b>
+This is a seminar on the representation theory of the algebraic group SL₂(k) over a field k (mostly algebraically closed, including in positive characteristic), with two main objectives.
+First, much of the general representation theory of algebraic groups crucially relies on a good understanding of representations of SL₂(k).
+We aim to lay the foundations for learning about this area of representation theory, giving an overview of the most important tools and techniques and illustrating more general results using the example of SL₂(k).
+Second, representations of SL₂(k) play an important role in the structure theory of tensor categories.
+We will provide an overview of the applications of SL₂(k) to the study of tensor categories, including Temperley-Lieb diagrams, Verlinde categories and their generalizations.
+
+The topics include:
+- basics on algebraic groups
+- tori, weights, Borel subgroups
+- induction functors
+- simple modules, good filtrations, tilting modules
+- Temperley-Lieb diagrams, Jones-Wenzl projectors
+- Verlinde categories, Ostrik's theorem, generalized Verlinde categories
+- SL₂ over finite fields
+- quantum SL₂, link invariants
+</div>
+
+<script src="diags.js"></script>
+<script>
+var bg = "#fff", fg = "#ddd";
+setDiagAsBg(20, 40, bg, fg);
+</script>
+</body>
+</html>

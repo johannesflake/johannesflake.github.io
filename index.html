@@ -27,7 +27,7 @@
   
   .sec  {white-space: pre-line;}
   a {white-space: nowrap;}
-  ul {white-space: normal;}
+  /*ul {white-space: normal;}*/
 
   li {margin:0; margin-bottom:0.2em;}
  
@@ -130,11 +130,10 @@ email: second name at math dot uni minus bonn dot de
 # Research 🔬
 
 I am interested in representation theory, tensor categories, and related areas.
-
-Things I have worked on include:
+Some things I have worked on:
 <small>int</small> Deligne's interpolation categories and their relatives
 <small>cob</small> cobordism categories, TQFTs, Frobenius algebras, Frobenius monoidal functors
-<small>tcp</small> tensor categories in positive characteristics, incompressible tensor categories
+<small>tcp</small> (incompressible) tensor categories in positive characteristics
 <small>rep</small> algebraic (super)groups, Lie (super)algebras, and their representations
 <small>cent</small> monoidal centers, Drinfeld centers
 <small>pbw</small> PBW deformations, various kinds of Hecke and Cherednik algebras
@@ -169,16 +168,16 @@ Things I have worked on include:
 # Teaching 🎓
 
 Fall 2025, Uni Bonn
-[course](...) <b>Representation Theory&nbsp;II</b>, with Jonas Antor
-[seminar](...) <b>Representations of SL₂</b>, with Jonathan Gruber
+[course](rep2-25/index.html) <b>Representation Theory&nbsp;II</b>, with Jonas Antor
+[seminar](sl2-25/index.html) <b>Representations of SL₂</b>, with Jonathan Gruber
 
 <details>Uni Bonn
 - Spring 2025
-[seminar](crep25/index.html) <b>Computer-Assisted Representation Theory&nbsp;II</b>, with Catharina Stroppel
-[course](rep25/index.html)<b>Representation Theory&nbsp;I</b> by Catharina Stroppel
+  [seminar](crep25/index.html) Computer-Assisted Representation Theory&nbsp;II, with Catharina Stroppel
+  [course](rep25/index.html) Representation Theory&nbsp;I by Catharina Stroppel
 - Fall 2024
-[seminar](crep24/index.html) Computer-Assisted Representation Theory, with Catharina Stroppel
-[course](rep24/index.html) Foundations in Representation Theory by Catharina Stroppel
+  [seminar](crep24/index.html) Computer-Assisted Representation Theory, with Catharina Stroppel
+  [course](rep24/index.html) Foundations in Representation Theory by Catharina Stroppel
 - Spring 2024: Graduate Seminar: Oligomorphic groups and tensor categories
 - Fall 2023: Graduate Seminar: Higher Segal Spaces, with Catharina Stroppel
 - Spring 2023: [course](tc23/index.html) Tensor categories in representation theory, joint with Catharina Stroppel
@@ -193,7 +192,7 @@ Fall 2025, Uni Bonn
 
 # Misc 🎉
 
-[pictures](./misc/RepSt/RepSt.html) of computations in the category Rep(S_t) and of objects in its monoidal center made with my own implementation in Julia. This is related to some of my papers above.
+[pictures](./misc/RepSt/RepSt.html) of computations in the category Rep(S_t) and of objects in its monoidal center, made with my own implementation in Julia. This is related to some of my papers above.
 [pictures & video](./misc/mandelbrot/index.html) of the Mandelbrot set that I made with Julia, the language. What are we looking at[?](https://youtu.be/NGMRB4O922I)
 [pictures](./misc/UDG/index.html) of some hexagonally symmetric unit-distance graphs in the plane with 745 vertices and chromatic number 5 that I discovered with a SAT solver. So what[?](https://www.quantamagazine.org/decades-old-graph-problem-yields-to-amateur-mathematician-20180417/)
 [visualization](./misc/tsp25/index.html) of my implementation of a 2.5-opt algorithm approximately solving a random traveling salesman problem live in your browser, slowed down for visualization purposes. Which traveling salesman[?](https://www.quantamagazine.org/computer-scientists-find-new-shortcuts-to-traveling-salesman-problem-20130129/)
@@ -257,7 +256,7 @@ function replaceAll(string, search, replace) { // polyfill
 [].forEach.call(document.querySelectorAll(".sec,.tiny"), function(el) {
   var t = el.innerHTML;
   t = t.replace(/<details>(.*)/g, '<details><summary>$1</summary>');
-  t = t.replace(/^\s*?- ((.+)(\n  .+\S+\s*)*)/gm, '<li>$1</li>');
+  t = t.replace(/^\s*?- ((.+)(\n  .*)*)\s+/gm, '<li>$1</li>');
   t = t.replace(/^\s*?(\>|&gt;) ((.+)(\n  .+\S+\s*)*)/gm, '<span class="tiny">&gt; $2</span>');
 
   t = t.replace(/^\s*?#\s+((\S+).*)/gm, '</div><div class="box" id="$2"><a name="$2"></a><span class="h1"># $1</span>');

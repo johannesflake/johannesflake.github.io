@@ -10,28 +10,38 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Special+Elite&family=Courier+Prime&display=swap" rel="stylesheet">
 <title>johannes flake * math * bonn</title>
 <style>
-  html, body {margin: 0; padding: 0;}
+  :root {
+   --gray: #aaa; --border:#aaa;
+   --bg: white; --fg: black;
+   --sec-bg: #fff7; --sec-border: #0001;
+   --link: #08f; --link-hover:#f80;
+  }
+  
+  html, body, div {margin: 0; padding: 0;}
   body { font-family: "DM Sans", sans-serif; font-size: 1.0rem; }
   html { height: 100%; color: var(--fg); background: var(--bg); }
+    
+  /* grid */
   .sec  {
    box-sizing: border-box;
    width: 44rem;
    line-height: 1.6;
   }
-  .box {
-    break-inside:avoid;
-    margin:1em; padding:1em;
-    break-after:avoid-column;
-  }
-  .box:nth-child(even) {break-after:column;}
+  .sec {display:grid; grid-template-columns:1fr; gap:0;}
+  .box, .more {grid-column:1; margin:2rem; position:relative;}
+  .more {padding-left:1em; border-left:0.1rem solid var(--gray);}
   
+  .box[id]:not(:target) .close, .box[id]:target .open {display:none;}
+  .more {display:none;}
+  .box[id]:target + .more {display:block;}
+
+  /* white-space */
   .sec  {white-space: pre-line;}
   a {white-space: nowrap;}
-  /*ul {white-space: normal;}*/
 
-  li {margin:0; margin-bottom:0.2em;}
- 
-  span.h1 {
+  /* formats */ 
+  .h1 {
+   display: block;
    font-size: 1.5em;
    font-family: "Courier Prime", monospace;
    letter-spacing: 0.1em;
@@ -40,45 +50,47 @@
    user-select:none;
   }
   span.tiny { font-size: 0.75em; padding:0;margin:0; }
- 
+  b  {font-weight: normal; background: #ff05; padding:0.3em;}
+  small {font-size:0.8em; color: var(--gray); padding: 0 0.4em;}
+  span.h1, img, #rainbow-symbols {filter:saturate(0.95);}
+
+  /* lists */
   ul {margin: 0; padding: 0 0 0 1em; list-style-type:'– '; }
- 
+  li {margin:0; margin-bottom:0.2em;}
+
+  /* links */
   a  {text-decoration: none; color: inherit; user-select:none; }
   a:before, a:after {color:var(--link); font-size:1.2em; }
   a.bubble {color:var(--link); }
   a.bubble:before {content:'[';}  a.bubble:after {content:']'; }
   a.starred:after {content:'*'; font-family: "Courier Prime", monospace;}
-  a:hover, a:hover:before, a:hover:after, details > summary:hover {color:var(--link-hover); }
+  a:hover, a:hover:before, a:hover:after > summary:hover {color:var(--link-hover); }
   a[href="..."] {pointer-events:none; opacity:0.5;}
   
-  details {padding-left:2em;border-left: 0.1em solid var(--border);}
-  details > summary {user-select:none; list-style-type:'[+] '; cursor:pointer;}
-  details > summary::marker {color:var(--link);font-size:1.2em;}
-  details[open] > summary {list-style-type:'[-] ';}
-
-  b  {font-weight: normal; background: #ff05; padding:0.3em;}
-  small {font-size:0.8em; color: var(--gray); padding: 0 0.4em;}
-
+  /* big screen */
   @media only screen and (min-width: 90rem) {
-   body {column-count:2;}
-   .box {margin:2vmin;}
+   .sec {width:85rem; grid-template-columns:1fr 1fr;}
+   .more {grid-column:2; grid-row:1/10;}
+   .more {max-height:90vh; overflow-y:auto;}
+   .sec {max-height:100vh; }
+   body {overflow-y: hidden;}
+   :target:before{
+      display: block;
+      width: 2rem;
+      border-bottom: 0.1rem solid var(--gray);
+      content: '';
+      position: relative; left: calc(100% + 2rem); top: 2rem;
+    }
   }
+  
+  /* small screen */
   @media only screen and (max-width: 55rem) {
    body {font-size: 0.9rem; }
-   .sec  {width: 95%; padding: 0.5rem 0; margin: 0 auto; }
-   .box {margin:0; padding:0.5em; }
-   details {padding-left:1.5em; }
+   .sec  {width: 95%;}
+   .box,.more {margin:1rem;}
   }
   
-  :root {
-   --gray: #777; --border:#aaa;
-   --bg: white; --fg: black;
-   --sec-bg: #fff7; --sec-border: #0001;
-   --link: #08f; --link-hover:#f80;
-  }
-  
-  span.h1, img, #rainbow-symbols {filter:saturate(0.95);}
-  
+  /* dark mode */
   @media (prefers-color-scheme:dark) {
     :root {
       --gray: #999; --border:#aaa;
@@ -89,23 +101,10 @@
     b {background: none; border:0.2em solid #ff0a; padding:0.1em; }
   }
   
+  /* scroll, height */
   @media (prefers-reduced-motion: no-preference) {
     html {scroll-behavior:smooth;}
-    
-    details {
-      interpolate-size: allow-keywords;
-    
-      &::details-content {
-        height: 0;
-        overflow-y: clip;
-        transition: content-visibility 1s allow-discrete, height 1s;
-      }
-    
-      &[open]::details-content {
-        height: auto;
-      }
-    }
-    
+    .more { interpolate-size: allow-keywords; }
   }
 }
 </style>
@@ -117,7 +116,8 @@
 
 Mathematician at University of Bonn
 
-<details>
+--
+
 PhD from Rutgers University with Siddhartha Sahi
 
 Mathematical Institute
@@ -125,11 +125,13 @@ Endenicher Allee 60, 53115 Bonn, Germany
 
 office: 1.002
 email: second name at math dot uni minus bonn dot de
-</details>
 
 # Research 🔬
 
 I am interested in representation theory, tensor categories, and related areas.
+
+--
+
 Some things I have worked on:
 <small>int</small> Deligne's interpolation categories and their relatives
 <small>cob</small> cobordism categories, TQFTs, Frobenius algebras, Frobenius monoidal functors
@@ -142,18 +144,17 @@ Some things I have worked on:
 <small>pgrp</small> p-groups
 <small>comp</small> computer algebra (see also below under "misc")
 
-<details>preprints & recent publications
+preprints & recent publications
 (arxiv:2507.02722) <small>pgrp, tcp</small> A conjecture on the tensor ideal for an elementary p-group generated by the restriction of a Steinberg module, with Kevin Coulembier
 (arxiv:2412.15056) <small>cob, cent, rep</small> Frobenius monoidal functors induced by Frobenius extensions of Hopf algebras, with Robert Laugwitz, Sebastian Posur
 (arxiv:2405.19506) <small>tcp, rep, pgrp</small> Towards higher Frobenius functors for symmetric tensor categories, with Kevin Coulembier
 (arxiv:2402.10094) <small>cent, rep, int</small> Projection formulas and induced functors on centers of monoidal categories, with Robert Laugwitz, Sebastian Posur
 (arxiv:2206.08226) <small>pbw, int, rep</small> Interpolating PBW Deformations for the Orthosymplectic Groups, with Verity Mackscheidt
-
-(arxiv:2410.08702)[Adv. Math.](...) <small>cob, cent, rep, int</small> Frobenius monoidal functors from ambiadjunctions and their lifts to Drinfeld centers, with Robert Laugwitz, Sebastian Posur
+(arxiv:2410.08702)[Adv. Math.](https://www.sciencedirect.com/science/article/pii/S0001870825002427) <small>cob, cent, rep, int</small> Frobenius monoidal functors from ambiadjunctions and their lifts to Drinfeld centers, with Robert Laugwitz, Sebastian Posur
 (arxiv:2106.05798)[Adv. Math.](https://www.sciencedirect.com/science/article/abs/pii/S000187082300035X) <small>cob, int</small> Indecomposable objects in Khovanov--Sazdanovic's generalizations of Deligne's interpolation categories, with Robert Laugwitz, Sebastian Posur
 (arxiv:2105.10492)[Proc. London Math. Soc.](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/plms.12509) <small>int, cent</small> The indecomposable objects in the center of Deligne's category Rep(S_t), with Nate Harman, Robert Laugwitz
-</details>
-<details>more publications  
+
+more publications
 (arxiv:2105.09117)[J. Group Theory](https://www.degruyter.com/document/doi/10.1515/jgth-2021-0158) <small>pgrp</small> Groups G satisfying a functional equation f(xk)=xf(x) for some k in G, with Dominik Bernhardt, Tim Boykett, Alice Devillers, Stephen Glasby
 (arxiv:2003.13798)[Int. Math. Res. Not. IMRN](https://academic.oup.com/imrn/advance-article-abstract/doi/10.1093/imrn/rnab217/6352819) <small>int, diag</small> Semisimplicity and indecomposable objects in interpolating partition categories, with Laura Maaßen
 (arxiv:2003.13297)[Math. Nachr.](https://onlinelibrary.wiley.com/doi/full/10.1002/mana.202100290) <small>pgrp</small> Strata of p-origamis, with Andrea Thevis
@@ -163,15 +164,17 @@ Some things I have worked on:
 (arxiv:1608.07504)[Pure Appl. Math. Q.](https://www.intlpress.com/site/pub/pages/journals/items/pamq/content/vols/0017/0004/a009) <small>pbw, dirac, rep</small> Hopf--Hecke algebras, infinitesimal Cherednik algebras, and Dirac cohomology, with Siddhartha Sahi
 
 [PhD thesis](https://rucore.libraries.rutgers.edu/rutgers-lib/59087/) <small>pbw, dirac, rep</small> Dirac cohomology for Hopf--Hecke algebras
-</details>
+
 
 # Teaching 🎓
 
 Fall 2025, Uni Bonn
-[course](rep2-25/index.html) <b>Representation Theory&nbsp;II</b>, with Jonas Antor
-[seminar](sl2-25/index.html) <b>Representations of SL₂</b>, with Jonathan Gruber
+[course](rep2-25/index.html) Representation Theory&nbsp;II, with Jonas Antor
+[seminar](sl2-25/index.html) Representations of SL₂, with Jonathan Gruber
 
-<details>Uni Bonn
+--
+
+Uni Bonn
 - Spring 2025
   [seminar](crep25/index.html) Computer-Assisted Representation Theory&nbsp;II, with Catharina Stroppel
   [course](rep25/index.html) Representation Theory&nbsp;I by Catharina Stroppel
@@ -181,16 +184,19 @@ Fall 2025, Uni Bonn
 - Spring 2024: Graduate Seminar: Oligomorphic groups and tensor categories
 - Fall 2023: Graduate Seminar: Higher Segal Spaces, with Catharina Stroppel
 - Spring 2023: [course](tc23/index.html) Tensor categories in representation theory, joint with Catharina Stroppel
-</details>
-<details>RWTH Aachen
+
+RWTH Aachen
 - Spring 2022: Tensor Categories
 - Spring 2021: Algebraic Geometry
 - Spring 2019: Lecture in Pairs on filtered-graded transfer and PBW deformations, with Viktor Levandovskyy
 - Spring 2019: Begleitpraktikum 2
 - Fall 2018: Begleitpraktikum
-</details>
 
 # Misc 🎉
+
+Some things I made.
+
+--
 
 [pictures](./misc/RepSt/RepSt.html) of computations in the category Rep(S_t) and of objects in its monoidal center, made with my own implementation in Julia. This is related to some of my papers above.
 [pictures & video](./misc/mandelbrot/index.html) of the Mandelbrot set that I made with Julia, the language. What are we looking at[?](https://youtu.be/NGMRB4O922I)
@@ -198,7 +204,6 @@ Fall 2025, Uni Bonn
 [visualization](./misc/tsp25/index.html) of my implementation of a 2.5-opt algorithm approximately solving a random traveling salesman problem live in your browser, slowed down for visualization purposes. Which traveling salesman[?](https://www.quantamagazine.org/computer-scientists-find-new-shortcuts-to-traveling-salesman-problem-20130129/)
 [3d rendering](./misc/3d/index.html) of affine surfaces
 
-<details>
 [slides](pdf/schur_weyl_links.pdf) on quantum Schur--Weyl duality and link invariants
 [slides](pdf/deligne_category_rep_st.pdf) on Deligne's category Rep(S_t)
 [slides](pdf/voa_constructions.pdf) on some constructions of vertex operator algebras and their modules
@@ -206,11 +211,12 @@ Fall 2025, Uni Bonn
   
 [johannesflake/oscar](https://github.com/johannesflake/oscar-docker/), my personal unofficial [OSCAR] docker image
 [pbwdeformations.jl](https://gitlab.com/johannesflake/pbwdeformations.jl), a Julia package for PBW deformations of smash products using [OSCAR] and [GAP], with Lars Göttgens (under development; [example](https://nbviewer.org/urls/gitlab.com/johannesflake/pbwdeformations.jl/-/raw/master/examples/PBWDeformationsNotebook.ipynb))
-</details>
 
-&nbsp;
+
+# end
+
 <span id="rainbow-symbols" data-time="300" data-content="☮🌶🐙🥃🐠🎷🦖🌿🤿☕🏐"></span>
-> this webpage was written by me & updated in July 2025
+> this webpage was written by me & updated in Oct 2025
 
 <img style="height: 0.9em; width: 95%; object-fit:cover; opacity:0.8;" src="warming-stripes.png">
 > Warming Stripes by Ed Hawkins
@@ -255,12 +261,14 @@ function replaceAll(string, search, replace) { // polyfill
 
 [].forEach.call(document.querySelectorAll(".sec,.tiny"), function(el) {
   var t = el.innerHTML;
-  t = t.replace(/<details>(.*)/g, '<details><summary>$1</summary>');
+
+  t = t.replace(/([\r]*\n)+\# end\s*\n([\r]*\n)+/gm, '</div><div class="box">')+'</div>';
+  t = t.replace(/^\s*?#\s+((\S+).*)\n([\r]*\n)*/gm, '</div></div><div class="box" id="$2"><span class="h1"><a href="#$2" class="open">[+]</a><a href="#" class="close">[-]</a> $1</span>');
+  t = t.replace(/^([\r]*\n)+--[\r]*\n([\r]*\n)+/gm, '</div><div class="more">');
+  t = t.replace(/^<\/div>/,'');
+  
   t = t.replace(/^\s*?- ((.+)(\n  .*)*)\s+/gm, '<li>$1</li>');
   t = t.replace(/^\s*?(\>|&gt;) ((.+)(\n  .+\S+\s*)*)/gm, '<span class="tiny">&gt; $2</span>');
-
-  t = t.replace(/^\s*?#\s+((\S+).*)/gm, '</div><div class="box" id="$2"><a name="$2"></a><span class="h1"># $1</span>');
-  t = t.replace(/^<\/div>/,'')+"</div>";
   
   t = t.replace(/^(<li>[\s\S]*?<\/li>(\s*?<li>[\s\S]*?<\/li>)*)/gm, '<ul>$1</ul>');
   t = t.replace(/<\/ul>\n/g, "</ul>");
@@ -286,17 +294,17 @@ var tags={}, ntags=0;
 var astars = ["*","<sub>*</sub>","<sup>*</sup>"]
 var el = document.createElement("span");
 el.style.display = "inline-block";
-el.style.marginLeft = "2em";
+el.style.marginLeft = "1em";
 for (var i=0; i<10; ++i)  {
   var nel = document.createElement("span");
   nel.innerHTML = "*";
   nel.style.opacity = `${0.1+0.9*Math.random()}`;
   nel.style.verticalAlign = ['baseline','super','sub'][Math.floor(Math.random()*3)];
-  nel.style.paddingLeft = `${0.3*Math.random() + 0.6*Math.round(Math.random())}em`;
-  nel.style.fontSize = `${0.5+0.6*Math.random()}em`;
+  nel.style.paddingLeft = `${0.3*Math.random() + 0.4*Math.round(Math.random())}em`;
+  nel.style.fontSize = `${0.5+0.4*Math.random()}em`;
   el.appendChild(nel);
 }
-document.querySelector(".box:first-child span.h1").appendChild(el);
+document.querySelector(".box:first-child .h1").appendChild(el);
 
 // details opened listener
 [].forEach.call(document.querySelectorAll("details"), function(el) {

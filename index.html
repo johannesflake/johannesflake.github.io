@@ -15,6 +15,7 @@
    --bg: white; --fg: black;
    --sec-bg: #fff7; --sec-border: #0001;
    --link: #08f; --link-hover:#f80;
+   --mar: 2rem;
   }
   
   html, body, div {margin: 0; padding: 0;}
@@ -28,7 +29,7 @@
    line-height: 1.6;
   }
   .sec {display:grid; grid-template-columns:1fr; gap:0;}
-  .box, .more {grid-column:1; margin:2rem; position:relative;}
+  .box, .more {grid-column:1; margin:var(--mar); position:relative;}
   .more {padding-left:1em; border-left:0.1rem solid var(--gray);}
   
   .box[id]:not(:target) .close, .box[id]:target .open {display:none;}
@@ -69,17 +70,16 @@
   
   /* big screen */
   @media only screen and (min-width: 90rem) {
-   .sec {width:85rem; grid-template-columns:1fr 1fr;}
-   .more {grid-column:2; grid-row:1/10;}
-   .more {max-height:90vh; overflow-y:auto;}
-   .sec {max-height:100vh; }
+   .sec {width:85rem; grid-template-columns:1fr 1fr; max-height:98vh;}
+   .more {grid-column:2; grid-row:1/10; max-height:90vh; overflow-y:auto;}
    body {overflow-y: hidden;}
    :target:before{
       display: block;
-      width: 2rem;
+      width:var(--mar);
       border-bottom: 0.1rem solid var(--gray);
-      content: '';
-      position: relative; left: calc(100% + 2rem); top: 2rem;
+      content:' ';
+      user-select:none;
+      position:absolute; right:calc(-2 * var(--mar)); top:var(--mar);
     }
   }
   
@@ -263,7 +263,7 @@ function replaceAll(string, search, replace) { // polyfill
   var t = el.innerHTML;
 
   t = t.replace(/([\r]*\n)+\# end\s*\n([\r]*\n)+/gm, '</div><div class="box">')+'</div>';
-  t = t.replace(/^\s*?#\s+((\S+).*)\n([\r]*\n)*/gm, '</div></div><div class="box" id="$2"><span class="h1"><a href="#$2" class="open">[+]</a><a href="#" class="close">[-]</a> $1</span>');
+  t = t.replace(/^\s*?#\s+((\S+).*)\n([\r]*\n)*/gm, function(str, m1, m2) { return '</div></div><div class="box" id="'+m2.toLowerCase()+'"><span class="h1"><a href="#'+m2.toLowerCase()+'" class="open">[+]</a><a href="#" class="close">[-]</a> '+m1+'</span>'; });
   t = t.replace(/^([\r]*\n)+--[\r]*\n([\r]*\n)+/gm, '</div><div class="more">');
   t = t.replace(/^<\/div>/,'');
   
@@ -305,17 +305,6 @@ for (var i=0; i<10; ++i)  {
   el.appendChild(nel);
 }
 document.querySelector(".box:first-child .h1").appendChild(el);
-
-// details opened listener
-[].forEach.call(document.querySelectorAll("details"), function(el) {
-  el.addEventListener('toggle', function(e) {
-    if (e.target.hasAttribute("open")) {
-      var box = e.target.closest(".box");
-      [].forEach.call(box.querySelectorAll("details[open]"), function(f) { if (e.target!=f) f.open = false; });
-      location.href = "#"+box.id;
-    }
-  });
-});
 </script>
 
 </body>

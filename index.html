@@ -15,7 +15,7 @@
    --bg: white; --fg: black;
    --sec-bg: #fff7; --sec-border: #0001;
    --link: #08f; --link-hover:#f80;
-   --mar: 2rem;
+   --mar: min(3vh,2rem);
   }
   
   html, body, div {margin: 0; padding: 0;}
@@ -28,7 +28,7 @@
    width: 44rem;
    line-height: 1.6;
   }
-  .sec {display:grid; grid-template-columns:1fr; gap:0;}
+  .sec {display:grid; grid-template-columns:1fr; gap:0; align-items: start;}
   .box, .more {grid-column:1; margin:var(--mar); position:relative;}
   .more {padding-left:1em; border-left:0.1rem solid var(--gray);}
   
@@ -70,12 +70,14 @@
   
   /* big screen */
   @media only screen and (min-width: 90rem) {
+   body {height:100%;}
    .sec {
     width:98%; max-width:100rem;
     grid-template-columns:40rem 1fr;
-    max-height:98vh;
+    height:100%;
+    overflow: hidden;
    }
-   .more {grid-column:2; grid-row:1/10; max-height:90vh; overflow-y:auto;}
+   .more {grid-column:2; grid-row:1/6; height:calc(100vh - 2 * var(--mar)); overflow-y:auto;}
    body {overflow-y: hidden;}
    :target:before{
       display: block;
@@ -110,7 +112,7 @@
     html {scroll-behavior:smooth;}
     .more { interpolate-size: allow-keywords; }
   }
-}
+
 </style>
 <script defer src="rainbow-symbols-2.js"></script>
 </head>
@@ -160,11 +162,13 @@ Some things I have worked on:
 
 (arxiv:2412.15056)[Canad. J. Math.](https://doi.org/10.4153/S0008414X26102193) <small>cob, cent, rep</small> Frobenius monoidal functors induced by Frobenius extensions of Hopf algebras, with Robert Laugwitz, Sebastian Posur
 (arxiv:2410.08702)[Adv. Math.](https://www.sciencedirect.com/science/article/pii/S0001870825002427) <small>cob, cent, rep, int</small> Frobenius monoidal functors from ambiadjunctions and their lifts to Drinfeld centers, with Robert Laugwitz, Sebastian Posur
+
 (arxiv:2402.10094)[High. Struct.](https://higher-structures.math.cas.cz/api/files/issues/Vol10Iss1/FlaLauPos) <small>cent, rep, int</small> Projection formulas and induced functors on centers of monoidal categories, with Robert Laugwitz, Sebastian Posur
 (arxiv:2106.05798)[Adv. Math.](https://www.sciencedirect.com/science/article/abs/pii/S000187082300035X) <small>cob, int, rep</small> Indecomposable objects in Khovanov--Sazdanovic's generalizations of Deligne's interpolation categories, with Robert Laugwitz, Sebastian Posur
 (arxiv:2105.10492)[Proc. London Math. Soc.](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/plms.12509) <small>int, cent, rep</small> The indecomposable objects in the center of Deligne's category Rep(S_t), with Nate Harman, Robert Laugwitz
 (arxiv:2105.09117)[J. Group Theory](https://www.degruyter.com/document/doi/10.1515/jgth-2021-0158) <small>pgrp</small> Groups G satisfying a functional equation f(xk)=xf(x) for some k in G, with Dominik Bernhardt, Tim Boykett, Alice Devillers, Stephen Glasby
 (arxiv:2003.13798)[Int. Math. Res. Not. IMRN](https://academic.oup.com/imrn/advance-article-abstract/doi/10.1093/imrn/rnab217/6352819) <small>int, diag, rep</small> Semisimplicity and indecomposable objects in interpolating partition categories, with Laura Maaßen
+
 (arxiv:2003.13297)[Math. Nachr.](https://onlinelibrary.wiley.com/doi/full/10.1002/mana.202100290) <small>pgrp</small> Strata of p-origamis, with Andrea Thevis
 (arxiv:2003.05639)[Algebr. Represent. Theory](https://link.springer.com/article/10.1007/s10468-022-10179-6) <small>rep, comp</small> Gröbner bases for fusion products, with Ghislain Fourier, Viktor Levandovskyy
 (arxiv:1901.08657)[J. London Math. Soc.](https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12403) <small>int, cent, rep</small> On the monoidal center of Deligne's category Rep(S_t), with Robert Laugwitz
@@ -183,7 +187,7 @@ Fall 2025, Uni Bonn
 
 Uni Bonn
 - Fall 2025: [course](rep2-25/index.html) Representation Theory&nbsp;II, with Jonas Antor
- [seminar](sl2-25/index.html) Representations of SL₂, with Jonathan Gruber
+  [seminar](sl2-25/index.html) Representations of SL₂, with Jonathan Gruber
 - Spring 2025: [seminar](crep25/index.html) Computer-Assisted Representation Theory&nbsp;II, with Catharina Stroppel
   [course](rep25/index.html) Representation Theory&nbsp;I by Catharina Stroppel
 - Fall 2024: [seminar](crep24/index.html) Computer-Assisted Representation Theory, with Catharina Stroppel

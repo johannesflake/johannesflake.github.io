@@ -62,7 +62,7 @@ var timeout = el.dataset.time ? parseInt(el.dataset.time) : 100;
 var hueOffset = null;
 var font = window.getComputedStyle(el).fontFamily;
 var sortData = [];
-for (var c of str) {
+for (var c of str.split(" ")) {
   var res = getColor(c);
   if (res === null) continue;
   if (hueOffset === null) hueOffset = res[0] - .0001;

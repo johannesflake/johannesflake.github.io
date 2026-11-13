@@ -153,6 +153,9 @@ Some things I have worked on:
 <small>pgrp</small> p-groups
 <small>comp</small> computer-assisted math (see also below under "misc")
 
+(hexagon:2611.00301) <small>tcp, rep</small> The Benson-Etingof-Ostrik conjecture, with Kevin Coulembier, Pavel Etingof, Joseph Newton, Victor Ostrik
+(arxiv:2611.14810) <small>tcp, rep</small> Maximal nilpotence for higher Verlinde categories, with Kevin Coulembier, Joseph Newton, Victor Ostrik
+
 (arxiv:2610.04096) <small>tcp, rep, pgrp</small> The Benson--Etingof--Ostrik conjecture for finite tensor categories, with Kevin Coulembier
 (arxiv:2609.17467) <small>int, rep</small> An abelian envelope without the quotient property, with Jonathan Gruber, Thorsten Heidersdorf
 (arxiv:2606.05789) <small>int, rep</small> Abelian envelopes for interpolation categories of wreath products from monoidal adjunctions, with David Hull, Thorsten Heidersdorf
@@ -232,7 +235,7 @@ Some things I made and useful links.
 # end
 
 <span id="rainbow-symbols" data-time="300" data-content="☮️ 🌶️ 🐙 🪸 🥃 🐠 🎷 🦖 🌿 🤿 ☕ 🏐"></span>
-> this webpage was written by me & updated in Oct 2026
+> this webpage was written by me & updated in Nov 2026
 
 <img style="height: 0.9em; width: 95%; object-fit:cover; opacity:0.8;" src="warming-stripes.png">
 > Warming Stripes by Ed Hawkins
@@ -248,6 +251,7 @@ var labels = {
   "Tim Boykett": "https://www.researchgate.net/profile/Tim-Boykett",
   "Kevin Coulembier":"https://www.maths.usyd.edu.au/u/kevinc/",
   "Alice Devillers": "https://research-repository.uwa.edu.au/en/persons/alice-devillers",
+  "Pavel Etingof": "https://math.mit.edu/~etingof/",
   "Ghislain Fourier": "https://www.mathematik.rwth-aachen.de/go/id/bkbg/gguid/0x1062A5E011C694489AFCFABBA0555622/ikz/11/allou/1/lidx/1/",
   "Stephen Glasby": "https://research-repository.uwa.edu.au/en/persons/stephen-glasby",
   "Lars Göttgens": "https://lgoe.li/",
@@ -257,6 +261,8 @@ var labels = {
   "Robert Laugwitz": "https://www.nottingham.ac.uk/mathematics/people/robert.laugwitz",
   "Viktor Levandovskyy": "http://www.math.rwth-aachen.de/~Viktor.Levandovskyy/en/",
   "Laura Maaßen": "http://www.math.rwth-aachen.de/~Laura.Maassen/",
+  "Joseph Newton": "https://www.joenewton.au/",
+  "Victor Ostrik": "https://pages.uoregon.edu/vostrik/",
   "Sebastian Posur": "https://sebastianpos.github.io/",
   "Siddhartha Sahi": "http://sites.math.rutgers.edu/~sahi/",
   "Andrea Thevis": "https://www.math.uni-sb.de/ag/weitze/CMS/index.php/de/personen/thevis",
@@ -291,7 +297,7 @@ function replaceAll(string, search, replace) { // polyfill
   t = t.replace(/<\/ul>\n/g, "</ul>");
   t = t.replace(/\[([^\]]+)\]\(arxiv:([0-9\.]+)\)/g, '<a class="bubble" href="https://arxiv.org/abs/$2" target="_blank" rel="noopener">$1</a>'
   ).replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a class="bubble" href="$2" target="_blank" rel="noopener">$1</a>'
-  ).replace(/\(arxiv:([0-9\.]+)\)/g, '<a class="bubble" href="https://arxiv.org/abs/$1" target="_blank" rel="noopener">arxiv</a>');
+  ).replace(/\(arxiv:([0-9\.]+)\)/g, '<a class="bubble" href="https://arxiv.org/abs/$1" target="_blank" rel="noopener">arxiv</a>').replace(/\(hexagon:([0-9\.]+)\)/g, '<a class="bubble" href="https://hexagonmath.org/$1" target="_blank" rel="noopener">hexagon</a>');
   for (var k in macros)
     t = replaceAll(t, k, macros[k]);
   for (var k in labels)
